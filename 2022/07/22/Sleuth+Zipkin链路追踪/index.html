@@ -109,7 +109,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="Sleuth-Zipkin"><a href="#Sleuth-Zipkin" class="headerlink" title="Sleuth+Zipkin"></a>Sleuth+Zipkin</h1><h2 id="一、什么是链路追踪"><a href="#一、什么是链路追踪" class="headerlink" title="一、什么是链路追踪"></a>一、什么是链路追踪</h2><blockquote>
-<p>指一次任务的开始到结束，期间调用的所以系统及耗时（时间跨度）都可以完整记录下来</p>
+<p>指一次任务的开始到结束，期间调用的所有系统及耗时（时间跨度）都可以完整记录下来</p>
 </blockquote>
 <h2 id="二、什么是Sleuth"><a href="#二、什么是Sleuth" class="headerlink" title="二、什么是Sleuth"></a>二、什么是Sleuth</h2><p>Spring Cloud Sleuth为SpringCloud实现了分布式跟踪解决方案。兼容Zipkin，HTrace和其他基于日志的追踪系统，例如ELK（Elasticsearch、LogStash、Kibana）。</p>
 <p>Spring Cloud Sleuth提供了以下功能</p>
@@ -119,8 +119,8 @@
 <li>数据分析，优化链路：对于频繁调用一个服务，或并行调用等，可以针对业务进行优化。</li>
 <li>可视化错误：对于程序未捕获的异常，可以配合Zipkin查看。</li>
 </ul>
-<h2 id="三、专业术语"><a href="#三、专业术语" class="headerlink" title="三、专业术语"></a>三、专业术语</h2><h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p>基本工作单位，一次单独的调用链称为一个Span，Dapper记录的是Span的名称，以及每个Span的ID和父ID，以重建在一次追踪过程中不同Span之间的关系。</p>
-<p>图中一个矩形框为一个Span，前端从发出请求到收到回复就是一个Span。</p>
+<h2 id="三、专业术语"><a href="#三、专业术语" class="headerlink" title="三、专业术语"></a>三、专业术语</h2><h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p>基本工作单位，一次请求称为一个Span，Dapper记录的是Span的名称，以及每个Span的ID和父ID，以重建在一次追踪过程中不同Span之间的关系。</p>
+<p>图中一个矩形框为一个Span。</p>
 <p><img src="/images/Sleuth+Zipkin%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/1.webp" alt="请求"></p>
 <blockquote>
 <p>开始追踪的初始跨度成为root span。</p>
@@ -290,6 +290,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/07/26/xxl-job%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            xxl-job学习笔记
+          
+        </div>
+      </a>
     
     
       <a href="/2022/07/18/SpringBoot(%E7%A7%81%E6%95%99)/" class="article-nav-link">
