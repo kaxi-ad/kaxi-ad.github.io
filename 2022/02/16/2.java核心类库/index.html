@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>java核心类库 |  卡西莫多的小站</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-2.java核心类库"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  java核心类库
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/16/2.java%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%BA%93/" class="article-date">
+  <time datetime="2022-02-16T06:06:25.000Z" itemprop="datePublished">2022-02-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">7.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">29 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="常用类的概述和使用"><a href="#常用类的概述和使用" class="headerlink" title="常用类的概述和使用"></a>常用类的概述和使用</h1><h2 id="一、常用的包（熟悉）"><a href="#一、常用的包（熟悉）" class="headerlink" title="一、常用的包（熟悉）"></a>一、常用的包（熟悉）</h2><ul>
+<li>java.lang包，核心包，由虚拟机自动导入</li>
+<li>java.util包，工具包，包含工具类以及集合类等</li>
+<li>java.io包，输入输出类包，文件读写</li>
+<li>java.net包，网络包，网络传输</li>
+<li>java.sql包，数据包，操作数据库的类</li>
+</ul>
+<p>java.lang.Number类是个抽象类，是包装类的父类</p>
+<h2 id="二、数学处理类（熟悉）"><a href="#二、数学处理类（熟悉）" class="headerlink" title="二、数学处理类（熟悉）"></a>二、数学处理类（熟悉）</h2><h3 id="1、Math类"><a href="#1、Math类" class="headerlink" title="1、Math类"></a>1、Math类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static int max(int a,int b)</td>
+<td>求最大</td>
+</tr>
+<tr>
+<td>static int min(int a,int b)</td>
+<td>求最小</td>
+</tr>
+<tr>
+<td>static double pow(double a,double b)</td>
+<td>a的b次方</td>
+</tr>
+<tr>
+<td>static int abs(int a)</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>static long round(double a)</td>
+<td>四舍五入</td>
+</tr>
+<tr>
+<td>static double sqrt(double a)</td>
+<td>平方根</td>
+</tr>
+<tr>
+<td>static double random()</td>
+<td>0.0到1.0随机数</td>
+</tr>
+</tbody></table>
+<h3 id="2、BigDecimal类"><a href="#2、BigDecimal类" class="headerlink" title="2、BigDecimal类"></a>2、BigDecimal类</h3><p>float和double运算有误差，借助BigDecimal实现精确</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BigDecimal(String val)</td>
+<td>字符串构造对象</td>
+</tr>
+<tr>
+<td>BigDecimal add(BigDecimal augend)</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>BigDecimal substract(BigDecimal subtrahend)</td>
+<td>减法</td>
+</tr>
+<tr>
+<td>BigDecimal multiply(BigDecimal multiplicand)</td>
+<td>乘法</td>
+</tr>
+<tr>
+<td>BigDecimal divide(BigDecimal divisor)</td>
+<td>除法</td>
+</tr>
+</tbody></table>
+<h3 id="3、BigInteger类"><a href="#3、BigInteger类" class="headerlink" title="3、BigInteger类"></a>3、BigInteger类</h3><p>可表示比long还大的整数</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BigInteger remainder(BigInteger val)</td>
+<td>取余</td>
+</tr>
+<tr>
+<td>BigInteger[] divideAndRemainder(BigInteger val)</td>
+<td>取商和取余</td>
+</tr>
+</tbody></table>
+<h1 id="String类的概述和使用"><a href="#String类的概述和使用" class="headerlink" title="String类的概述和使用"></a>String类的概述和使用</h1><h2 id="一、String类的概念（重点）"><a href="#一、String类的概念（重点）" class="headerlink" title="一、String类的概念（重点）"></a>一、String类的概念（重点）</h2><ul>
+<li>final修饰，不可被继承</li>
+<li>1.9开始底层不使用char[]存储，改用byte[]加上编码标记存储</li>
+<li>字符串内容为常量不可修改，可被共享使用</li>
+</ul>
+<h2 id="二、常量池（原理）"><a href="#二、常量池（原理）" class="headerlink" title="二、常量池（原理）"></a>二、常量池（原理）</h2><p>String描述字符串为常量不可改变，java虚拟机将首次出现的字符串放入常量池中。</p>
+<h2 id="三、常用构造方法（练熟、记住）"><a href="#三、常用构造方法（练熟、记住）" class="headerlink" title="三、常用构造方法（练熟、记住）"></a>三、常用构造方法（练熟、记住）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String()</td>
+<td>空字符串</td>
+</tr>
+<tr>
+<td>String(byte[] bytes,int offset,int length)</td>
+<td>bytes数组中从下标offset开始length个字节</td>
+</tr>
+<tr>
+<td>String(byte[] bytes)</td>
+<td>bytes数组中所有内容构造</td>
+</tr>
+<tr>
+<td>String(char[] value,int offset,int length)</td>
+<td>vlaue数组中从下标offset开始length个字节</td>
+</tr>
+<tr>
+<td>String(char[] value)</td>
+<td>value数组中所有内容构造</td>
+</tr>
+<tr>
+<td>String(String original)</td>
+<td>创建original副本</td>
+</tr>
+</tbody></table>
+<h2 id="四、常用的成员方法（练熟、记住）"><a href="#四、常用的成员方法（练熟、记住）" class="headerlink" title="四、常用的成员方法（练熟、记住）"></a>四、常用的成员方法（练熟、记住）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String toString()</td>
+<td>打印</td>
+</tr>
+<tr>
+<td>byte[] getBytes()</td>
+<td>转为byte[]数组</td>
+</tr>
+<tr>
+<td>char[] toCharArray()</td>
+<td>转为char数组</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char charAt(int index)</td>
+<td>指定位置字符</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td>长度</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>判断是否为空</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int compareTo(String anotherString)</td>
+<td>比较大小</td>
+</tr>
+<tr>
+<td>int compareToIgnoreCase(String str)</td>
+<td>不考虑大小写比较</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String concat(String str)</td>
+<td>实现字符串拼接</td>
+</tr>
+<tr>
+<td>boolean contains(CharSequence s)</td>
+<td>判断是否包含s内容</td>
+</tr>
+<tr>
+<td>String toLowerCase()</td>
+<td>返回字符串小写</td>
+</tr>
+<tr>
+<td>String toUpperCase()</td>
+<td>返回字符串大写</td>
+</tr>
+<tr>
+<td>String trim()</td>
+<td>去掉前导和后记空白的字符串</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix)</td>
+<td>判断是否以prefix开头</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix,int offset)</td>
+<td>指定位置开始是否以prefix开头</td>
+</tr>
+<tr>
+<td>boolean endsWith(String suffix)</td>
+<td>判断是否以suffix结尾</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean equals(Object anObject)</td>
+<td>比较字符串内容是否相等</td>
+</tr>
+<tr>
+<td>int hasCode()</td>
+<td>哈希码值</td>
+</tr>
+<tr>
+<td>boolean equalsIgnoreCase(String anotherString)</td>
+<td>比较字符串内容是否相等，不考虑大小写</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int indexOf(int ch)</td>
+<td>返回ch对应字符第一次出现的位置</td>
+</tr>
+<tr>
+<td>int indexOf(int ch,int fromIndex)</td>
+<td>从fromIndex开始查找ch对应字符</td>
+</tr>
+<tr>
+<td>int indexOf(String str)</td>
+<td>检索str第一次出现位置，没有返回-1</td>
+</tr>
+<tr>
+<td>int indexOf(String str,int fromIndex)</td>
+<td>从fromIndex位置开始检索str第一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch)</td>
+<td>返回ch最后一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch,int fromIndex)</td>
+<td>从fromIndex位置往前最后一次出现的位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str)</td>
+<td>返回str最后一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str, int fromIndex)</td>
+<td>从fromIndex位置往前最后一次出现的位置</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String substring(int a,int b)</td>
+<td>返回从a（包括）开始到b（不包括）结束的子字符串</td>
+</tr>
+<tr>
+<td>String substring(int a)</td>
+<td>返回从a（包括）到结尾的子字符串</td>
+</tr>
+</tbody></table>
+<h2 id="五、正则表达式（暂不看）"><a href="#五、正则表达式（暂不看）" class="headerlink" title="五、正则表达式（暂不看）"></a>五、正则表达式（暂不看）</h2><h1 id="可变字符串类和日期类"><a href="#可变字符串类和日期类" class="headerlink" title="可变字符串类和日期类"></a>可变字符串类和日期类</h1><h2 id="一、可变字符串（重点）"><a href="#一、可变字符串（重点）" class="headerlink" title="一、可变字符串（重点）"></a>一、可变字符串（重点）</h2><h3 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>StringBuffer类是jdk1.0开始，线程安全，效率低</li>
+<li>StringBuilder类从jdk1.5开始，线程不安全，效率高</li>
+</ul>
+<h3 id="2、StringBuilder构造"><a href="#2、StringBuilder构造" class="headerlink" title="2、StringBuilder构造"></a>2、StringBuilder构造</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuilder()</td>
+<td>容量16</td>
+</tr>
+<tr>
+<td>StringBuilder(int capcacity)</td>
+<td>容量为参数大小</td>
+</tr>
+<tr>
+<td>StringBuilder(String str)</td>
+<td>根据参数构造，容量为16+参数长度</td>
+</tr>
+</tbody></table>
+<h3 id="3、StringBuilder方法"><a href="#3、StringBuilder方法" class="headerlink" title="3、StringBuilder方法"></a>3、StringBuilder方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int capacity()</td>
+<td>返回容量</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td>字符个数</td>
+</tr>
+<tr>
+<td>StringBuilder insert(int offset,String str)</td>
+<td>插入字符串返回自己</td>
+</tr>
+<tr>
+<td>StringBuilder append(String str)</td>
+<td>追加字符串</td>
+</tr>
+<tr>
+<td>StringBuilder deleteCharAt(int index)</td>
+<td>index位置字符删除</td>
+</tr>
+<tr>
+<td>StringBuilder delete(int start,int end)</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>StringBuilder replace(int start,int end,String str)</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>StringBuilder reverse()</td>
+<td>反转</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>当String作为形参传递到方法里的时候,实际上传递的是str引用的拷贝</li>
+<li>作为参数传递的话，方法内部String不会改变其值，StringBuffer和StringBuilder会改变其值。</li>
+</ul>
+<h2 id="二、Java8之前日期（熟悉）"><a href="#二、Java8之前日期（熟悉）" class="headerlink" title="二、Java8之前日期（熟悉）"></a>二、Java8之前日期（熟悉）</h2><h3 id="1、System类"><a href="#1、System类" class="headerlink" title="1、System类"></a>1、System类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static long currentTimeMillis()</td>
+<td>返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差</td>
+</tr>
+</tbody></table>
+<h3 id="2、Date类"><a href="#2、Date类" class="headerlink" title="2、Date类"></a>2、Date类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Date()</td>
+<td>当前系统时间</td>
+</tr>
+<tr>
+<td>Date(long date)</td>
+<td>参数为距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>long getTime()</td>
+<td>获取调用对象距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>void setTime(long time)</td>
+<td>设置对象为距离基准时间time毫秒的时间点</td>
+</tr>
+</tbody></table>
+<h3 id="3、SimpleDateFormat类的概述"><a href="#3、SimpleDateFormat类的概述" class="headerlink" title="3、SimpleDateFormat类的概述"></a>3、SimpleDateFormat类的概述</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SimpleDateFormat()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>SimpleDateFormat(String pattern)</td>
+<td>参数：y年 M月 d日 H时 m分 s秒</td>
+</tr>
+<tr>
+<td>final String format(Date date)</td>
+<td>日期转文本</td>
+</tr>
+<tr>
+<td>Date parse(String source)</td>
+<td>文本转为日期</td>
+</tr>
+</tbody></table>
+<h3 id="4、Calendar类的概述"><a href="#4、Calendar类的概述" class="headerlink" title="4、Calendar类的概述"></a>4、Calendar类的概述</h3><ul>
+<li>抽象类，不能实例化对象</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Calendar getInstance()</td>
+<td>获取引用</td>
+</tr>
+<tr>
+<td>void set(int year, int month, int date, int hourOfDay, int minute, int second)</td>
+<td>设置年月日时分秒信息</td>
+</tr>
+<tr>
+<td>Date getTime()</td>
+<td>Calendar转为Date</td>
+</tr>
+<tr>
+<td>void set(int field,int value)</td>
+<td>设置指定字段数值</td>
+</tr>
+<tr>
+<td>void add(int field,int value)</td>
+<td>指定字段增加数值</td>
+</tr>
+</tbody></table>
+<h2 id="三、Java8中的日期相关类-熟悉"><a href="#三、Java8中的日期相关类-熟悉" class="headerlink" title="三、Java8中的日期相关类(熟悉)"></a>三、Java8中的日期相关类(熟悉)</h2><h3 id="1、LocalDate类"><a href="#1、LocalDate类" class="headerlink" title="1、LocalDate类"></a>1、LocalDate类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalDate now()</td>
+<td>默认时区中从系统时钟获取当前日期</td>
+</tr>
+</tbody></table>
+<h3 id="2、LocalTime类"><a href="#2、LocalTime类" class="headerlink" title="2、LocalTime类"></a>2、LocalTime类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalTime now()</td>
+<td>默认时区系统时间获取当前时间</td>
+</tr>
+<tr>
+<td>static LocalTime now(Zoneld zone)</td>
+<td>获取指定时区当前时间</td>
+</tr>
+</tbody></table>
+<h3 id="3、LocalDateTime类的概述"><a href="#3、LocalDateTime类的概述" class="headerlink" title="3、LocalDateTime类的概述"></a>3、LocalDateTime类的概述</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalDateTime now()</td>
+<td>默认时区系统时间获取当前时间</td>
+</tr>
+<tr>
+<td>static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute, int second)</td>
+<td>根据参数指定的年月日时分秒信息来设置日期时间</td>
+</tr>
+<tr>
+<td>int getYear()</td>
+<td>获取年份</td>
+</tr>
+<tr>
+<td>LocalDateTime withYear(int year)</td>
+<td>设置为参数指定的年</td>
+</tr>
+<tr>
+<td>LocalDateTime plusYears(long years)</td>
+<td>加上参数指定的年</td>
+</tr>
+<tr>
+<td>LocalDateTime minusYears(long years)</td>
+<td>减去参数指定的年</td>
+</tr>
+</tbody></table>
+<h3 id="4、Instant类"><a href="#4、Instant类" class="headerlink" title="4、Instant类"></a>4、Instant类</h3><p>描述瞬间的时间点</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Instant now()</td>
+<td>系统时间上获取时间</td>
+</tr>
+<tr>
+<td>OffsetDateTime atOffset(ZoneOffset offset)</td>
+<td>此瞬间与偏移量组合创建偏移日期时间</td>
+</tr>
+<tr>
+<td>static Instant ofEpohMilli(long epochMilli)</td>
+<td>参数为距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>long toEpochMilli()</td>
+<td>获取距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+</tbody></table>
+<h3 id="5、DateTimeFormatter类的概述"><a href="#5、DateTimeFormatter类的概述" class="headerlink" title="5、DateTimeFormatter类的概述"></a>5、DateTimeFormatter类的概述</h3><p>格式化和解析日期</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static DateTimeFormatter ofPattern(String pattern)</td>
+<td>参数指定模式</td>
+</tr>
+<tr>
+<td>String format(TemporalAccessor temporal)</td>
+<td>参数指定日期时间转为字符串</td>
+</tr>
+<tr>
+<td>TemporalAccessor parse(CharSequence text)</td>
+<td>字符串转为日期时间</td>
+</tr>
+</tbody></table>
+<h1 id="集合类库（上）"><a href="#集合类库（上）" class="headerlink" title="集合类库（上）"></a>集合类库（上）</h1><h2 id="一、集合的概述（重点）"><a href="#一、集合的概述（重点）" class="headerlink" title="一、集合的概述（重点）"></a>一、集合的概述（重点）</h2><h3 id="1、集合的框架结构"><a href="#1、集合的框架结构" class="headerlink" title="1、集合的框架结构"></a>1、集合的框架结构</h3><ul>
+<li>java集合框架顶层框架时:java.util.Collection集合和java.util.Map集合</li>
+<li>Collection集合中存取元素的基本单位：单个元素</li>
+<li>Map集合中存取元素的基本单位：单对元素</li>
+</ul>
+<h2 id="二、Collection集合（重点）"><a href="#二、Collection集合（重点）" class="headerlink" title="二、Collection集合（重点）"></a>二、Collection集合（重点）</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>java.util.Collection接口是List接口、Queue接口和Set接口的父接口</li>
+</ul>
+<h3 id="2、常用方法（练熟、记住）"><a href="#2、常用方法（练熟、记住）" class="headerlink" title="2、常用方法（练熟、记住）"></a>2、常用方法（练熟、记住）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean add(E e)</td>
+<td>集合中添加对象</td>
+</tr>
+<tr>
+<td>boolean addAll(Collection&lt;? extends E&gt; c)</td>
+<td>将c中所有元素添加到当前集合中</td>
+</tr>
+<tr>
+<td>boolean contains(Object o)</td>
+<td>是否包含对象o</td>
+</tr>
+<tr>
+<td>boolean containsAll(Collection&lt;?&gt; c)</td>
+<td>是否包含c中所有对象</td>
+</tr>
+<tr>
+<td>boolean retainAll（Collection&lt;?&gt; c）</td>
+<td>取交集</td>
+</tr>
+<tr>
+<td>boolean remove(Object o)</td>
+<td>删除o</td>
+</tr>
+<tr>
+<td>boolean removeAll(Collection&lt;?&gt; c)</td>
+<td>删除将c中含有对象全部删除</td>
+</tr>
+<tr>
+<td>void clear();</td>
+<td>清空集合</td>
+</tr>
+<tr>
+<td>int size();</td>
+<td>包含对象个数</td>
+</tr>
+<tr>
+<td>boolean isEmpty();</td>
+<td>是否为空</td>
+</tr>
+<tr>
+<td>boolean equals(Object o)</td>
+<td>是否相等</td>
+</tr>
+<tr>
+<td>int hashCode()</td>
+<td>集合的哈希码值</td>
+</tr>
+<tr>
+<td>Object[] toArray()</td>
+<td>集合转换为数组</td>
+</tr>
+<tr>
+<td>Iterator iterator()</td>
+<td>获取当前集合的迭代器</td>
+</tr>
+</tbody></table>
+<h2 id="三、Iterator接口（重点）"><a href="#三、Iterator接口（重点）" class="headerlink" title="三、Iterator接口（重点）"></a>三、Iterator接口（重点）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean hasNext()</td>
+<td>集合中是否有可以迭代&#x2F;访问的元素</td>
+</tr>
+<tr>
+<td>E next()</td>
+<td>取出一个元素并指向下一个元素</td>
+</tr>
+<tr>
+<td>void remove()</td>
+<td>用于删除访问到的最后一个元素</td>
+</tr>
+</tbody></table>
+<h2 id="四、for-each循环-重点"><a href="#四、for-each循环-重点" class="headerlink" title="四、for each循环(重点)"></a>四、for each循环(重点)</h2><p>Java5推出增强版for循环语句</p>
+<h2 id="五、List集合（重中之重）"><a href="#五、List集合（重中之重）" class="headerlink" title="五、List集合（重中之重）"></a>五、List集合（重中之重）</h2><h3 id="1、概念-1"><a href="#1、概念-1" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li><p>集合中允许有重复且有前后放入顺序</p>
+</li>
+<li><p>主要实现类：ArrayList类、LinkedList类、Stack类、Vector类</p>
+</li>
+<li><p>ArrayList类底层采用动态数组进行数据管理，支持下标访问，增删不方便</p>
+</li>
+<li><p>LinkedList类底层采用双向链表进行数据管理，访问不方便，增删元素方便</p>
+</li>
+<li><p>Stack类底层采用动态数组，主要用于描述后进先出特征的数据结构，栈（LIFO）</p>
+</li>
+<li><p>Vector类底层采用动态数组，该类与ArrayList类相比属于线程安全类，效率比较低。（以后开发中基本不用）</p>
+</li>
+</ul>
+<h3 id="2、方法"><a href="#2、方法" class="headerlink" title="2、方法"></a>2、方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void add(int index,E element)</td>
+<td>向指定位置添加元素</td>
+</tr>
+<tr>
+<td>boolean addAll(int index,Collection&lt;? extends E&gt; c)</td>
+<td>集合中添加所有元素</td>
+</tr>
+<tr>
+<td>E get(int index)</td>
+<td>从集合中获取指定位置元素</td>
+</tr>
+<tr>
+<td>int indexOf(Object o)</td>
+<td>查找参数对象</td>
+</tr>
+<tr>
+<td>int lastIndexOf(Object o)</td>
+<td>反向查找参数对象</td>
+</tr>
+<tr>
+<td>E set(int index,E element)</td>
+<td>修改指定位置的元素</td>
+</tr>
+<tr>
+<td>E remove(int index)</td>
+<td>删除指定位置的元素</td>
+</tr>
+<tr>
+<td>List subList(int fromIndex,int toIndex)</td>
+<td>获取子List</td>
+</tr>
+</tbody></table>
+<h2 id="六、Queue集合-重点"><a href="#六、Queue集合-重点" class="headerlink" title="六、Queue集合(重点)"></a>六、Queue集合(重点)</h2><h3 id="1、基本概念-1"><a href="#1、基本概念-1" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>与List平级</li>
+<li>描述先进先出，队列</li>
+<li>主要实现类LinkedList</li>
+</ul>
+<h3 id="2、方法-1"><a href="#2、方法-1" class="headerlink" title="2、方法"></a>2、方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean offer(E e)</td>
+<td>将一个对象添加至队尾，添加成功返回true</td>
+</tr>
+<tr>
+<td>E poll()</td>
+<td>队首删除并返回一个元素</td>
+</tr>
+<tr>
+<td>E peek()</td>
+<td>返回队首的元素（不删除）</td>
+</tr>
+</tbody></table>
+<h1 id="集合类库（下）"><a href="#集合类库（下）" class="headerlink" title="集合类库（下）"></a>集合类库（下）</h1><h2 id="一、泛型机制（熟悉）"><a href="#一、泛型机制（熟悉）" class="headerlink" title="一、泛型机制（熟悉）"></a>一、泛型机制（熟悉）</h2><h3 id="1、概念-2"><a href="#1、概念-2" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>java5开始增加泛型，集合右侧使用&lt;数据类型&gt;,放入其他类型则编译报错</li>
+<li>泛型只在编译时期有效，运行时期不区分类型</li>
+</ul>
+<h3 id="2、底层原理"><a href="#2、底层原理" class="headerlink" title="2、底层原理"></a>2、底层原理</h3><ul>
+<li>本质就是参数化类型，让数据类型作为参数传递</li>
+<li>E为形参负责占位</li>
+</ul>
+<h3 id="3、通配符"><a href="#3、通配符" class="headerlink" title="3、通配符"></a>3、通配符</h3><ul>
+<li><?>无限制通配符：可传入任意类型参数</li>
+<li><? extends E>表示类型的上界是E，只能是E或者E的子类</li>
+<li><? super E>表示类型的下界是E，只能是E或者E的父类</li>
+</ul>
+<h3 id="4、自定义接口部分（暂不看）"><a href="#4、自定义接口部分（暂不看）" class="headerlink" title="4、自定义接口部分（暂不看）"></a>4、自定义接口部分（暂不看）</h3><h2 id="二、Set集合（熟悉）"><a href="#二、Set集合（熟悉）" class="headerlink" title="二、Set集合（熟悉）"></a>二、Set集合（熟悉）</h2><h3 id="1、概念-3"><a href="#1、概念-3" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li><p>java.util.Set集合与List集合平级</p>
+</li>
+<li><p>无先后顺序，不允许重复</p>
+</li>
+<li><p>主要实现类：HashSet、TreeSet以及LinkedHashSet</p>
+</li>
+<li><p>HashSet底层采用哈希表</p>
+</li>
+<li><p>TreeSet底层采用红黑树</p>
+</li>
+<li><p>LinkedHashSet与HashSet不同在于内部维护一个双向链表，链表中记录元素迭代顺序</p>
+</li>
+</ul>
+<h3 id="2、元素放入原理"><a href="#2、元素放入原理" class="headerlink" title="2、元素放入原理"></a>2、元素放入原理</h3><ul>
+<li>使用元素调用hashCode方法获取对应哈希码值，</li>
+<li>通过算法(h &#x3D; key.hashCode()) ^ (h &gt;&gt;&gt; 16)计算出索引位置</li>
+<li>与该位置元素依次比较哈希值，若不同直接放入</li>
+<li>若相同，再调用新元素equals方法比较</li>
+<li>若相等添加失败，否则直接放入</li>
+</ul>
+<p>思考：为什么要求重写equals方法后要重写hashCode方法呢？</p>
+<p>答：当调用equals方法相等时表示两个元素相同，重写hashCode后保证这两个元素得到的哈希码值相同，提高效率避免重复元素。</p>
+<h3 id="3、TreeSet集合"><a href="#3、TreeSet集合" class="headerlink" title="3、TreeSet集合"></a>3、TreeSet集合</h3><p>TreeSet底层采用红黑树，当有新元素插入，需要使用新元素与集合中已有的元素依次比较来确定新元素位置</p>
+<ul>
+<li><p><strong>二叉树</strong>：最多只有两个子节点的树形结构</p>
+</li>
+<li><p><strong>有序二叉树</strong>：左子树任意节点小于根节点，右子树任意节点小于根节点</p>
+</li>
+</ul>
+<p>比较元素大小方式</p>
+<ul>
+<li>元素自然排序，元素类型实现java.lang.Comparable接口</li>
+<li>比较器规则，构造TreeSet集合时传入java.util.Comparator接口</li>
+</ul>
+<h2 id="三、Map集合（重点）"><a href="#三、Map集合（重点）" class="headerlink" title="三、Map集合（重点）"></a>三、Map集合（重点）</h2><h3 id="1、概念-4"><a href="#1、概念-4" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>key不允许重复</li>
+<li>主要实现类：HashMap、TreeMap、LinkedHashMap、Hashtable、Properties</li>
+<li>HashMap底层采用哈希表</li>
+<li>TreeMap底层采用红黑树</li>
+<li>LinkedHashMap内部维护了一个双向链表</li>
+<li>Hashtable时古老的Map实现类，与HashMap相比属于线程安全，不允许null作为key或value</li>
+<li>Properties是Hashtable子类，处理属性文件，key和value都为String</li>
+</ul>
+<h3 id="2、常用方法"><a href="#2、常用方法" class="headerlink" title="2、常用方法"></a>2、常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V put(K key,V value)</td>
+<td>若集合中已经包含该Key，则替换该Key所对应的Value，返回值为该Key原来所对应的Value，若没有则返回null</td>
+</tr>
+<tr>
+<td>V get(Obejct key)</td>
+<td>获取key对应value</td>
+</tr>
+<tr>
+<td>boolean containsKey(Object key);</td>
+<td>判断是否包含Key</td>
+</tr>
+<tr>
+<td>boolean containsValue (Object value);</td>
+<td>判断是否包含Value</td>
+</tr>
+<tr>
+<td>V remove(Object key)</td>
+<td>删除key</td>
+</tr>
+<tr>
+<td>Set keySet()</td>
+<td>返回包含键的Set视图</td>
+</tr>
+<tr>
+<td>Collection values()</td>
+<td>返回包含值的Set视图</td>
+</tr>
+<tr>
+<td>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</td>
+<td>返回包含映射的Set视图</td>
+</tr>
+</tbody></table>
+<h3 id="3、元素放入HashMap原理"><a href="#3、元素放入HashMap原理" class="headerlink" title="3、元素放入HashMap原理"></a>3、元素放入HashMap原理</h3><ul>
+<li>调用hashCode()方法获取对应哈希码值，通过算法获得索引位置</li>
+<li>位置无元素直接插入</li>
+<li>有元素，依次比较哈希码值，再使用key调用equals方法与已有元素比较</li>
+<li>若不同则键值对直接放入</li>
+</ul>
+<h3 id="4、常量"><a href="#4、常量" class="headerlink" title="4、常量"></a>4、常量</h3><ul>
+<li>DEFAULT_INITIAL_CAPACITY : HashMap的默认容量是16。</li>
+<li>DEFAULT_LOAD_FACTOR：HashMap的默认加载因子是0.75。</li>
+<li>threshold：扩容的临界值，容量*填充因子，12</li>
+<li>TREEIFY_THRESHOLD：若Bucket中链表长度大于该默认值则转化为<strong>红黑树</strong>存储，该数值是8。</li>
+<li>MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量，该数值是64。</li>
+</ul>
+<h2 id="四、Collections类"><a href="#四、Collections类" class="headerlink" title="四、Collections类"></a>四、Collections类</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</td>
+<td>根据元素的自然顺序返回集合最大元素</td>
+</tr>
+<tr>
+<td>static T max(Collection&lt;? extends T&gt; coll, Comparator&lt;?super T&gt; comp)</td>
+<td>根据指定比较器引发的顺序返回 给定集合的最大元素</td>
+</tr>
+<tr>
+<td>static &lt;T extends Object &amp; Comparable&lt;?super T&gt;&gt; T min(Collection&lt;? extends T&gt; coll)</td>
+<td>根据元素的自然顺序返回给定集 合的最小元素</td>
+</tr>
+<tr>
+<td>static min(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</td>
+<td>根据指定比较器引发的顺序返回 给定集合的最小元素</td>
+</tr>
+<tr>
+<td>static void copy(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</td>
+<td>将一个列表中的所有元素复制到 另一个列表中</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static void reverse(List&lt;?&gt; list)</td>
+<td>反转指定列表中元素的顺序</td>
+</tr>
+<tr>
+<td>static void shuffle(List&lt;?&gt; list)</td>
+<td>使用默认的随机源随机置换指定的列表</td>
+</tr>
+<tr>
+<td>static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List list)</td>
+<td>根据其元素的自然顺序将指定列表按升 序排序</td>
+</tr>
+<tr>
+<td>static void sort(List list, Comparator&lt;? super T&gt; c)</td>
+<td>根据指定比较器指定的顺序对指定列表 进行排序</td>
+</tr>
+<tr>
+<td>static void swap(List&lt;?&gt; list, int i, int j)</td>
+<td>交换指定列表中指定位置的元素</td>
+</tr>
+</tbody></table>
+<h1 id="异常机制和File类"><a href="#异常机制和File类" class="headerlink" title="异常机制和File类"></a>异常机制和File类</h1><h2 id="一、异常机制（重点）"><a href="#一、异常机制（重点）" class="headerlink" title="一、异常机制（重点）"></a>一、异常机制（重点）</h2><h3 id="1、分类"><a href="#1、分类" class="headerlink" title="1、分类"></a>1、分类</h3><ul>
+<li><p>java.lang.Exception所有异常的超类</p>
+<p>RuntimeException-运行时异常，非检测性异常</p>
+<p>IOException和其他异常，检测性异常</p>
+</li>
+<li><p>RunTimeException主要子类</p>
+<p>ArithmeticException-算数异常</p>
+<p>ArrayIndexOutofBoundsException数组下标越界</p>
+<p>NullPointerException空指针</p>
+<p>ClassCastException类转换异常</p>
+<p>NumberFormatException数字格式异常</p>
+</li>
+</ul>
+<h2 id="二、FIle类（重点）"><a href="#二、FIle类（重点）" class="headerlink" title="二、FIle类（重点）"></a>二、FIle类（重点）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File(String pathname)</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>File(String parent,String child)</td>
+<td>父路径和子路径信息构造</td>
+</tr>
+<tr>
+<td>File(File parent, String child)</td>
+<td>父抽象路径和子路径信息构造</td>
+</tr>
+<tr>
+<td>boolean exists()</td>
+<td>判断文件或目录是否存在</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取文件名称</td>
+</tr>
+<tr>
+<td>long length()</td>
+<td>文件长度</td>
+</tr>
+<tr>
+<td>long lastModified()</td>
+<td>文件最后一次修改时间</td>
+</tr>
+<tr>
+<td>String getAbsolutePath()</td>
+<td>获取绝对路径</td>
+</tr>
+<tr>
+<td>boolean delete()</td>
+<td>删除文件，若是目录要求空目录</td>
+</tr>
+<tr>
+<td>boolean createNewFile()</td>
+<td>创建新的空文件</td>
+</tr>
+<tr>
+<td>boolean mkdir()</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>boolean mkdirs()</td>
+<td>创建多级目录</td>
+</tr>
+<tr>
+<td>File[] listFiles()</td>
+<td>获取该目录下所有内容</td>
+</tr>
+<tr>
+<td>boolean isFile()</td>
+<td>是否为文件</td>
+</tr>
+<tr>
+<td>boolean isDirectory()</td>
+<td>是否为目录</td>
+</tr>
+<tr>
+<td>File[] listFiles(FileFilter filter)</td>
+<td>获取目录下满足筛选器的所有内容</td>
+</tr>
+</tbody></table>
+<h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1><h2 id="一、分类"><a href="#一、分类" class="headerlink" title="一、分类"></a>一、分类</h2><ul>
+<li>字节流和字符流</li>
+<li>输入流和输出流</li>
+<li>节点流和处理流</li>
+</ul>
+<h2 id="二、相关流"><a href="#二、相关流" class="headerlink" title="二、相关流"></a>二、相关流</h2><h3 id="1、FileWriter类（重点）"><a href="#1、FileWriter类（重点）" class="headerlink" title="1、FileWriter类（重点）"></a>1、FileWriter类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileWriter（String fileName,boolean append）</td>
+<td>以追加方式构造对象</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf,int off,int len)</td>
+<td>将cbuf中从off开始的len个字符写入此文件输出流</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放资源</td>
+</tr>
+</tbody></table>
+<h3 id="2、FileReader类（重点）"><a href="#2、FileReader类（重点）" class="headerlink" title="2、FileReader类（重点）"></a>2、FileReader类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileReader(String fileName)</td>
+<td>构造对象</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf,int offset,int length)</td>
+<td>从输入流中offset偏移开始的len个字符读取，返回-1表示到末尾</td>
+</tr>
+</tbody></table>
+<h3 id="3、FileOutputStream类（重点）"><a href="#3、FileOutputStream类（重点）" class="headerlink" title="3、FileOutputStream类（重点）"></a>3、FileOutputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileOutputStream(String name, boolean append)</td>
+<td>追加方式构造对象</td>
+</tr>
+<tr>
+<td>void write(byte[] b, int off, int len)</td>
+<td>从偏移量off开始的len个字节写入此文件输出流</td>
+</tr>
+</tbody></table>
+<h3 id="4、FileInputStream类（重点）"><a href="#4、FileInputStream类（重点）" class="headerlink" title="4、FileInputStream类（重点）"></a>4、FileInputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileInputStream(String name)</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>int read(byte[] b, int off, int len)</td>
+<td>从此输入流中将最多len个字节的数据读入字节数组中，返回读取到的 字节个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>int available()</td>
+<td>获取关联文件大小</td>
+</tr>
+</tbody></table>
+<h3 id="5、BufferedOutputStream类（重点）"><a href="#5、BufferedOutputStream类（重点）" class="headerlink" title="5、BufferedOutputStream类（重点）"></a>5、BufferedOutputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedOutputStream(OutputStream out, int size)</td>
+<td>参数指定的引用和缓冲区大小来构造 对象</td>
+</tr>
+<tr>
+<td>void write(byte[] b, int off, int len)</td>
+<td>写入字节数组中的一部分数据</td>
+</tr>
+</tbody></table>
+<h3 id="6、BufferedInputStream类（重点）"><a href="#6、BufferedInputStream类（重点）" class="headerlink" title="6、BufferedInputStream类（重点）"></a>6、BufferedInputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedInputStream(InputStream in, int size)</td>
+<td>根据参数指定的引用和缓冲区大小构造对象</td>
+</tr>
+<tr>
+<td>int read(byte[] b, int off, int len)</td>
+<td>读取len个字节</td>
+</tr>
+</tbody></table>
+<h3 id="7、BufferedWriter类（重点）"><a href="#7、BufferedWriter类（重点）" class="headerlink" title="7、BufferedWriter类（重点）"></a>7、BufferedWriter类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedWriter(Writer out, int sz)</td>
+<td>根据参数指定的引用和缓冲区大小来构造对象</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf, int off, int len)</td>
+<td>将字符数组cbuf中从下标off开始的len个字符写入输出流 中</td>
+</tr>
+<tr>
+<td>void write(String s, int off, int len)</td>
+<td>将参数s中下标从off开始的len个字符写入输出流中</td>
+</tr>
+<tr>
+<td>void newLine()</td>
+<td>void newLine()</td>
+</tr>
+</tbody></table>
+<h3 id="8、BufferedReader类（重点）"><a href="#8、BufferedReader类（重点）" class="headerlink" title="8、BufferedReader类（重点）"></a>8、BufferedReader类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedReader(Reader in, int sz)</td>
+<td>根据参数指定的引用和缓冲区大小来构造对象</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf, int off, int len)</td>
+<td>从输入流中读取len个字符放入数组cbuf中下标从off开始的位置上， 若读取到末尾则返回-1，否则返回实际读取到的字符个数</td>
+</tr>
+<tr>
+<td>String readLine()</td>
+<td>读取一行字符串并返回，返回null表示读取到末尾</td>
+</tr>
+</tbody></table>
+<h3 id="9、ObjectOutputStream（重点）"><a href="#9、ObjectOutputStream（重点）" class="headerlink" title="9、ObjectOutputStream（重点）"></a>9、ObjectOutputStream（重点）</h3><ul>
+<li>只有实现java.io.Serializable才可写入流</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectOutputStream(OutputStream out)</td>
+<td>构造对象</td>
+</tr>
+<tr>
+<td>void writeObject(Object obj)</td>
+<td>参数指定的对象整体写入到输出流中</td>
+</tr>
+</tbody></table>
+<h3 id="10、ObjectInputStream（重点）"><a href="#10、ObjectInputStream（重点）" class="headerlink" title="10、ObjectInputStream（重点）"></a>10、ObjectInputStream（重点）</h3><ul>
+<li>序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时， JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如 果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常 (InvalidCastException)。</li>
+<li>transient是Java语言的关键字，用来表示一个域不是该对象串行化的一部分。当一个对象被串行 化的时候，transient型变量的值不包括在串行化的表示中，然而非transient型的变量是被包括进 去的。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectInputStream(InputStream in)</td>
+<td>根据参数指定的引用来构造对象</td>
+</tr>
+<tr>
+<td>Object readObject()</td>
+<td>主要用于从输入流中读取一个对象并返回 无法通过返回值 来判断是否读取到文件的末尾</td>
+</tr>
+</tbody></table>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ul>
+<li>多线程采用时间片轮转法保证多个线程并发执行</li>
+</ul>
+<h2 id="二、线程创建（重中之重）"><a href="#二、线程创建（重中之重）" class="headerlink" title="二、线程创建（重中之重）"></a>二、线程创建（重中之重）</h2><ul>
+<li>java.lang.Thread代表线程，任何线程对象都是Thread类（子类）的实例</li>
+</ul>
+<h3 id="1、创建方式"><a href="#1、创建方式" class="headerlink" title="1、创建方式"></a>1、创建方式</h3><ul>
+<li>继承Thread类重写run方法，然后创建对象调用start</li>
+<li>实现Runnable接口并重写run方法，创建该类的对象作为实参来构造Thread类型的对象，然后调用start</li>
+</ul>
+<h3 id="2、相关方法"><a href="#2、相关方法" class="headerlink" title="2、相关方法"></a>2、相关方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Thread()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>Thread(String name)</td>
+<td>根据参数指定名称构造</td>
+</tr>
+<tr>
+<td>Thread(Runnable target)</td>
+<td>根据引用构造对象</td>
+</tr>
+<tr>
+<td>Thread(Runnable target, String name)</td>
+<td>根据参数指定引用和名称来构造对象</td>
+</tr>
+<tr>
+<td>void run()</td>
+<td>若使用Runnable引用构造了线程对象，调用该方法时最终调 用接口中的版本</td>
+</tr>
+<tr>
+<td>void start()</td>
+<td>启动线程，自动调用run()</td>
+</tr>
+</tbody></table>
+<h3 id="3、线程的生命周期（熟悉）"><a href="#3、线程的生命周期（熟悉）" class="headerlink" title="3、线程的生命周期（熟悉）"></a>3、线程的生命周期（熟悉）</h3><ul>
+<li>新建：new创建之后，并未开始执行</li>
+<li>就绪：调用start后，还未执行</li>
+<li>运行：使用线程调度器之后进入的状态，开始执行</li>
+<li>阻塞：执行过程中发生阻塞事件进入的状态，如：sleep方法，阻塞状态解除后进入就绪状态</li>
+<li>消亡：任务执行完成后，线程终止</li>
+</ul>
+<h3 id="4、线程编号和名称-熟悉"><a href="#4、线程编号和名称-熟悉" class="headerlink" title="4、线程编号和名称(熟悉)"></a>4、线程编号和名称(熟悉)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>long getId()</td>
+<td>获取线程编号</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取线程名称</td>
+</tr>
+<tr>
+<td>void setName(String name)</td>
+<td>设置线程名</td>
+</tr>
+<tr>
+<td>static Thread currentThread()</td>
+<td>获取正在执行线程引用</td>
+</tr>
+</tbody></table>
+<h3 id="5、常用方法（重点）"><a href="#5、常用方法（重点）" class="headerlink" title="5、常用方法（重点）"></a>5、常用方法（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static void yield()</td>
+<td>离开Running，进入Runnable</td>
+</tr>
+<tr>
+<td>static void sleep(times)</td>
+<td>从Running进入Block，休眠times毫秒返回Running</td>
+</tr>
+<tr>
+<td>int getPriority()</td>
+<td>线程优先级</td>
+</tr>
+<tr>
+<td>void setPriority(int newPriority)</td>
+<td>修改线程优先级</td>
+</tr>
+<tr>
+<td>void join()</td>
+<td>等待线程终止</td>
+</tr>
+<tr>
+<td>void join(long millis)</td>
+<td>等待指定毫秒数</td>
+</tr>
+<tr>
+<td>boolean isDaemon()</td>
+<td>判断是否为守护线程</td>
+</tr>
+<tr>
+<td>void setDaemon(boolean on)</td>
+<td>设置线程为守护线程</td>
+</tr>
+</tbody></table>
+<h3 id="6、线程同步机制（重点）"><a href="#6、线程同步机制（重点）" class="headerlink" title="6、线程同步机制（重点）"></a>6、线程同步机制（重点）</h3><h4 id="（1）实现方式"><a href="#（1）实现方式" class="headerlink" title="（1）实现方式"></a>（1）实现方式</h4><ul>
+<li><p>synchronized(类类型的引用){</p>
+<p>​	编写所有需要锁定的代码;</p>
+<p>}</p>
+</li>
+<li><p>synchronized(this){整个方法体的代码}</p>
+</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>对静态方法加锁，锁的对象是类对象，每个类都有唯一的类对象，类名.class</li>
+</ul>
+<h4 id="（2）线程安全类和不安全类"><a href="#（2）线程安全类和不安全类" class="headerlink" title="（2）线程安全类和不安全类"></a>（2）线程安全类和不安全类</h4><ul>
+<li>StringBuffer线程安全，StringBuilder不是线程安全</li>
+<li>Vector和Hashtable线程安全，但ArrayList和HashMap不是线程安全</li>
+<li>Collections.synchronizedList()和Collections.synchronizedMap()等方法实现线程安全</li>
+</ul>
+<h4 id="（3）Lock实现同步"><a href="#（3）Lock实现同步" class="headerlink" title="（3）Lock实现同步"></a>（3）Lock实现同步</h4><ul>
+<li>主要实现类是ReentrantLock类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ReentrantLock()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>void lock()</td>
+<td>获取锁</td>
+</tr>
+<tr>
+<td>void unlock()</td>
+<td>释放锁</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Lock是显式锁，手动开关锁</li>
+<li>Lock只有同步代码块方式的锁，synchronized有同步代码块和方法两种</li>
+<li>lock锁，java虚拟机花费较少时间调度线程，性能更好</li>
+</ul>
+<h4 id="（4）Object常用方法"><a href="#（4）Object常用方法" class="headerlink" title="（4）Object常用方法"></a>（4）Object常用方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void wait()</td>
+<td>线程进入等待状态，直到其他线程调用notify()或notifyAll()</td>
+</tr>
+<tr>
+<td>void wait(long timeout)</td>
+<td>进入等待，直到其他线程调用方法或过了指定毫秒</td>
+</tr>
+<tr>
+<td>void notify()</td>
+<td>唤醒单个线程</td>
+</tr>
+<tr>
+<td>void notifyAll()</td>
+<td>唤醒等待的所有线程</td>
+</tr>
+</tbody></table>
+<h4 id="（5）线程池（熟悉）"><a href="#（5）线程池（熟悉）" class="headerlink" title="（5）线程池（熟悉）"></a>（5）线程池（熟悉）</h4><p>1.实现Callable接口</p>
+<ul>
+<li>Java5开始新增创建线程第三种方式，实现java.util.concurrent.Callable接口</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V call()</td>
+<td>计算结果返回</td>
+</tr>
+</tbody></table>
+<p>2.FutureTask</p>
+<ul>
+<li>java.util.concurrent.FutureTask类用于描述可取消的异步计算</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FutureTask(Callable callable)</td>
+<td>根据参数指定引用创建未来任务</td>
+</tr>
+<tr>
+<td>V get()</td>
+<td>获取call方法计算的结果</td>
+</tr>
+</tbody></table>
+<p>3.概念原理</p>
+<ul>
+<li>任务提交给线程池，线程池在内部找空闲线程。</li>
+</ul>
+<p>4.相关类和方法</p>
+<ul>
+<li><p>从Java5开始提供了线程池的相关类和接口：java.util.concurrent.Executors类和 java.util.concurrent.ExecutorService接口。</p>
+</li>
+<li><p>其中Executors是个工具类和线程池的工厂类，可以创建并返回不同类型的线程池</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static ExecutorService newCachedThreadPool()</td>
+<td>创建一个可根据需要创建新线程的线程池</td>
+</tr>
+<tr>
+<td>static ExecutorService newFixedThreadPool(int nThreads)</td>
+<td>创建一个可重用固定线程数的线程池</td>
+</tr>
+<tr>
+<td>static ExecutorService newSingleThreadExecutor()</td>
+<td>创建一个只有一个线程的线程池</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>其中ExecutorService接口是真正的线程池接口，主要实现类是ThreadPoolExecutor</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void execute(Runnable command)</td>
+<td>执行任务和命令</td>
+</tr>
+<tr>
+<td>Future submit(Callable task)</td>
+<td>执行任务和命令</td>
+</tr>
+<tr>
+<td>void shutdown()</td>
+<td>启动有序关闭</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="一、常识"><a href="#一、常识" class="headerlink" title="一、常识"></a>一、常识</h2><h3 id="1、七层网络模型"><a href="#1、七层网络模型" class="headerlink" title="1、七层网络模型"></a>1、七层网络模型</h3><p>OSI七层模型和TCP&#x2F;IP五层模型</p>
+<ul>
+<li>应用层-》表示层-》会话层-》传输层-》网络层-》数据链路层-》物理层</li>
+<li>应用层-》传输层-》网络层-》数据链路层-》物理层</li>
+</ul>
+<p>TCP、UDP传输层</p>
+<p>HTTP、Telnet、FTP、TFTP、DNS、SMTP应用层</p>
+<p>IP、ICMP、RIP、IGMP网络层</p>
+<h3 id="2、相关协议（笔试）"><a href="#2、相关协议（笔试）" class="headerlink" title="2、相关协议（笔试）"></a>2、相关协议（笔试）</h3><p>（1）TCP协议</p>
+<p>传输控制协议，面向连接</p>
+<ul>
+<li>建立连接-》进行通信-》断开连接、</li>
+<li>传输前“三次握手”</li>
+<li>通信过程全程连接，数据传输通道</li>
+<li>保证了数据传输的可靠性和有序性</li>
+<li>全双工</li>
+<li>传输后释放连接，发送数据效率低</li>
+</ul>
+<p>（2）UDP协议</p>
+<p>用户数据报协议，非面向连接</p>
+<ul>
+<li>通信过程中不需要保持连接</li>
+<li>不保证数据传输可靠性和有序性</li>
+<li>全双工，数据报大小限制在64k内</li>
+<li>发送数据完毕后无需释放资源，开销小、效率高、速度快</li>
+</ul>
+<h3 id="3、IP地址（重点）"><a href="#3、IP地址（重点）" class="headerlink" title="3、IP地址（重点）"></a>3、IP地址（重点）</h3><p>本地回环地址(hostAddress)：127.0.0.1 主机名(hostName)：localhost</p>
+<h3 id="4、端口号（重点）"><a href="#4、端口号（重点）" class="headerlink" title="4、端口号（重点）"></a>4、端口号（重点）</h3><ul>
+<li>HTTP:80 FTP:21 Oracle:1521 MySQL:3306 Tomcat:8080</li>
+<li>网络编程需要提供：IP地址 + 端口号，组合在一起叫做网络套接字：Socket。</li>
+</ul>
+<h2 id="二、基于tcp协议（重点）"><a href="#二、基于tcp协议（重点）" class="headerlink" title="二、基于tcp协议（重点）"></a>二、基于tcp协议（重点）</h2><h3 id="1、编程模型"><a href="#1、编程模型" class="headerlink" title="1、编程模型"></a>1、编程模型</h3><ul>
+<li><p>服务器：</p>
+<p>（1）创建ServerSocket对象提供端口号</p>
+<p>（2）等待客户端连接请求，调用accept方法</p>
+<p>（3）使用输入输出流进行通信</p>
+<p>（4）关闭Socket</p>
+</li>
+<li><p>客户端：</p>
+<p>（1）创建Socket类型对象并提供服务器IP和端口</p>
+<p>（2）使用输入输出流进行通信</p>
+<p>（3）关闭Socket</p>
+</li>
+</ul>
+<h3 id="2、相关类和方法解析"><a href="#2、相关类和方法解析" class="headerlink" title="2、相关类和方法解析"></a>2、相关类和方法解析</h3><h4 id="（1）ServerSocket类"><a href="#（1）ServerSocket类" class="headerlink" title="（1）ServerSocket类"></a>（1）ServerSocket类</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ServerSocket(int port)</td>
+<td>根据port构造对象</td>
+</tr>
+<tr>
+<td>Socket accept()</td>
+<td>侦听并接收套接字连接请求</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody></table>
+<h4 id="（2）Socket类"><a href="#（2）Socket类" class="headerlink" title="（2）Socket类"></a>（2）Socket类</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Socket(String host, int port)</td>
+<td>根据指定主机名和端口来构造对象</td>
+</tr>
+<tr>
+<td>InputStream getInputStream()</td>
+<td>获取输入流</td>
+</tr>
+<tr>
+<td>OutputStream getOutputStream()</td>
+<td>获取输出流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody></table>
+<h2 id="三、基于udp协议（熟悉）"><a href="#三、基于udp协议（熟悉）" class="headerlink" title="三、基于udp协议（熟悉）"></a>三、基于udp协议（熟悉）</h2><h3 id="1、编程模型-1"><a href="#1、编程模型-1" class="headerlink" title="1、编程模型"></a>1、编程模型</h3><ul>
+<li><p>接收方</p>
+<p>（1）创建DatagramSocket对象提供端口号</p>
+<p>（2）创建DatagramPacket对象提供缓冲区</p>
+<p>（3）通过Socket接收数据内容放到Packet中，调用receive</p>
+<p>（4）关闭Socket</p>
+</li>
+<li><p>发送方</p>
+<p>（1）创建DatagramSocket对象</p>
+<p>（2）创建DatagramPacket对象提供接收方通信地址</p>
+<p>（3）通过Socket将Packet中的数据内容发送出去，调用send方法；</p>
+<p>（4）关闭Socket</p>
+</li>
+</ul>
+<h3 id="2、相关类和方法"><a href="#2、相关类和方法" class="headerlink" title="2、相关类和方法"></a>2、相关类和方法</h3><p>（1）DatagramSocket类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DatagramSocket()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>DatagramSocket(int port)</td>
+<td>根据参数指定端口号构造</td>
+</tr>
+<tr>
+<td>void receive(DatagramPacket p)</td>
+<td>接收数据报保存到参数指定位置</td>
+</tr>
+<tr>
+<td>void send(DatagramPacket p)</td>
+<td>将参数指定数据表发送出去</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭Socket释放相关资源</td>
+</tr>
+</tbody></table>
+<p>（2）DatagramPacket类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DatagramPacket(byte[] buf, int length)</td>
+<td>构造对象，接收长度为length的数据报</td>
+</tr>
+<tr>
+<td>DatagramPacket(byte[] buf, int length, InetAddress address, int port)</td>
+<td>根据数组构造对象，数据报发送指定地址</td>
+</tr>
+<tr>
+<td>InetAddress getAddress()</td>
+<td>获取通信地址</td>
+</tr>
+<tr>
+<td>nt getPort()</td>
+<td>获取端口号</td>
+</tr>
+<tr>
+<td>int getLength()</td>
+<td>获取长度</td>
+</tr>
+</tbody></table>
+<p>（3）InetAddress类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static InetAddress getLocalHost()</td>
+<td>获取当前主机通信地址</td>
+</tr>
+<tr>
+<td>static InetAddress getByName(String host)</td>
+<td>指定主机名获取通信地址</td>
+</tr>
+</tbody></table>
+<h2 id="四、URL类（熟悉）"><a href="#四、URL类（熟悉）" class="headerlink" title="四、URL类（熟悉）"></a>四、URL类（熟悉）</h2><p>基本结构：&lt;传输协议&gt;:&#x2F;&#x2F;&lt;主机名&gt;:&lt;端口号&gt;&#x2F;&lt;资源地址&gt;</p>
+<h3 id="1、常用方法"><a href="#1、常用方法" class="headerlink" title="1、常用方法"></a>1、常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URL(String spec)</td>
+<td>有参构造</td>
+</tr>
+<tr>
+<td>String getProtocol()</td>
+<td>获取协议</td>
+</tr>
+<tr>
+<td>String getHost()</td>
+<td>获取主机</td>
+</tr>
+<tr>
+<td>int getPort()</td>
+<td>获取端口号</td>
+</tr>
+<tr>
+<td>String getHost()</td>
+<td>获取路径信息</td>
+</tr>
+<tr>
+<td>String getFile()</td>
+<td>获取文件名</td>
+</tr>
+<tr>
+<td>URLConnection openConnection()</td>
+<td>获取URLConnection类实例</td>
+</tr>
+</tbody></table>
+<h3 id="2、URLConnection类"><a href="#2、URLConnection类" class="headerlink" title="2、URLConnection类"></a>2、URLConnection类</h3><ul>
+<li>java.net.URLConnection类是个抽象类，主要实现类有支持HTTP特有功能的HttpURLConnection类。</li>
+</ul>
+<h4 id="（1）常用方法"><a href="#（1）常用方法" class="headerlink" title="（1）常用方法"></a>（1）常用方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>InputStream getInputStream()</td>
+<td>获取输入流</td>
+</tr>
+<tr>
+<td>void disconnect()</td>
+<td>断开连接</td>
+</tr>
+</tbody></table>
+<h1 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h1><ul>
+<li>反射机制就是用于动态创建对象并且动态调用方法的机制。</li>
+</ul>
+<h2 id="一、Class类"><a href="#一、Class类" class="headerlink" title="一、Class类"></a>一、Class类</h2><h3 id="1、基本概念-2"><a href="#1、基本概念-2" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>java.lang.Class实例用于描述Java应用中的类和接口</li>
+<li>该类无公共构造方法，加载到内存中的运行时类，该类的实例由Java虚拟机和类加载器自动构造完成</li>
+</ul>
+<h3 id="2、获取Class对象"><a href="#2、获取Class对象" class="headerlink" title="2、获取Class对象"></a>2、获取Class对象</h3><ul>
+<li>数据类型.class（掌握）</li>
+<li>引用&#x2F;对象.getClass()</li>
+<li>包装类.TYPE可获取基本数据类型Class对象</li>
+<li>Class.forName()（掌握）</li>
+<li>类加载器ClassLoader</li>
+</ul>
+<h3 id="3、常用方法（掌握）"><a href="#3、常用方法（掌握）" class="headerlink" title="3、常用方法（掌握）"></a>3、常用方法（掌握）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Class forName(String className)</td>
+<td>获取参数对应Class对象返回</td>
+</tr>
+<tr>
+<td>T newInstance()</td>
+<td>创建Class对象表示类的新实例</td>
+</tr>
+</tbody></table>
+<h2 id="二、Constructor类"><a href="#二、Constructor类" class="headerlink" title="二、Constructor类"></a>二、Constructor类</h2><ul>
+<li>描述获取到的构造方法信息</li>
+</ul>
+<h3 id="1、Class类常用方法"><a href="#1、Class类常用方法" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Constructor getConstructor(Class&lt;?&gt;… parameterTypes)</td>
+<td>获取表示类型中参数指定公共构造方法</td>
+</tr>
+<tr>
+<td>Constructor&lt;?&gt;[] getConstructors()</td>
+<td>获取表示类型中所有公共构造方法</td>
+</tr>
+</tbody></table>
+<h3 id="2、Constructor类常用方法"><a href="#2、Constructor类常用方法" class="headerlink" title="2、Constructor类常用方法"></a>2、Constructor类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T newInstance(Object… initargs)</td>
+<td>使用构造方法构造新实例</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>获取方法访问修饰符</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取方法名</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt;[] getParameterTypes()</td>
+<td>获取方法所有参数类型</td>
+</tr>
+</tbody></table>
+<h2 id="三、Field类"><a href="#三、Field类" class="headerlink" title="三、Field类"></a>三、Field类</h2><ul>
+<li>java.lang.reflect.Field类描述单个成员变量信息</li>
+</ul>
+<h3 id="1、Class类常用方法-1"><a href="#1、Class类常用方法-1" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Field getDeclaredField(String name)</td>
+<td>获取表示类中参数指定的单个成员变量信息</td>
+</tr>
+<tr>
+<td>Field[] getDeclaredFields()</td>
+<td>获取表示类中所有成员变量信息</td>
+</tr>
+</tbody></table>
+<h3 id="2、Field类常用方法"><a href="#2、Field类常用方法" class="headerlink" title="2、Field类常用方法"></a>2、Field类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object get(Object obj)</td>
+<td>获取obj中field成员变量数值</td>
+</tr>
+<tr>
+<td>void set(Object obj,Object value)</td>
+<td>设置obj中field成员变量数值</td>
+</tr>
+<tr>
+<td>void setAccessible(boolean flag)</td>
+<td>实参传递true，反射对象使用时取消Java语言访问</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>成员变量访问修饰符</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; getType()</td>
+<td>成员变量数据类型</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>成员变量名称</td>
+</tr>
+</tbody></table>
+<h2 id="四、Method类"><a href="#四、Method类" class="headerlink" title="四、Method类"></a>四、Method类</h2><ul>
+<li>java.lang.reflect.Method类描述成员方法信息</li>
+</ul>
+<h3 id="1、Class类常用方法-2"><a href="#1、Class类常用方法-2" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Method getMethod(String name, Class… parameterTypes)</td>
+<td>获取名为name参数为parameterTypes指定公共成员方法</td>
+</tr>
+<tr>
+<td>Method[] getMethods()</td>
+<td>获取表示类所有公共成员方法</td>
+</tr>
+</tbody></table>
+<h3 id="2、Method类常用方法"><a href="#2、Method类常用方法" class="headerlink" title="2、Method类常用方法"></a>2、Method类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object invoke(Object obj, Object… args)</td>
+<td>对象obj调用此方法，实参传args</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>获取方法的访问修饰符</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; getReturnType()</td>
+<td>获取方法返回值类型</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取方法名</td>
+</tr>
+<tr>
+<td>Class[] getParameterTypes()</td>
+<td>获取方法所有参数</td>
+</tr>
+<tr>
+<td>Class[] getExceptionTypes()</td>
+<td>获取方法异常信息</td>
+</tr>
+</tbody></table>
+<h2 id="五、获取其他结构信息"><a href="#五、获取其他结构信息" class="headerlink" title="五、获取其他结构信息"></a>五、获取其他结构信息</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Package getPackage()</td>
+<td>获取所在的包信息</td>
+</tr>
+<tr>
+<td>Class&lt;? super T&gt; getSuperclass()</td>
+<td>获取继承的父类信息</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt;[] getInterfaces()</td>
+<td>获取实现的所有接口</td>
+</tr>
+<tr>
+<td>Annotation[] getAnnotations()</td>
+<td>获取注解信息</td>
+</tr>
+<tr>
+<td>Type[] getGenericInterfaces()</td>
+<td>获取泛型信息</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/02/16/2.java%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%BA%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%8C%85/" rel="tag">常用包</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/02/23/3.java%E6%96%B0%E7%89%B9%E6%80%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            java新特性
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/01/25/SpringCloud/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">springCloud</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "JBGc675TEhus7TRAduWDLOmp-gzGzoHsz",
+    app_key: "9l3Nv4dmWzC0Aig8SwX01hm8",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> liang sm
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="卡西莫多的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">照片</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢老板~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28457938&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

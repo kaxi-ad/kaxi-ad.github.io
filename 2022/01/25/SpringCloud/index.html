@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>springCloud |  卡西莫多的小站</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-SpringCloud"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  springCloud
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/25/SpringCloud/" class="article-date">
+  <time datetime="2022-01-25T07:15:25.000Z" itemprop="datePublished">2022-01-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SpringCloud/">SpringCloud</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">15 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h1><h2 id="一、微服务核心概念"><a href="#一、微服务核心概念" class="headerlink" title="一、微服务核心概念"></a>一、微服务核心概念</h2><ul>
+<li><strong>服务注册</strong>：服务提供者将所提供服务的信息（服务器IP和端口、服务访问协议等）注册&#x2F;登记到注册中心</li>
+<li><strong>服务发现</strong>：服务消费者能够从注册中心获取到较为实时的服务列表，然后根究一定的策略选择一个服务访问</li>
+<li><strong>负载均衡</strong>：将请求压力分配到多个服务器，以此来提高服务的性能、可靠性</li>
+<li><strong>熔断</strong>：断路保护。牺牲局部，保全整体的措施就叫做熔断。</li>
+<li><strong>链路追踪</strong>：一次请求涉及的很多个服务链路进行日志记录、性能监控</li>
+<li><strong>API网关</strong>：1）统一接入（路由）2）安全防护（统一鉴权，负责网关访问身份认证验证，与“访问认证中心”通信，实际认证业务逻辑交移“访问认证中心”处理）3）黑白名单（实现通过IP地址控制禁止访问网关功能，控制访问）4）协议适配（实现通信协议校验、适配转换的功能）5）流量管控（限流）6）长短链接支持6）容错能力（负载均衡）</li>
+</ul>
+<h2 id="二、Spring-Cloud综述"><a href="#二、Spring-Cloud综述" class="headerlink" title="二、Spring Cloud综述"></a>二、Spring Cloud综述</h2><h3 id="1、Spring-Cloud概念"><a href="#1、Spring-Cloud概念" class="headerlink" title="1、Spring Cloud概念"></a>1、Spring Cloud概念</h3><ul>
+<li>Spring Cloud是一系列框架的有序集合（Spring Cloud是一个规范）</li>
+<li>开发服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等</li>
+<li>利用Spring Boot的开发便利性简化了微服务架构的开发（自动装配）</li>
+</ul>
+<h3 id="2、Spring-Cloud解决什么问题"><a href="#2、Spring-Cloud解决什么问题" class="headerlink" title="2、Spring Cloud解决什么问题"></a>2、Spring Cloud解决什么问题</h3><ul>
+<li>Distributed&#x2F;versioned configuration （分布式&#x2F;版本化配置）</li>
+<li>Service registration and discovery （服务注册和发现）</li>
+<li>Routing （智能路由）</li>
+<li>Service-to-service calls （服务调用）</li>
+<li>Load balancing （负载均衡）</li>
+<li>Circuit Breakers （熔断器）</li>
+<li>Global locks （全局锁）</li>
+<li>Leadership election and cluster state （ 选举与集群状态管理）</li>
+<li>Distributed messaging （分布式消息传递平台）</li>
+</ul>
+<h3 id="3、Spring-Cloud核心组件"><a href="#3、Spring-Cloud核心组件" class="headerlink" title="3、Spring Cloud核心组件"></a>3、Spring Cloud核心组件</h3><table>
+<thead>
+<tr>
+<th>-</th>
+<th>第一代 Spring Cloud（Netflix，SCN）</th>
+<th>第二代 Spring Cloud（主要就是SpringCloud Alibaba，SCA）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注册中心</td>
+<td>Netflix Eureka</td>
+<td>阿里巴巴 Nacos</td>
+</tr>
+<tr>
+<td>客户端负载均衡</td>
+<td>Netflix Ribbon</td>
+<td>阿里巴巴 Dubbo LB、Spring CloudLoadbalancer</td>
+</tr>
+<tr>
+<td>熔断器</td>
+<td>Netflix Hystrix</td>
+<td>阿里巴巴 Sentinel</td>
+</tr>
+<tr>
+<td>网关</td>
+<td>Netflix Zuul：性能一般，未来将退出Spring Cloud 生态圈</td>
+<td>官方 Spring Cloud Gateway</td>
+</tr>
+<tr>
+<td>配置中心</td>
+<td>官方 Spring Cloud Config</td>
+<td>阿里巴巴 Nacos、携程 Apollo</td>
+</tr>
+<tr>
+<td>服务调用</td>
+<td>Netflix Feign</td>
+<td>阿里巴巴 Dubbo RPC</td>
+</tr>
+<tr>
+<td>消息驱动</td>
+<td>官方 Spring Cloud</td>
+<td>Stream</td>
+</tr>
+<tr>
+<td>链路追踪</td>
+<td>官方 Spring Cloud Sleuth&#x2F;Zipkin</td>
+<td>阿里巴巴 seata 分布式事务方案</td>
+</tr>
+</tbody></table>
+<h2 id="三、第一代Spring-Cloud核心组件"><a href="#三、第一代Spring-Cloud核心组件" class="headerlink" title="三、第一代Spring Cloud核心组件"></a>三、第一代Spring Cloud核心组件</h2><h3 id="1、Eureka服务注册中心"><a href="#1、Eureka服务注册中心" class="headerlink" title="1、Eureka服务注册中心"></a>1、Eureka服务注册中心</h3><p><strong>注意：服务注册中心本质上是为了解耦服务提供者和服务消费者。</strong></p>
+<h4 id="（1）原理"><a href="#（1）原理" class="headerlink" title="（1）原理"></a>（1）原理</h4><p>1）服务提供者启动<br>2）服务提供者将相关服务信息主动注册到注册中心<br>3）服务消费者获取服务注册信息：</p>
+<p>pull模式：服务消费者可以主动拉取可用的服务提供者清单<br>push模式：服务消费者订阅服务（当服务提供者有变化时，注册中心也会主动推送更新后的服务清单给消费者<br>4）服务消费者直接调用服务提供者<br>另外，注册中心也需要完成服务提供者的健康监控，当发现服务提供者失效时需要及时剔除</p>
+<h4 id="（2）服务注册中心组件-Eureka"><a href="#（2）服务注册中心组件-Eureka" class="headerlink" title="（2）服务注册中心组件 Eureka"></a>（2）服务注册中心组件 Eureka</h4><ul>
+<li>Eureka基础架构</li>
+</ul>
+<p><img src="/images/cloud_1.png" alt="Eureka基础架构"></p>
+<ul>
+<li>Eureka交互流程及原理</li>
+</ul>
+<p><img src="/images/cloud_2.png" alt="Eureka交互流程及原理"></p>
+<ul>
+<li><p>Eureka 包含两个组件：Eureka Server 和 Eureka Client，Eureka Client是一个Java客户端，用于简化与Eureka Server的交互；Eureka Server提供服务发现的能力，各个微服务启动时，会通过EurekaClient向Eureka Server 进行注册自己的信息，Eureka Server会存储该服务的信息；</p>
+</li>
+<li><p>微服务启动后，会周期性地向Eureka Server发送心跳（默认周期为30秒，默认Eureka Server<br>90S会将还没有续约的给剔除）以续约自己的信息</p>
+</li>
+<li><p>Eureka Server在一定时间内没有接收到某个微服务节点的心跳，Eureka Server将会注销该微服务节点（默认90秒）</p>
+</li>
+<li><p>Eureka Client会缓存Eureka Server中的信息。即使所有的Eureka Server节点都宕掉，服务消费者依然可以使用缓存中的信息找到服务提供者</p>
+</li>
+<li><p>Eureka通过心跳检测、健康检查和客户端缓存等机制，提高系统的灵活性、可伸缩性和高可用性。</p>
+</li>
+</ul>
+<h4 id="（3）Eureka细节详解"><a href="#（3）Eureka细节详解" class="headerlink" title="（3）Eureka细节详解"></a>（3）Eureka细节详解</h4><p>（1）元数据</p>
+<p>Eureka的元数据有两种：标准元数据和自定义元数据。<br><strong>标准元数据</strong>：主机名、IP地址、端口号等信息，这些信息都会被发布在服务注册表中，用于服务之间的调用。<br><strong>自定义元数据</strong>：可以使用eureka.instance.metadata-map配置，符合KEY&#x2F;VALUE的存储格式。这些元数据可以在远程客户端中访问。</p>
+<ul>
+<li>我们可以在程序中可以使用DiscoveryClient 获取指定微服务的所有元数据信息</li>
+</ul>
+<p>（2）客户端<br><strong>服务注册详解（服务提供者）</strong><br>1）当我们导入了eureka-client依赖坐标，配置Eureka服务注册中心地址<br>2）服务在启动时会向注册中心发起注册请求，携带服务元数据信息<br>3）Eureka注册中心会把服务的信息保存在Map中。</p>
+<ul>
+<li>Eureka Client ：30S续约一次，在Eureka Server更新自己的状态 (Client端进行配置)</li>
+<li>Eureka Server：90S还没有进行续约，将该微服务实例从服务注册表（Map）剔除 (Client端进行配置)</li>
+<li>Eureka Client： 30S拉取服务最新的注册表并缓存到本地 (Client端进行配置)</li>
+</ul>
+<p>（3）服务端</p>
+<p><strong>服务下线：</strong></p>
+<ul>
+<li>1）当服务正常关闭操作时，会发送服务下线的REST请求给EurekaServer。</li>
+<li>2）服务中心接受到请求后，将该服务置为下线状态</li>
+</ul>
+<p><strong>失效剔除</strong>：</p>
+<ul>
+<li>Eureka Server会定时（间隔值是eureka.server.eviction-interval-timer-in-ms，默认60s）进行检查，如果发现实例在在一定时间（此值由客户端设置的eureka.instance.lease-expiration-duration-in-seconds定义，默认值为90s）内没有收到心跳，则会注销此实例。</li>
+</ul>
+<p><strong>自我保护机制</strong>：</p>
+<ul>
+<li>自我保护模式正是一种针对网络异常波动的安全保护措施，使用自我保护模式能使Eureka集群更加的健壮、稳定的运行。<br>自我保护机制的工作机制是：如果在15分钟内超过85%的客户端节点都没有正常的心跳，那么</li>
+<li>Eureka就认为客户端与注册中心出现了网络故障，Eureka Server自动进入自我保护机制，此时会出现以下几种情况：</li>
+</ul>
+<ol>
+<li>Eureka Server不再从注册列表中移除因为长时间没收到心跳而应该过期的服务。</li>
+<li>Eureka Server仍然能够接受新服务的注册和查询请求，但是不会被同步到其它节点上，保证当前<br>节点依然可用。</li>
+<li>当网络稳定时，当前Eureka Server新的注册信息会被同步到其它节点中。</li>
+</ol>
+<p><strong>经验：建议生产环境打开自我保护机制</strong></p>
+<h3 id="2、Ribbon负载均衡"><a href="#2、Ribbon负载均衡" class="headerlink" title="2、Ribbon负载均衡"></a>2、Ribbon负载均衡</h3><h4 id="（1）负载均衡策略"><a href="#（1）负载均衡策略" class="headerlink" title="（1）负载均衡策略"></a>（1）负载均衡策略</h4><table>
+<thead>
+<tr>
+<th>负载均衡策略</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RoundRobinRule：轮询策略</td>
+<td>默认超过10次获取到的server都不可用，会返回一个空的server</td>
+</tr>
+<tr>
+<td>RandomRule：随机策略</td>
+<td>如果随机到的server为null或不可用，会while不停的循环选取</td>
+</tr>
+<tr>
+<td>RetryRule：重试策略</td>
+<td>一定时限内循环重试。默认继承RoundRobinRule，也支持自定义注入，RetryRule会在每次选取之后，对选举的server进行判断，是否为null，是否alive，并且在500ms内会不停的选取判断。而RoundRobinRule失效的策略是超过10次，RandomRule是没有失效时间的概念，只要serverList没都挂。</td>
+</tr>
+<tr>
+<td>BestAvailableRule：最小连接数策略</td>
+<td>遍历serverList，选取出可用的且连接数最小的一个server。该算法里面有一个LoadBalancerStats的成员变量，会存储所有server的运行状况和连接数。如果选取到的server为null，那么会调用RoundRobinRule重新选取。</td>
+</tr>
+<tr>
+<td>AvailabilityFilteringRule：可用过滤策略</td>
+<td>扩展了轮询策略，会先通过默认的轮询选取一个server，再去判断该server是否超时可用，当前连接数是否超限，都成功再返回。</td>
+</tr>
+<tr>
+<td>ZoneAvoidanceRule：区域权衡策略（默认策略）</td>
+<td>扩展了轮询策略，继承了2个过滤器：ZoneAvoidancePredicate和AvailabilityPredicate，除了过滤超时和链接数过多的server，还会过滤掉不符合要求的zone区域里面的所有节点， 在一个区域&#x2F;机房内的服务实例中轮询。先过滤再轮询</td>
+</tr>
+</tbody></table>
+<h4 id="（2）核心源码刨析"><a href="#（2）核心源码刨析" class="headerlink" title="（2）核心源码刨析"></a>（2）核心源码刨析</h4><p><img src="/images/cloud_3.png" alt="核心源码"></p>
+<p>在spring-cloud-commons中spring.factories</p>
+<p><strong>添加了注解的RestTemplate对象会被添加一个拦截器LoadBalancerInterceptor，该拦截器就是后续拦截请求进行负载处理的。</strong></p>
+<h3 id="3、Hystrix熔断器"><a href="#3、Hystrix熔断器" class="headerlink" title="3、Hystrix熔断器"></a>3、Hystrix熔断器</h3><h4 id="（1）雪崩效应"><a href="#（1）雪崩效应" class="headerlink" title="（1）雪崩效应"></a>（1）雪崩效应</h4><ul>
+<li>服务雪崩效应：是一种因“服务提供者的不可用”（原因）导致“服务调用者不可用”（结果），并将不可用逐渐放大的现象。</li>
+</ul>
+<p>形成原因：</p>
+<ul>
+<li>服务雪崩的过程可以分为三个阶段：</li>
+</ul>
+<ol>
+<li>服务提供者不可用</li>
+<li>重试加大请求流量</li>
+<li>服务调用者不可用</li>
+</ol>
+<p><img src="/images/cloud_4.png" alt="雪崩效应"></p>
+<h4 id="（2）雪崩解决方案"><a href="#（2）雪崩解决方案" class="headerlink" title="（2）雪崩解决方案"></a>（2）雪崩解决方案</h4><p><strong>服务熔断</strong>：当扇出链路的某个微服务不可用或者响应时间太长时，熔断该节点微服务的调用，进行服务的降级，快速返回错误的响应信息。当检测到该节点微服务调用响应正常后，恢复调用链路。</p>
+<ul>
+<li><strong>注意：</strong><br>1）服务熔断重点在“断”，切断对下游服务的调用<br>2）服务熔断和服务降级往往是一起使用的，Hystrix就是这样。</li>
+</ul>
+<p><strong>服务降级</strong>:</p>
+<ul>
+<li>服务降级一般是从整体考虑，就是当某个服务熔断之后，服务器将不再被调用，此刻客户端可以自己准备一个本地的fallback回调，返回一个缺省值，这样做，虽然服务水平下降，但好歹可用，比直接挂掉要强。</li>
+</ul>
+<p><strong>服务限流</strong>：</p>
+<ul>
+<li>限制总并发数（比如数据库连接池、线程池）</li>
+<li>限制瞬时并发数（如nginx限制瞬时并发连接数）</li>
+<li>限制时间窗口内的平均速率（如Guava的RateLimiter、nginx的limit_req模块，限制每秒的平均速率）</li>
+<li>限制远程接口调用速率、限制MQ的消费速率等</li>
+</ul>
+<h4 id="（3）Hystrix简介"><a href="#（3）Hystrix简介" class="headerlink" title="（3）Hystrix简介"></a>（3）Hystrix简介</h4><ul>
+<li><strong>包裹请求</strong>：使用HystrixCommand包裹对依赖的调用逻辑。 页面静态化微服务方法（@HystrixCommand 添加Hystrix控制）</li>
+<li><strong>跳闸机制</strong>：当某服务的错误率超过一定的阈值时，Hystrix可以跳闸，停止请求该服务一段时间。</li>
+<li><strong>资源隔离</strong>：Hystrix为每个依赖都维护了一个小型的线程池(舱壁模式)。如果该线程池已满， 发往该依赖的请求就被立即拒绝，而不是排队等待，从而加速失败判定。</li>
+<li><strong>监控</strong>：Hystrix可以近乎实时地监控运行指标和配置的变化，例如成功、失败、超时、以及被拒绝的请求等。</li>
+<li><strong>回退机制</strong>：当请求失败、超时、被拒绝，或当断路器打开时，执行回退逻辑。回退逻辑由开发人员自行提供，例如返回一个缺省值。</li>
+<li><strong>自我修复</strong>：断路器打开一段时间后，会自动进入“半开”状态（探测服务是否可用，如还是不可用，再次退回打开状态）。</li>
+</ul>
+<h4 id="（4）Hystrix舱壁模式"><a href="#（4）Hystrix舱壁模式" class="headerlink" title="（4）Hystrix舱壁模式"></a>（4）Hystrix舱壁模式</h4><p>线程池隔离策略</p>
+<ul>
+<li>如果不进行任何设置，所有熔断方法使用一个Hystrix线程池（10个线程）</li>
+</ul>
+<p><img src="/images/cloud_5.png" alt="线程池隔离策略"></p>
+<p>单独的为每一个控制方法创建一个线程池的方式，这种模式叫做“舱壁模式”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只有是在@HystrixCommand中定义了threadPoolKey，就意味着开启了舱壁模式（线程隔离）</span><br></pre></td></tr></table></figure>
+
+<h4 id="（5）Hystrix工作流程与高级应用"><a href="#（5）Hystrix工作流程与高级应用" class="headerlink" title="（5）Hystrix工作流程与高级应用"></a>（5）Hystrix工作流程与高级应用</h4><p><img src="/images/cloud_6.png" alt="Hystrix工作流程与高级应用"></p>
+<p>1）当调用出现问题时，开启一个时间窗（10s）<br>2）在这个时间窗内，统计调用次数是否达到最小请求数？</p>
+<ul>
+<li>如果没有达到，则重置统计信息，回到第1步</li>
+<li>如果达到了，则统计失败的请求数占所有请求数的百分比，是否达到阈值？</li>
+<li>如果达到，则跳闸（不再请求对应服务）</li>
+<li>如果没有达到，则重置统计信息，回到第1步</li>
+</ul>
+<p>3）如果跳闸，则会开启一个活动窗口（默认5s），每隔5s，Hystrix会让一个请求通过,到达那个问题服务，看是否调用成功，如果成功，重置断路器回到第1步，如果失败，回到第3步</p>
+<h3 id="4、Feign远程调用组件"><a href="#4、Feign远程调用组件" class="headerlink" title="4、Feign远程调用组件"></a>4、Feign远程调用组件</h3><p><strong>本质：封装了Http调用流程，更符合面向接口化的编程习惯，类似于Dubbo的服务调用</strong></p>
+<p>（效果）Feign &#x3D; RestTemplate+Ribbon+Hystrix</p>
+<h3 id="5、GateWay网管组件"><a href="#5、GateWay网管组件" class="headerlink" title="5、GateWay网管组件"></a>5、GateWay网管组件</h3><h4 id="（1）GateWat架构中的位置"><a href="#（1）GateWat架构中的位置" class="headerlink" title="（1）GateWat架构中的位置"></a>（1）GateWat架构中的位置</h4><p><img src="/images/cloud_7.png" alt="GateWat架构中的位置"></p>
+<h4 id="（2）核心概念"><a href="#（2）核心概念" class="headerlink" title="（2）核心概念"></a>（2）核心概念</h4><ul>
+<li><strong>路由（route）</strong>： 网关最基础的部分，也是网关比较基础的工作单元。路由由一个ID、一个目标URL（最终路由到的地址）、一系列的断言（匹配条件判断）和Filter过滤器（精细化控制）组成。如果断言为true，则匹配该路由。</li>
+<li><strong>断言（predicates）</strong>：参考了Java8中的断言java.util.function.Predicate，开发人员可以匹配Http请求中的所有内容（包括请求头、请求参数等）（类似于nginx中的location匹配一样），如果断言与请求相匹配则路由。</li>
+<li><strong>过滤器（filter）</strong>：一个标准的Spring webFilter，使用过滤器，可以在请求之前或者之后执行业务逻辑。</li>
+</ul>
+<h4 id="（3）如何工作"><a href="#（3）如何工作" class="headerlink" title="（3）如何工作"></a>（3）如何工作</h4><p><img src="/images/cloud_8.png" alt="GateWay网管组件"></p>
+<ul>
+<li>客户端向Spring Cloud GateWay发出请求，然后在GateWay Handler Mapping中找到与请求相匹配的路由，将其发送到GateWay Web Handler；Handler再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回。过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前（pre）或者之后（post）执行业务逻辑。</li>
+<li>Filter在“pre”类型过滤器中可以做参数校验、权限校验、流量监控、日志输出、协议转换等，在“post”类型的过滤器中可以做响应内容、响应头的修改、日志的输出、流量监控等。</li>
+</ul>
+<h4 id="（4）路由规则详解"><a href="#（4）路由规则详解" class="headerlink" title="（4）路由规则详解"></a>（4）路由规则详解</h4><p><img src="/images/cloud_9.png" alt="路由规则详解"></p>
+<p>动态路由</p>
+<p>GateWay支持自动从注册中心中获取服务列表并访问，即所谓的动态路由实现步骤如下<br>1）pom.xml中添加注册中心客户端依赖（因为要获取注册中心服务列表，eureka客户端已经引入）<br>2）动态路由配置</p>
+<h4 id="（5）GateWay过滤器"><a href="#（5）GateWay过滤器" class="headerlink" title="（5）GateWay过滤器"></a>（5）GateWay过滤器</h4><p>从过滤器生命周期（影响时机点）的角度来说，主要有两个pre和post：</p>
+<table>
+<thead>
+<tr>
+<th>生命周期时机点</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pre</td>
+<td>这种过滤器在请求被路由之前调用。我们可利用这种过滤器实现身份验证、在集群中选择 请求的微服务、记录调试信息等。</td>
+</tr>
+<tr>
+<td>post</td>
+<td>这种过滤器在路由到微服务以后执行。这种过滤器可用来为响应添加标准的 HTTPHeader、收集统计信息和指标、将响应从微服务发送给客户端等。</td>
+</tr>
+</tbody></table>
+<p>从过滤器类型的角度，Spring Cloud GateWay的过滤器分为GateWayFilter和GlobalFilter两种</p>
+<table>
+<thead>
+<tr>
+<th>过滤器类型</th>
+<th>影响范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GateWayFilter</td>
+<td>应用到单个路由路由上</td>
+</tr>
+<tr>
+<td>GlobalFilter</td>
+<td>应用到所有的路由上</td>
+</tr>
+</tbody></table>
+<p><strong>注意：GlobalFilter全局过滤器是程序员使用比较多的过滤器</strong></p>
+<h3 id="6、Spring-Cloud-Config-分布式配置中心"><a href="#6、Spring-Cloud-Config-分布式配置中心" class="headerlink" title="6、Spring Cloud Config 分布式配置中心"></a>6、Spring Cloud Config 分布式配置中心</h3><h4 id="（1）Config简介"><a href="#（1）Config简介" class="headerlink" title="（1）Config简介"></a>（1）Config简介</h4><ul>
+<li>Server 端：提供配置文件的存储、以接口的形式将配置文件的内容提供出去，通过使用@EnableConfigServer注解在 Spring boot 应用中非常简单的嵌入</li>
+<li>Client 端：通过接口获取配置数据并初始化自己的应用</li>
+</ul>
+<h4 id="（2）配置手动更新和自动更新"><a href="#（2）配置手动更新和自动更新" class="headerlink" title="（2）配置手动更新和自动更新"></a>（2）配置手动更新和自动更新</h4><p>①手动更新</p>
+<p><strong>注意：手动刷新方式避免了服务重启</strong></p>
+<p>②自动更新</p>
+<ul>
+<li>在微服务架构中，我们可以结合消息总线（Bus）实现分布式配置的自动更新（Spring CloudConfig + Spring Cloud Bus）</li>
+</ul>
+<p>消息总线</p>
+<ul>
+<li>所谓消息总线Bus，即我们经常会使用MQ消息代理构建一个共用的Topic，通过这个Topic连接各个微服务实例，MQ广播的消息会被所有在注册中心的微服务实例监听和消费。换言之就是通过一个主题连接各个微服务，打通脉络。</li>
+<li>Spring Cloud Bus（基于MQ的，支持RabbitMq&#x2F;Kafka） 是Spring Cloud中的消息总线方案，Spring Cloud Config + Spring Cloud Bus 结合可以实现配置信息的自动更新。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/01/25/SpringCloud/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/02/16/2.java%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%BA%93/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            java核心类库
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/01/24/SpringBoot/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">SpringBoot</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "JBGc675TEhus7TRAduWDLOmp-gzGzoHsz",
+    app_key: "9l3Nv4dmWzC0Aig8SwX01hm8",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> liang sm
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="卡西莫多的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">照片</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢老板~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28457938&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

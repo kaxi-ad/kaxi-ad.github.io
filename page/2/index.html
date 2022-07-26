@@ -1,0 +1,3130 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> 卡西莫多的小站</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">卡西莫多的小站</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-3.java新特性"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/23/3.java%E6%96%B0%E7%89%B9%E6%80%A7/"
+    >java新特性</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/23/3.java%E6%96%B0%E7%89%B9%E6%80%A7/" class="article-date">
+  <time datetime="2022-02-23T06:03:25.000Z" itemprop="datePublished">2022-02-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="常用设计原则和设计模式"><a href="#常用设计原则和设计模式" class="headerlink" title="常用设计原则和设计模式"></a>常用设计原则和设计模式</h1><h2 id="一、设计原则（记住）"><a href="#一、设计原则（记住）" class="headerlink" title="一、设计原则（记住）"></a>一、设计原则（记住）</h2><ul>
+<li>开闭原则<ul>
+<li>对扩展开放对修改关闭，易维护升级</li>
+</ul>
+</li>
+<li>里氏代换原则<ul>
+<li>任何基类可出现的地方，子类一定可出现，多使用多态</li>
+</ul>
+</li>
+<li>依赖倒转原则<ul>
+<li>多依赖于抽象和接口而不是具体实现，对子类具有强制性和规范性</li>
+</ul>
+</li>
+<li>接口隔离原则<ul>
+<li>多使用小接口，避免接口污染，降低耦合</li>
+</ul>
+</li>
+<li>迪米特法则（最少知道原则）<ul>
+<li>高内聚低耦合，实体尽量少相互作用</li>
+</ul>
+</li>
+<li>合成复用原则<ul>
+<li>多使用合成&#x2F;聚合方式</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、设计模式"><a href="#二、设计模式" class="headerlink" title="二、设计模式"></a>二、设计模式</h2><h3 id="1、基本分类"><a href="#1、基本分类" class="headerlink" title="1、基本分类"></a>1、基本分类</h3><ul>
+<li>创建型模式-单例设计模式、工厂方法模式、抽象工厂模式、…</li>
+<li>结构型模式-装饰器模式、代理模式、…</li>
+<li>行为型模式-模板设计模式、…</li>
+</ul>
+<h2 id="三、设计模式详解（重点）"><a href="#三、设计模式详解（重点）" class="headerlink" title="三、设计模式详解（重点）"></a>三、设计模式详解（重点）</h2><h3 id="1、单例设计模式"><a href="#1、单例设计模式" class="headerlink" title="1、单例设计模式"></a>1、单例设计模式</h3><ul>
+<li>饿汉式</li>
+<li>懒汉式，需要对多线程进行同步处理</li>
+</ul>
+<h3 id="2、普通工厂模式"><a href="#2、普通工厂模式" class="headerlink" title="2、普通工厂模式"></a>2、普通工厂模式</h3><p>建立一个工厂类，对实现了同一接口的不同实现类进行实例创建</p>
+<p><img src="/images/3_1.jpg" alt="普通工厂模式"></p>
+<h3 id="3、多个工厂方法模式"><a href="#3、多个工厂方法模式" class="headerlink" title="3、多个工厂方法模式"></a>3、多个工厂方法模式</h3><p><img src="/images/3_2.jpg" alt="多个工厂方法模式"></p>
+<h3 id="4、静态工厂方法模式"><a href="#4、静态工厂方法模式" class="headerlink" title="4、静态工厂方法模式"></a>4、静态工厂方法模式</h3><p><img src="/images/3_3.jpg" alt="静态工厂方法模式"></p>
+<h3 id="5、抽象工厂模式"><a href="#5、抽象工厂模式" class="headerlink" title="5、抽象工厂模式"></a>5、抽象工厂模式</h3><p><img src="/images/3_4.jpg" alt="抽象工厂模式"></p>
+<h3 id="6、装饰器模式"><a href="#6、装饰器模式" class="headerlink" title="6、装饰器模式"></a>6、装饰器模式</h3><p>（1）基本概念</p>
+<ul>
+<li>装饰器模式给一个对象增加一些新功能，要求装饰对象和被装饰对象实现同一个接口，装饰对象持有被装饰对象的实例。</li>
+</ul>
+<p><img src="/images/3_5.jpg" alt="装饰器模式"></p>
+<h3 id="7、代理模式"><a href="#7、代理模式" class="headerlink" title="7、代理模式"></a>7、代理模式</h3><h4 id="（1）基本类型"><a href="#（1）基本类型" class="headerlink" title="（1）基本类型"></a>（1）基本类型</h4><ul>
+<li>找一个代理类替原对象进行一些操作</li>
+</ul>
+<p><img src="/images/3_6.jpg" alt="代理模式"></p>
+<h4 id="2-比较"><a href="#2-比较" class="headerlink" title="(2)比较"></a>(2)比较</h4><ul>
+<li>装饰器模式是接收对象为参数，代理模式是在代理类中创建对象</li>
+<li>装饰器模式关注于在一个对象上动态添加方法，代理模式关注控制对对象访问</li>
+</ul>
+<h3 id="8、模板方法模式"><a href="#8、模板方法模式" class="headerlink" title="8、模板方法模式"></a>8、模板方法模式</h3><p><img src="/images/3_7.jpg" alt="代理模式"></p>
+<h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><h2 id="一、Java8新特性"><a href="#一、Java8新特性" class="headerlink" title="一、Java8新特性"></a>一、Java8新特性</h2><p>2014年3月发布</p>
+<h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><ul>
+<li><p>指只包含一个抽象方法的接口，如：java.lang.Runnable、java.util.Comparator接口等</p>
+</li>
+<li><p>@FunctionalInterface注解定义函数接口，若接口不符合函数式规范便会报错</p>
+</li>
+<li><p>java.util.function包</p>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Consumer</td>
+<td>void accept(T t)</td>
+<td>根据指定参数执行操作</td>
+</tr>
+<tr>
+<td>Supplier</td>
+<td>T get()</td>
+<td>得到一个返回</td>
+</tr>
+<tr>
+<td>Function&lt;T,R&gt;</td>
+<td>R apply(T t)</td>
+<td>根据指定参数执行操作并返回</td>
+</tr>
+<tr>
+<td>Predicate</td>
+<td>boolean test(T t)</td>
+<td>判断指定参数是否满足条件</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="2、Lambda表达式"><a href="#2、Lambda表达式" class="headerlink" title="2、Lambda表达式"></a>2、Lambda表达式</h3><ul>
+<li>参数列表、箭头符号-&gt;和方法体组成，方法体中可以是表达式，也可以是语句块</li>
+<li>语法格式：(参数列表)-&gt;{方法体;}   -其中()、参数类型、{}以及return关键字可以省略。</li>
+</ul>
+<h3 id="3、方法引用"><a href="#3、方法引用" class="headerlink" title="3、方法引用"></a>3、方法引用</h3><ul>
+<li>方法引用使用一对冒号::将类或对象进行连接<ul>
+<li>对象的非静态方法引用 ObjectName :: MethodName</li>
+<li>类的静态方法引用 ClassName :: StaticMethodName</li>
+<li>类的静态方法引用 ClassName :: MethodName</li>
+<li>构造器的引用 ClassName :: new</li>
+<li>数组的引用 TypeName[] :: new</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、Stream接口（暂无）"><a href="#4、Stream接口（暂无）" class="headerlink" title="4、Stream接口（暂无）"></a>4、Stream接口（暂无）</h3><h3 id="5、Optional类"><a href="#5、Optional类" class="headerlink" title="5、Optional类"></a>5、Optional类</h3><h4 id="（1）基本概念"><a href="#（1）基本概念" class="headerlink" title="（1）基本概念"></a>（1）基本概念</h4><ul>
+<li>java.util.Optional类可以理解为一个简单的容器，其值可能是null或不是null，代表一个值存在或不存在</li>
+<li>不用显式进行空值检测</li>
+</ul>
+<h4 id="（2）方法"><a href="#（2）方法" class="headerlink" title="（2）方法"></a>（2）方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Optional ofNullable(T value)</td>
+<td>根据参数指定数值的到Optional类型对象</td>
+</tr>
+<tr>
+<td>Optional map(Function&lt;? super T,? extends U&gt; mapper)</td>
+<td>根据参数指定规则的结果来得到Optional类型的对象</td>
+</tr>
+<tr>
+<td>T orElse(T other)</td>
+<td>若该值存在就返回，否则返回other的数值</td>
+</tr>
+</tbody></table>
+<h2 id="二、Java9的新特性"><a href="#二、Java9的新特性" class="headerlink" title="二、Java9的新特性"></a>二、Java9的新特性</h2><p>2017年9月</p>
+<h3 id="1、模块化的使用"><a href="#1、模块化的使用" class="headerlink" title="1、模块化的使用"></a>1、模块化的使用</h3><h4 id="（1）语法格式"><a href="#（1）语法格式" class="headerlink" title="（1）语法格式"></a>（1）语法格式</h4><p>module 模块名称 {</p>
+<p>}</p>
+<h4 id="（2）模块化优势"><a href="#（2）模块化优势" class="headerlink" title="（2）模块化优势"></a>（2）模块化优势</h4><ul>
+<li>减少内存的开销</li>
+<li>可简化各种类库和大型应用的开发和维护</li>
+<li>安全性，可维护性，提高性能</li>
+</ul>
+<h3 id="2、钻石操作符"><a href="#2、钻石操作符" class="headerlink" title="2、钻石操作符"></a>2、钻石操作符</h3><ul>
+<li>在Java9中允许在匿名内部类的使用中使用钻石操作符。</li>
+</ul>
+<h2 id="三、Java10新特性"><a href="#三、Java10新特性" class="headerlink" title="三、Java10新特性"></a>三、Java10新特性</h2><h3 id="1、Java10的概述"><a href="#1、Java10的概述" class="headerlink" title="1、Java10的概述"></a>1、Java10的概述</h3><ul>
+<li>2018年3月发布，本地类型推断、一个垃圾回收的增强</li>
+</ul>
+<h3 id="2、局部类型推断"><a href="#2、局部类型推断" class="headerlink" title="2、局部类型推断"></a>2、局部类型推断</h3><h4 id="（1）基本概念-1"><a href="#（1）基本概念-1" class="headerlink" title="（1）基本概念"></a>（1）基本概念</h4><ul>
+<li>Java10可使用var定义局部变量类型推断标识符，此符号仅适用于局部变量，</li>
+<li>不能使用于方法形式参数，构造函数形式参数，方法返回类型，字段，catch形式参数或任何其他类型的变量声明。</li>
+</ul>
+<h4 id="（2）实际意义"><a href="#（2）实际意义" class="headerlink" title="（2）实际意义"></a>（2）实际意义</h4><ul>
+<li>标识符var不是关键字，只是一个保留的类型名称。这意味着var用作变量，方法名或包名的代码不会受到影响，但var不能作为类或则接口的名字。</li>
+<li>避免了信息冗余。</li>
+<li>对齐了变量名。</li>
+<li>更容易阅读。</li>
+</ul>
+<h2 id="四、Java11的新特性"><a href="#四、Java11的新特性" class="headerlink" title="四、Java11的新特性"></a>四、Java11的新特性</h2><p>2018年9月发布</p>
+<p>在Java11中可以使用java命令一次性进行编译和运行操作。</p>
+<p>String类新增方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean isBlank()</td>
+<td>判断字符串是否为空或只包含空白代码点</td>
+</tr>
+<tr>
+<td>Optional map(Function mapper)</td>
+<td>根据参数指定规则的结果来得到Optional类 型的对象</td>
+</tr>
+<tr>
+<td>T orElse(T other)</td>
+<td>若该值存在就返回，否则返回other的数 值。</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/1-8%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag">1.8新特性</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-2.java核心类库"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/16/2.java%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%BA%93/"
+    >java核心类库</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/16/2.java%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%BA%93/" class="article-date">
+  <time datetime="2022-02-16T06:06:25.000Z" itemprop="datePublished">2022-02-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="常用类的概述和使用"><a href="#常用类的概述和使用" class="headerlink" title="常用类的概述和使用"></a>常用类的概述和使用</h1><h2 id="一、常用的包（熟悉）"><a href="#一、常用的包（熟悉）" class="headerlink" title="一、常用的包（熟悉）"></a>一、常用的包（熟悉）</h2><ul>
+<li>java.lang包，核心包，由虚拟机自动导入</li>
+<li>java.util包，工具包，包含工具类以及集合类等</li>
+<li>java.io包，输入输出类包，文件读写</li>
+<li>java.net包，网络包，网络传输</li>
+<li>java.sql包，数据包，操作数据库的类</li>
+</ul>
+<p>java.lang.Number类是个抽象类，是包装类的父类</p>
+<h2 id="二、数学处理类（熟悉）"><a href="#二、数学处理类（熟悉）" class="headerlink" title="二、数学处理类（熟悉）"></a>二、数学处理类（熟悉）</h2><h3 id="1、Math类"><a href="#1、Math类" class="headerlink" title="1、Math类"></a>1、Math类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static int max(int a,int b)</td>
+<td>求最大</td>
+</tr>
+<tr>
+<td>static int min(int a,int b)</td>
+<td>求最小</td>
+</tr>
+<tr>
+<td>static double pow(double a,double b)</td>
+<td>a的b次方</td>
+</tr>
+<tr>
+<td>static int abs(int a)</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>static long round(double a)</td>
+<td>四舍五入</td>
+</tr>
+<tr>
+<td>static double sqrt(double a)</td>
+<td>平方根</td>
+</tr>
+<tr>
+<td>static double random()</td>
+<td>0.0到1.0随机数</td>
+</tr>
+</tbody></table>
+<h3 id="2、BigDecimal类"><a href="#2、BigDecimal类" class="headerlink" title="2、BigDecimal类"></a>2、BigDecimal类</h3><p>float和double运算有误差，借助BigDecimal实现精确</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BigDecimal(String val)</td>
+<td>字符串构造对象</td>
+</tr>
+<tr>
+<td>BigDecimal add(BigDecimal augend)</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>BigDecimal substract(BigDecimal subtrahend)</td>
+<td>减法</td>
+</tr>
+<tr>
+<td>BigDecimal multiply(BigDecimal multiplicand)</td>
+<td>乘法</td>
+</tr>
+<tr>
+<td>BigDecimal divide(BigDecimal divisor)</td>
+<td>除法</td>
+</tr>
+</tbody></table>
+<h3 id="3、BigInteger类"><a href="#3、BigInteger类" class="headerlink" title="3、BigInteger类"></a>3、BigInteger类</h3><p>可表示比long还大的整数</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BigInteger remainder(BigInteger val)</td>
+<td>取余</td>
+</tr>
+<tr>
+<td>BigInteger[] divideAndRemainder(BigInteger val)</td>
+<td>取商和取余</td>
+</tr>
+</tbody></table>
+<h1 id="String类的概述和使用"><a href="#String类的概述和使用" class="headerlink" title="String类的概述和使用"></a>String类的概述和使用</h1><h2 id="一、String类的概念（重点）"><a href="#一、String类的概念（重点）" class="headerlink" title="一、String类的概念（重点）"></a>一、String类的概念（重点）</h2><ul>
+<li>final修饰，不可被继承</li>
+<li>1.9开始底层不使用char[]存储，改用byte[]加上编码标记存储</li>
+<li>字符串内容为常量不可修改，可被共享使用</li>
+</ul>
+<h2 id="二、常量池（原理）"><a href="#二、常量池（原理）" class="headerlink" title="二、常量池（原理）"></a>二、常量池（原理）</h2><p>String描述字符串为常量不可改变，java虚拟机将首次出现的字符串放入常量池中。</p>
+<h2 id="三、常用构造方法（练熟、记住）"><a href="#三、常用构造方法（练熟、记住）" class="headerlink" title="三、常用构造方法（练熟、记住）"></a>三、常用构造方法（练熟、记住）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String()</td>
+<td>空字符串</td>
+</tr>
+<tr>
+<td>String(byte[] bytes,int offset,int length)</td>
+<td>bytes数组中从下标offset开始length个字节</td>
+</tr>
+<tr>
+<td>String(byte[] bytes)</td>
+<td>bytes数组中所有内容构造</td>
+</tr>
+<tr>
+<td>String(char[] value,int offset,int length)</td>
+<td>vlaue数组中从下标offset开始length个字节</td>
+</tr>
+<tr>
+<td>String(char[] value)</td>
+<td>value数组中所有内容构造</td>
+</tr>
+<tr>
+<td>String(String original)</td>
+<td>创建original副本</td>
+</tr>
+</tbody></table>
+<h2 id="四、常用的成员方法（练熟、记住）"><a href="#四、常用的成员方法（练熟、记住）" class="headerlink" title="四、常用的成员方法（练熟、记住）"></a>四、常用的成员方法（练熟、记住）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String toString()</td>
+<td>打印</td>
+</tr>
+<tr>
+<td>byte[] getBytes()</td>
+<td>转为byte[]数组</td>
+</tr>
+<tr>
+<td>char[] toCharArray()</td>
+<td>转为char数组</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char charAt(int index)</td>
+<td>指定位置字符</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td>长度</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>判断是否为空</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int compareTo(String anotherString)</td>
+<td>比较大小</td>
+</tr>
+<tr>
+<td>int compareToIgnoreCase(String str)</td>
+<td>不考虑大小写比较</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String concat(String str)</td>
+<td>实现字符串拼接</td>
+</tr>
+<tr>
+<td>boolean contains(CharSequence s)</td>
+<td>判断是否包含s内容</td>
+</tr>
+<tr>
+<td>String toLowerCase()</td>
+<td>返回字符串小写</td>
+</tr>
+<tr>
+<td>String toUpperCase()</td>
+<td>返回字符串大写</td>
+</tr>
+<tr>
+<td>String trim()</td>
+<td>去掉前导和后记空白的字符串</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix)</td>
+<td>判断是否以prefix开头</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix,int offset)</td>
+<td>指定位置开始是否以prefix开头</td>
+</tr>
+<tr>
+<td>boolean endsWith(String suffix)</td>
+<td>判断是否以suffix结尾</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean equals(Object anObject)</td>
+<td>比较字符串内容是否相等</td>
+</tr>
+<tr>
+<td>int hasCode()</td>
+<td>哈希码值</td>
+</tr>
+<tr>
+<td>boolean equalsIgnoreCase(String anotherString)</td>
+<td>比较字符串内容是否相等，不考虑大小写</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int indexOf(int ch)</td>
+<td>返回ch对应字符第一次出现的位置</td>
+</tr>
+<tr>
+<td>int indexOf(int ch,int fromIndex)</td>
+<td>从fromIndex开始查找ch对应字符</td>
+</tr>
+<tr>
+<td>int indexOf(String str)</td>
+<td>检索str第一次出现位置，没有返回-1</td>
+</tr>
+<tr>
+<td>int indexOf(String str,int fromIndex)</td>
+<td>从fromIndex位置开始检索str第一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch)</td>
+<td>返回ch最后一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch,int fromIndex)</td>
+<td>从fromIndex位置往前最后一次出现的位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str)</td>
+<td>返回str最后一次出现位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str, int fromIndex)</td>
+<td>从fromIndex位置往前最后一次出现的位置</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String substring(int a,int b)</td>
+<td>返回从a（包括）开始到b（不包括）结束的子字符串</td>
+</tr>
+<tr>
+<td>String substring(int a)</td>
+<td>返回从a（包括）到结尾的子字符串</td>
+</tr>
+</tbody></table>
+<h2 id="五、正则表达式（暂不看）"><a href="#五、正则表达式（暂不看）" class="headerlink" title="五、正则表达式（暂不看）"></a>五、正则表达式（暂不看）</h2><h1 id="可变字符串类和日期类"><a href="#可变字符串类和日期类" class="headerlink" title="可变字符串类和日期类"></a>可变字符串类和日期类</h1><h2 id="一、可变字符串（重点）"><a href="#一、可变字符串（重点）" class="headerlink" title="一、可变字符串（重点）"></a>一、可变字符串（重点）</h2><h3 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>StringBuffer类是jdk1.0开始，线程安全，效率低</li>
+<li>StringBuilder类从jdk1.5开始，线程不安全，效率高</li>
+</ul>
+<h3 id="2、StringBuilder构造"><a href="#2、StringBuilder构造" class="headerlink" title="2、StringBuilder构造"></a>2、StringBuilder构造</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuilder()</td>
+<td>容量16</td>
+</tr>
+<tr>
+<td>StringBuilder(int capcacity)</td>
+<td>容量为参数大小</td>
+</tr>
+<tr>
+<td>StringBuilder(String str)</td>
+<td>根据参数构造，容量为16+参数长度</td>
+</tr>
+</tbody></table>
+<h3 id="3、StringBuilder方法"><a href="#3、StringBuilder方法" class="headerlink" title="3、StringBuilder方法"></a>3、StringBuilder方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int capacity()</td>
+<td>返回容量</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td>字符个数</td>
+</tr>
+<tr>
+<td>StringBuilder insert(int offset,String str)</td>
+<td>插入字符串返回自己</td>
+</tr>
+<tr>
+<td>StringBuilder append(String str)</td>
+<td>追加字符串</td>
+</tr>
+<tr>
+<td>StringBuilder deleteCharAt(int index)</td>
+<td>index位置字符删除</td>
+</tr>
+<tr>
+<td>StringBuilder delete(int start,int end)</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>StringBuilder replace(int start,int end,String str)</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>StringBuilder reverse()</td>
+<td>反转</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>当String作为形参传递到方法里的时候,实际上传递的是str引用的拷贝</li>
+<li>作为参数传递的话，方法内部String不会改变其值，StringBuffer和StringBuilder会改变其值。</li>
+</ul>
+<h2 id="二、Java8之前日期（熟悉）"><a href="#二、Java8之前日期（熟悉）" class="headerlink" title="二、Java8之前日期（熟悉）"></a>二、Java8之前日期（熟悉）</h2><h3 id="1、System类"><a href="#1、System类" class="headerlink" title="1、System类"></a>1、System类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static long currentTimeMillis()</td>
+<td>返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差</td>
+</tr>
+</tbody></table>
+<h3 id="2、Date类"><a href="#2、Date类" class="headerlink" title="2、Date类"></a>2、Date类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Date()</td>
+<td>当前系统时间</td>
+</tr>
+<tr>
+<td>Date(long date)</td>
+<td>参数为距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>long getTime()</td>
+<td>获取调用对象距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>void setTime(long time)</td>
+<td>设置对象为距离基准时间time毫秒的时间点</td>
+</tr>
+</tbody></table>
+<h3 id="3、SimpleDateFormat类的概述"><a href="#3、SimpleDateFormat类的概述" class="headerlink" title="3、SimpleDateFormat类的概述"></a>3、SimpleDateFormat类的概述</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SimpleDateFormat()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>SimpleDateFormat(String pattern)</td>
+<td>参数：y年 M月 d日 H时 m分 s秒</td>
+</tr>
+<tr>
+<td>final String format(Date date)</td>
+<td>日期转文本</td>
+</tr>
+<tr>
+<td>Date parse(String source)</td>
+<td>文本转为日期</td>
+</tr>
+</tbody></table>
+<h3 id="4、Calendar类的概述"><a href="#4、Calendar类的概述" class="headerlink" title="4、Calendar类的概述"></a>4、Calendar类的概述</h3><ul>
+<li>抽象类，不能实例化对象</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Calendar getInstance()</td>
+<td>获取引用</td>
+</tr>
+<tr>
+<td>void set(int year, int month, int date, int hourOfDay, int minute, int second)</td>
+<td>设置年月日时分秒信息</td>
+</tr>
+<tr>
+<td>Date getTime()</td>
+<td>Calendar转为Date</td>
+</tr>
+<tr>
+<td>void set(int field,int value)</td>
+<td>设置指定字段数值</td>
+</tr>
+<tr>
+<td>void add(int field,int value)</td>
+<td>指定字段增加数值</td>
+</tr>
+</tbody></table>
+<h2 id="三、Java8中的日期相关类-熟悉"><a href="#三、Java8中的日期相关类-熟悉" class="headerlink" title="三、Java8中的日期相关类(熟悉)"></a>三、Java8中的日期相关类(熟悉)</h2><h3 id="1、LocalDate类"><a href="#1、LocalDate类" class="headerlink" title="1、LocalDate类"></a>1、LocalDate类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalDate now()</td>
+<td>默认时区中从系统时钟获取当前日期</td>
+</tr>
+</tbody></table>
+<h3 id="2、LocalTime类"><a href="#2、LocalTime类" class="headerlink" title="2、LocalTime类"></a>2、LocalTime类</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalTime now()</td>
+<td>默认时区系统时间获取当前时间</td>
+</tr>
+<tr>
+<td>static LocalTime now(Zoneld zone)</td>
+<td>获取指定时区当前时间</td>
+</tr>
+</tbody></table>
+<h3 id="3、LocalDateTime类的概述"><a href="#3、LocalDateTime类的概述" class="headerlink" title="3、LocalDateTime类的概述"></a>3、LocalDateTime类的概述</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static LocalDateTime now()</td>
+<td>默认时区系统时间获取当前时间</td>
+</tr>
+<tr>
+<td>static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute, int second)</td>
+<td>根据参数指定的年月日时分秒信息来设置日期时间</td>
+</tr>
+<tr>
+<td>int getYear()</td>
+<td>获取年份</td>
+</tr>
+<tr>
+<td>LocalDateTime withYear(int year)</td>
+<td>设置为参数指定的年</td>
+</tr>
+<tr>
+<td>LocalDateTime plusYears(long years)</td>
+<td>加上参数指定的年</td>
+</tr>
+<tr>
+<td>LocalDateTime minusYears(long years)</td>
+<td>减去参数指定的年</td>
+</tr>
+</tbody></table>
+<h3 id="4、Instant类"><a href="#4、Instant类" class="headerlink" title="4、Instant类"></a>4、Instant类</h3><p>描述瞬间的时间点</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Instant now()</td>
+<td>系统时间上获取时间</td>
+</tr>
+<tr>
+<td>OffsetDateTime atOffset(ZoneOffset offset)</td>
+<td>此瞬间与偏移量组合创建偏移日期时间</td>
+</tr>
+<tr>
+<td>static Instant ofEpohMilli(long epochMilli)</td>
+<td>参数为距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+<tr>
+<td>long toEpochMilli()</td>
+<td>获取距离1970年1月1日0时0分0秒的毫秒数</td>
+</tr>
+</tbody></table>
+<h3 id="5、DateTimeFormatter类的概述"><a href="#5、DateTimeFormatter类的概述" class="headerlink" title="5、DateTimeFormatter类的概述"></a>5、DateTimeFormatter类的概述</h3><p>格式化和解析日期</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static DateTimeFormatter ofPattern(String pattern)</td>
+<td>参数指定模式</td>
+</tr>
+<tr>
+<td>String format(TemporalAccessor temporal)</td>
+<td>参数指定日期时间转为字符串</td>
+</tr>
+<tr>
+<td>TemporalAccessor parse(CharSequence text)</td>
+<td>字符串转为日期时间</td>
+</tr>
+</tbody></table>
+<h1 id="集合类库（上）"><a href="#集合类库（上）" class="headerlink" title="集合类库（上）"></a>集合类库（上）</h1><h2 id="一、集合的概述（重点）"><a href="#一、集合的概述（重点）" class="headerlink" title="一、集合的概述（重点）"></a>一、集合的概述（重点）</h2><h3 id="1、集合的框架结构"><a href="#1、集合的框架结构" class="headerlink" title="1、集合的框架结构"></a>1、集合的框架结构</h3><ul>
+<li>java集合框架顶层框架时:java.util.Collection集合和java.util.Map集合</li>
+<li>Collection集合中存取元素的基本单位：单个元素</li>
+<li>Map集合中存取元素的基本单位：单对元素</li>
+</ul>
+<h2 id="二、Collection集合（重点）"><a href="#二、Collection集合（重点）" class="headerlink" title="二、Collection集合（重点）"></a>二、Collection集合（重点）</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>java.util.Collection接口是List接口、Queue接口和Set接口的父接口</li>
+</ul>
+<h3 id="2、常用方法（练熟、记住）"><a href="#2、常用方法（练熟、记住）" class="headerlink" title="2、常用方法（练熟、记住）"></a>2、常用方法（练熟、记住）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean add(E e)</td>
+<td>集合中添加对象</td>
+</tr>
+<tr>
+<td>boolean addAll(Collection&lt;? extends E&gt; c)</td>
+<td>将c中所有元素添加到当前集合中</td>
+</tr>
+<tr>
+<td>boolean contains(Object o)</td>
+<td>是否包含对象o</td>
+</tr>
+<tr>
+<td>boolean containsAll(Collection&lt;?&gt; c)</td>
+<td>是否包含c中所有对象</td>
+</tr>
+<tr>
+<td>boolean retainAll（Collection&lt;?&gt; c）</td>
+<td>取交集</td>
+</tr>
+<tr>
+<td>boolean remove(Object o)</td>
+<td>删除o</td>
+</tr>
+<tr>
+<td>boolean removeAll(Collection&lt;?&gt; c)</td>
+<td>删除将c中含有对象全部删除</td>
+</tr>
+<tr>
+<td>void clear();</td>
+<td>清空集合</td>
+</tr>
+<tr>
+<td>int size();</td>
+<td>包含对象个数</td>
+</tr>
+<tr>
+<td>boolean isEmpty();</td>
+<td>是否为空</td>
+</tr>
+<tr>
+<td>boolean equals(Object o)</td>
+<td>是否相等</td>
+</tr>
+<tr>
+<td>int hashCode()</td>
+<td>集合的哈希码值</td>
+</tr>
+<tr>
+<td>Object[] toArray()</td>
+<td>集合转换为数组</td>
+</tr>
+<tr>
+<td>Iterator iterator()</td>
+<td>获取当前集合的迭代器</td>
+</tr>
+</tbody></table>
+<h2 id="三、Iterator接口（重点）"><a href="#三、Iterator接口（重点）" class="headerlink" title="三、Iterator接口（重点）"></a>三、Iterator接口（重点）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean hasNext()</td>
+<td>集合中是否有可以迭代&#x2F;访问的元素</td>
+</tr>
+<tr>
+<td>E next()</td>
+<td>取出一个元素并指向下一个元素</td>
+</tr>
+<tr>
+<td>void remove()</td>
+<td>用于删除访问到的最后一个元素</td>
+</tr>
+</tbody></table>
+<h2 id="四、for-each循环-重点"><a href="#四、for-each循环-重点" class="headerlink" title="四、for each循环(重点)"></a>四、for each循环(重点)</h2><p>Java5推出增强版for循环语句</p>
+<h2 id="五、List集合（重中之重）"><a href="#五、List集合（重中之重）" class="headerlink" title="五、List集合（重中之重）"></a>五、List集合（重中之重）</h2><h3 id="1、概念-1"><a href="#1、概念-1" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li><p>集合中允许有重复且有前后放入顺序</p>
+</li>
+<li><p>主要实现类：ArrayList类、LinkedList类、Stack类、Vector类</p>
+</li>
+<li><p>ArrayList类底层采用动态数组进行数据管理，支持下标访问，增删不方便</p>
+</li>
+<li><p>LinkedList类底层采用双向链表进行数据管理，访问不方便，增删元素方便</p>
+</li>
+<li><p>Stack类底层采用动态数组，主要用于描述后进先出特征的数据结构，栈（LIFO）</p>
+</li>
+<li><p>Vector类底层采用动态数组，该类与ArrayList类相比属于线程安全类，效率比较低。（以后开发中基本不用）</p>
+</li>
+</ul>
+<h3 id="2、方法"><a href="#2、方法" class="headerlink" title="2、方法"></a>2、方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void add(int index,E element)</td>
+<td>向指定位置添加元素</td>
+</tr>
+<tr>
+<td>boolean addAll(int index,Collection&lt;? extends E&gt; c)</td>
+<td>集合中添加所有元素</td>
+</tr>
+<tr>
+<td>E get(int index)</td>
+<td>从集合中获取指定位置元素</td>
+</tr>
+<tr>
+<td>int indexOf(Object o)</td>
+<td>查找参数对象</td>
+</tr>
+<tr>
+<td>int lastIndexOf(Object o)</td>
+<td>反向查找参数对象</td>
+</tr>
+<tr>
+<td>E set(int index,E element)</td>
+<td>修改指定位置的元素</td>
+</tr>
+<tr>
+<td>E remove(int index)</td>
+<td>删除指定位置的元素</td>
+</tr>
+<tr>
+<td>List subList(int fromIndex,int toIndex)</td>
+<td>获取子List</td>
+</tr>
+</tbody></table>
+<h2 id="六、Queue集合-重点"><a href="#六、Queue集合-重点" class="headerlink" title="六、Queue集合(重点)"></a>六、Queue集合(重点)</h2><h3 id="1、基本概念-1"><a href="#1、基本概念-1" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>与List平级</li>
+<li>描述先进先出，队列</li>
+<li>主要实现类LinkedList</li>
+</ul>
+<h3 id="2、方法-1"><a href="#2、方法-1" class="headerlink" title="2、方法"></a>2、方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean offer(E e)</td>
+<td>将一个对象添加至队尾，添加成功返回true</td>
+</tr>
+<tr>
+<td>E poll()</td>
+<td>队首删除并返回一个元素</td>
+</tr>
+<tr>
+<td>E peek()</td>
+<td>返回队首的元素（不删除）</td>
+</tr>
+</tbody></table>
+<h1 id="集合类库（下）"><a href="#集合类库（下）" class="headerlink" title="集合类库（下）"></a>集合类库（下）</h1><h2 id="一、泛型机制（熟悉）"><a href="#一、泛型机制（熟悉）" class="headerlink" title="一、泛型机制（熟悉）"></a>一、泛型机制（熟悉）</h2><h3 id="1、概念-2"><a href="#1、概念-2" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>java5开始增加泛型，集合右侧使用&lt;数据类型&gt;,放入其他类型则编译报错</li>
+<li>泛型只在编译时期有效，运行时期不区分类型</li>
+</ul>
+<h3 id="2、底层原理"><a href="#2、底层原理" class="headerlink" title="2、底层原理"></a>2、底层原理</h3><ul>
+<li>本质就是参数化类型，让数据类型作为参数传递</li>
+<li>E为形参负责占位</li>
+</ul>
+<h3 id="3、通配符"><a href="#3、通配符" class="headerlink" title="3、通配符"></a>3、通配符</h3><ul>
+<li><?>无限制通配符：可传入任意类型参数</li>
+<li><? extends E>表示类型的上界是E，只能是E或者E的子类</li>
+<li><? super E>表示类型的下界是E，只能是E或者E的父类</li>
+</ul>
+<h3 id="4、自定义接口部分（暂不看）"><a href="#4、自定义接口部分（暂不看）" class="headerlink" title="4、自定义接口部分（暂不看）"></a>4、自定义接口部分（暂不看）</h3><h2 id="二、Set集合（熟悉）"><a href="#二、Set集合（熟悉）" class="headerlink" title="二、Set集合（熟悉）"></a>二、Set集合（熟悉）</h2><h3 id="1、概念-3"><a href="#1、概念-3" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li><p>java.util.Set集合与List集合平级</p>
+</li>
+<li><p>无先后顺序，不允许重复</p>
+</li>
+<li><p>主要实现类：HashSet、TreeSet以及LinkedHashSet</p>
+</li>
+<li><p>HashSet底层采用哈希表</p>
+</li>
+<li><p>TreeSet底层采用红黑树</p>
+</li>
+<li><p>LinkedHashSet与HashSet不同在于内部维护一个双向链表，链表中记录元素迭代顺序</p>
+</li>
+</ul>
+<h3 id="2、元素放入原理"><a href="#2、元素放入原理" class="headerlink" title="2、元素放入原理"></a>2、元素放入原理</h3><ul>
+<li>使用元素调用hashCode方法获取对应哈希码值，</li>
+<li>通过算法(h &#x3D; key.hashCode()) ^ (h &gt;&gt;&gt; 16)计算出索引位置</li>
+<li>与该位置元素依次比较哈希值，若不同直接放入</li>
+<li>若相同，再调用新元素equals方法比较</li>
+<li>若相等添加失败，否则直接放入</li>
+</ul>
+<p>思考：为什么要求重写equals方法后要重写hashCode方法呢？</p>
+<p>答：当调用equals方法相等时表示两个元素相同，重写hashCode后保证这两个元素得到的哈希码值相同，提高效率避免重复元素。</p>
+<h3 id="3、TreeSet集合"><a href="#3、TreeSet集合" class="headerlink" title="3、TreeSet集合"></a>3、TreeSet集合</h3><p>TreeSet底层采用红黑树，当有新元素插入，需要使用新元素与集合中已有的元素依次比较来确定新元素位置</p>
+<ul>
+<li><p><strong>二叉树</strong>：最多只有两个子节点的树形结构</p>
+</li>
+<li><p><strong>有序二叉树</strong>：左子树任意节点小于根节点，右子树任意节点小于根节点</p>
+</li>
+</ul>
+<p>比较元素大小方式</p>
+<ul>
+<li>元素自然排序，元素类型实现java.lang.Comparable接口</li>
+<li>比较器规则，构造TreeSet集合时传入java.util.Comparator接口</li>
+</ul>
+<h2 id="三、Map集合（重点）"><a href="#三、Map集合（重点）" class="headerlink" title="三、Map集合（重点）"></a>三、Map集合（重点）</h2><h3 id="1、概念-4"><a href="#1、概念-4" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
+<li>key不允许重复</li>
+<li>主要实现类：HashMap、TreeMap、LinkedHashMap、Hashtable、Properties</li>
+<li>HashMap底层采用哈希表</li>
+<li>TreeMap底层采用红黑树</li>
+<li>LinkedHashMap内部维护了一个双向链表</li>
+<li>Hashtable时古老的Map实现类，与HashMap相比属于线程安全，不允许null作为key或value</li>
+<li>Properties是Hashtable子类，处理属性文件，key和value都为String</li>
+</ul>
+<h3 id="2、常用方法"><a href="#2、常用方法" class="headerlink" title="2、常用方法"></a>2、常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V put(K key,V value)</td>
+<td>若集合中已经包含该Key，则替换该Key所对应的Value，返回值为该Key原来所对应的Value，若没有则返回null</td>
+</tr>
+<tr>
+<td>V get(Obejct key)</td>
+<td>获取key对应value</td>
+</tr>
+<tr>
+<td>boolean containsKey(Object key);</td>
+<td>判断是否包含Key</td>
+</tr>
+<tr>
+<td>boolean containsValue (Object value);</td>
+<td>判断是否包含Value</td>
+</tr>
+<tr>
+<td>V remove(Object key)</td>
+<td>删除key</td>
+</tr>
+<tr>
+<td>Set keySet()</td>
+<td>返回包含键的Set视图</td>
+</tr>
+<tr>
+<td>Collection values()</td>
+<td>返回包含值的Set视图</td>
+</tr>
+<tr>
+<td>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</td>
+<td>返回包含映射的Set视图</td>
+</tr>
+</tbody></table>
+<h3 id="3、元素放入HashMap原理"><a href="#3、元素放入HashMap原理" class="headerlink" title="3、元素放入HashMap原理"></a>3、元素放入HashMap原理</h3><ul>
+<li>调用hashCode()方法获取对应哈希码值，通过算法获得索引位置</li>
+<li>位置无元素直接插入</li>
+<li>有元素，依次比较哈希码值，再使用key调用equals方法与已有元素比较</li>
+<li>若不同则键值对直接放入</li>
+</ul>
+<h3 id="4、常量"><a href="#4、常量" class="headerlink" title="4、常量"></a>4、常量</h3><ul>
+<li>DEFAULT_INITIAL_CAPACITY : HashMap的默认容量是16。</li>
+<li>DEFAULT_LOAD_FACTOR：HashMap的默认加载因子是0.75。</li>
+<li>threshold：扩容的临界值，容量*填充因子，12</li>
+<li>TREEIFY_THRESHOLD：若Bucket中链表长度大于该默认值则转化为<strong>红黑树</strong>存储，该数值是8。</li>
+<li>MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量，该数值是64。</li>
+</ul>
+<h2 id="四、Collections类"><a href="#四、Collections类" class="headerlink" title="四、Collections类"></a>四、Collections类</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</td>
+<td>根据元素的自然顺序返回集合最大元素</td>
+</tr>
+<tr>
+<td>static T max(Collection&lt;? extends T&gt; coll, Comparator&lt;?super T&gt; comp)</td>
+<td>根据指定比较器引发的顺序返回 给定集合的最大元素</td>
+</tr>
+<tr>
+<td>static &lt;T extends Object &amp; Comparable&lt;?super T&gt;&gt; T min(Collection&lt;? extends T&gt; coll)</td>
+<td>根据元素的自然顺序返回给定集 合的最小元素</td>
+</tr>
+<tr>
+<td>static min(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</td>
+<td>根据指定比较器引发的顺序返回 给定集合的最小元素</td>
+</tr>
+<tr>
+<td>static void copy(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</td>
+<td>将一个列表中的所有元素复制到 另一个列表中</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static void reverse(List&lt;?&gt; list)</td>
+<td>反转指定列表中元素的顺序</td>
+</tr>
+<tr>
+<td>static void shuffle(List&lt;?&gt; list)</td>
+<td>使用默认的随机源随机置换指定的列表</td>
+</tr>
+<tr>
+<td>static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List list)</td>
+<td>根据其元素的自然顺序将指定列表按升 序排序</td>
+</tr>
+<tr>
+<td>static void sort(List list, Comparator&lt;? super T&gt; c)</td>
+<td>根据指定比较器指定的顺序对指定列表 进行排序</td>
+</tr>
+<tr>
+<td>static void swap(List&lt;?&gt; list, int i, int j)</td>
+<td>交换指定列表中指定位置的元素</td>
+</tr>
+</tbody></table>
+<h1 id="异常机制和File类"><a href="#异常机制和File类" class="headerlink" title="异常机制和File类"></a>异常机制和File类</h1><h2 id="一、异常机制（重点）"><a href="#一、异常机制（重点）" class="headerlink" title="一、异常机制（重点）"></a>一、异常机制（重点）</h2><h3 id="1、分类"><a href="#1、分类" class="headerlink" title="1、分类"></a>1、分类</h3><ul>
+<li><p>java.lang.Exception所有异常的超类</p>
+<p>RuntimeException-运行时异常，非检测性异常</p>
+<p>IOException和其他异常，检测性异常</p>
+</li>
+<li><p>RunTimeException主要子类</p>
+<p>ArithmeticException-算数异常</p>
+<p>ArrayIndexOutofBoundsException数组下标越界</p>
+<p>NullPointerException空指针</p>
+<p>ClassCastException类转换异常</p>
+<p>NumberFormatException数字格式异常</p>
+</li>
+</ul>
+<h2 id="二、FIle类（重点）"><a href="#二、FIle类（重点）" class="headerlink" title="二、FIle类（重点）"></a>二、FIle类（重点）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File(String pathname)</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>File(String parent,String child)</td>
+<td>父路径和子路径信息构造</td>
+</tr>
+<tr>
+<td>File(File parent, String child)</td>
+<td>父抽象路径和子路径信息构造</td>
+</tr>
+<tr>
+<td>boolean exists()</td>
+<td>判断文件或目录是否存在</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取文件名称</td>
+</tr>
+<tr>
+<td>long length()</td>
+<td>文件长度</td>
+</tr>
+<tr>
+<td>long lastModified()</td>
+<td>文件最后一次修改时间</td>
+</tr>
+<tr>
+<td>String getAbsolutePath()</td>
+<td>获取绝对路径</td>
+</tr>
+<tr>
+<td>boolean delete()</td>
+<td>删除文件，若是目录要求空目录</td>
+</tr>
+<tr>
+<td>boolean createNewFile()</td>
+<td>创建新的空文件</td>
+</tr>
+<tr>
+<td>boolean mkdir()</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>boolean mkdirs()</td>
+<td>创建多级目录</td>
+</tr>
+<tr>
+<td>File[] listFiles()</td>
+<td>获取该目录下所有内容</td>
+</tr>
+<tr>
+<td>boolean isFile()</td>
+<td>是否为文件</td>
+</tr>
+<tr>
+<td>boolean isDirectory()</td>
+<td>是否为目录</td>
+</tr>
+<tr>
+<td>File[] listFiles(FileFilter filter)</td>
+<td>获取目录下满足筛选器的所有内容</td>
+</tr>
+</tbody></table>
+<h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1><h2 id="一、分类"><a href="#一、分类" class="headerlink" title="一、分类"></a>一、分类</h2><ul>
+<li>字节流和字符流</li>
+<li>输入流和输出流</li>
+<li>节点流和处理流</li>
+</ul>
+<h2 id="二、相关流"><a href="#二、相关流" class="headerlink" title="二、相关流"></a>二、相关流</h2><h3 id="1、FileWriter类（重点）"><a href="#1、FileWriter类（重点）" class="headerlink" title="1、FileWriter类（重点）"></a>1、FileWriter类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileWriter（String fileName,boolean append）</td>
+<td>以追加方式构造对象</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf,int off,int len)</td>
+<td>将cbuf中从off开始的len个字符写入此文件输出流</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放资源</td>
+</tr>
+</tbody></table>
+<h3 id="2、FileReader类（重点）"><a href="#2、FileReader类（重点）" class="headerlink" title="2、FileReader类（重点）"></a>2、FileReader类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileReader(String fileName)</td>
+<td>构造对象</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf,int offset,int length)</td>
+<td>从输入流中offset偏移开始的len个字符读取，返回-1表示到末尾</td>
+</tr>
+</tbody></table>
+<h3 id="3、FileOutputStream类（重点）"><a href="#3、FileOutputStream类（重点）" class="headerlink" title="3、FileOutputStream类（重点）"></a>3、FileOutputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileOutputStream(String name, boolean append)</td>
+<td>追加方式构造对象</td>
+</tr>
+<tr>
+<td>void write(byte[] b, int off, int len)</td>
+<td>从偏移量off开始的len个字节写入此文件输出流</td>
+</tr>
+</tbody></table>
+<h3 id="4、FileInputStream类（重点）"><a href="#4、FileInputStream类（重点）" class="headerlink" title="4、FileInputStream类（重点）"></a>4、FileInputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileInputStream(String name)</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>int read(byte[] b, int off, int len)</td>
+<td>从此输入流中将最多len个字节的数据读入字节数组中，返回读取到的 字节个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>int available()</td>
+<td>获取关联文件大小</td>
+</tr>
+</tbody></table>
+<h3 id="5、BufferedOutputStream类（重点）"><a href="#5、BufferedOutputStream类（重点）" class="headerlink" title="5、BufferedOutputStream类（重点）"></a>5、BufferedOutputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedOutputStream(OutputStream out, int size)</td>
+<td>参数指定的引用和缓冲区大小来构造 对象</td>
+</tr>
+<tr>
+<td>void write(byte[] b, int off, int len)</td>
+<td>写入字节数组中的一部分数据</td>
+</tr>
+</tbody></table>
+<h3 id="6、BufferedInputStream类（重点）"><a href="#6、BufferedInputStream类（重点）" class="headerlink" title="6、BufferedInputStream类（重点）"></a>6、BufferedInputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedInputStream(InputStream in, int size)</td>
+<td>根据参数指定的引用和缓冲区大小构造对象</td>
+</tr>
+<tr>
+<td>int read(byte[] b, int off, int len)</td>
+<td>读取len个字节</td>
+</tr>
+</tbody></table>
+<h3 id="7、BufferedWriter类（重点）"><a href="#7、BufferedWriter类（重点）" class="headerlink" title="7、BufferedWriter类（重点）"></a>7、BufferedWriter类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedWriter(Writer out, int sz)</td>
+<td>根据参数指定的引用和缓冲区大小来构造对象</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf, int off, int len)</td>
+<td>将字符数组cbuf中从下标off开始的len个字符写入输出流 中</td>
+</tr>
+<tr>
+<td>void write(String s, int off, int len)</td>
+<td>将参数s中下标从off开始的len个字符写入输出流中</td>
+</tr>
+<tr>
+<td>void newLine()</td>
+<td>void newLine()</td>
+</tr>
+</tbody></table>
+<h3 id="8、BufferedReader类（重点）"><a href="#8、BufferedReader类（重点）" class="headerlink" title="8、BufferedReader类（重点）"></a>8、BufferedReader类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedReader(Reader in, int sz)</td>
+<td>根据参数指定的引用和缓冲区大小来构造对象</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf, int off, int len)</td>
+<td>从输入流中读取len个字符放入数组cbuf中下标从off开始的位置上， 若读取到末尾则返回-1，否则返回实际读取到的字符个数</td>
+</tr>
+<tr>
+<td>String readLine()</td>
+<td>读取一行字符串并返回，返回null表示读取到末尾</td>
+</tr>
+</tbody></table>
+<h3 id="9、ObjectOutputStream（重点）"><a href="#9、ObjectOutputStream（重点）" class="headerlink" title="9、ObjectOutputStream（重点）"></a>9、ObjectOutputStream（重点）</h3><ul>
+<li>只有实现java.io.Serializable才可写入流</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectOutputStream(OutputStream out)</td>
+<td>构造对象</td>
+</tr>
+<tr>
+<td>void writeObject(Object obj)</td>
+<td>参数指定的对象整体写入到输出流中</td>
+</tr>
+</tbody></table>
+<h3 id="10、ObjectInputStream（重点）"><a href="#10、ObjectInputStream（重点）" class="headerlink" title="10、ObjectInputStream（重点）"></a>10、ObjectInputStream（重点）</h3><ul>
+<li>序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时， JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如 果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常 (InvalidCastException)。</li>
+<li>transient是Java语言的关键字，用来表示一个域不是该对象串行化的一部分。当一个对象被串行 化的时候，transient型变量的值不包括在串行化的表示中，然而非transient型的变量是被包括进 去的。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectInputStream(InputStream in)</td>
+<td>根据参数指定的引用来构造对象</td>
+</tr>
+<tr>
+<td>Object readObject()</td>
+<td>主要用于从输入流中读取一个对象并返回 无法通过返回值 来判断是否读取到文件的末尾</td>
+</tr>
+</tbody></table>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ul>
+<li>多线程采用时间片轮转法保证多个线程并发执行</li>
+</ul>
+<h2 id="二、线程创建（重中之重）"><a href="#二、线程创建（重中之重）" class="headerlink" title="二、线程创建（重中之重）"></a>二、线程创建（重中之重）</h2><ul>
+<li>java.lang.Thread代表线程，任何线程对象都是Thread类（子类）的实例</li>
+</ul>
+<h3 id="1、创建方式"><a href="#1、创建方式" class="headerlink" title="1、创建方式"></a>1、创建方式</h3><ul>
+<li>继承Thread类重写run方法，然后创建对象调用start</li>
+<li>实现Runnable接口并重写run方法，创建该类的对象作为实参来构造Thread类型的对象，然后调用start</li>
+</ul>
+<h3 id="2、相关方法"><a href="#2、相关方法" class="headerlink" title="2、相关方法"></a>2、相关方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Thread()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>Thread(String name)</td>
+<td>根据参数指定名称构造</td>
+</tr>
+<tr>
+<td>Thread(Runnable target)</td>
+<td>根据引用构造对象</td>
+</tr>
+<tr>
+<td>Thread(Runnable target, String name)</td>
+<td>根据参数指定引用和名称来构造对象</td>
+</tr>
+<tr>
+<td>void run()</td>
+<td>若使用Runnable引用构造了线程对象，调用该方法时最终调 用接口中的版本</td>
+</tr>
+<tr>
+<td>void start()</td>
+<td>启动线程，自动调用run()</td>
+</tr>
+</tbody></table>
+<h3 id="3、线程的生命周期（熟悉）"><a href="#3、线程的生命周期（熟悉）" class="headerlink" title="3、线程的生命周期（熟悉）"></a>3、线程的生命周期（熟悉）</h3><ul>
+<li>新建：new创建之后，并未开始执行</li>
+<li>就绪：调用start后，还未执行</li>
+<li>运行：使用线程调度器之后进入的状态，开始执行</li>
+<li>阻塞：执行过程中发生阻塞事件进入的状态，如：sleep方法，阻塞状态解除后进入就绪状态</li>
+<li>消亡：任务执行完成后，线程终止</li>
+</ul>
+<h3 id="4、线程编号和名称-熟悉"><a href="#4、线程编号和名称-熟悉" class="headerlink" title="4、线程编号和名称(熟悉)"></a>4、线程编号和名称(熟悉)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>long getId()</td>
+<td>获取线程编号</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取线程名称</td>
+</tr>
+<tr>
+<td>void setName(String name)</td>
+<td>设置线程名</td>
+</tr>
+<tr>
+<td>static Thread currentThread()</td>
+<td>获取正在执行线程引用</td>
+</tr>
+</tbody></table>
+<h3 id="5、常用方法（重点）"><a href="#5、常用方法（重点）" class="headerlink" title="5、常用方法（重点）"></a>5、常用方法（重点）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static void yield()</td>
+<td>离开Running，进入Runnable</td>
+</tr>
+<tr>
+<td>static void sleep(times)</td>
+<td>从Running进入Block，休眠times毫秒返回Running</td>
+</tr>
+<tr>
+<td>int getPriority()</td>
+<td>线程优先级</td>
+</tr>
+<tr>
+<td>void setPriority(int newPriority)</td>
+<td>修改线程优先级</td>
+</tr>
+<tr>
+<td>void join()</td>
+<td>等待线程终止</td>
+</tr>
+<tr>
+<td>void join(long millis)</td>
+<td>等待指定毫秒数</td>
+</tr>
+<tr>
+<td>boolean isDaemon()</td>
+<td>判断是否为守护线程</td>
+</tr>
+<tr>
+<td>void setDaemon(boolean on)</td>
+<td>设置线程为守护线程</td>
+</tr>
+</tbody></table>
+<h3 id="6、线程同步机制（重点）"><a href="#6、线程同步机制（重点）" class="headerlink" title="6、线程同步机制（重点）"></a>6、线程同步机制（重点）</h3><h4 id="（1）实现方式"><a href="#（1）实现方式" class="headerlink" title="（1）实现方式"></a>（1）实现方式</h4><ul>
+<li><p>synchronized(类类型的引用){</p>
+<p>​	编写所有需要锁定的代码;</p>
+<p>}</p>
+</li>
+<li><p>synchronized(this){整个方法体的代码}</p>
+</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>对静态方法加锁，锁的对象是类对象，每个类都有唯一的类对象，类名.class</li>
+</ul>
+<h4 id="（2）线程安全类和不安全类"><a href="#（2）线程安全类和不安全类" class="headerlink" title="（2）线程安全类和不安全类"></a>（2）线程安全类和不安全类</h4><ul>
+<li>StringBuffer线程安全，StringBuilder不是线程安全</li>
+<li>Vector和Hashtable线程安全，但ArrayList和HashMap不是线程安全</li>
+<li>Collections.synchronizedList()和Collections.synchronizedMap()等方法实现线程安全</li>
+</ul>
+<h4 id="（3）Lock实现同步"><a href="#（3）Lock实现同步" class="headerlink" title="（3）Lock实现同步"></a>（3）Lock实现同步</h4><ul>
+<li>主要实现类是ReentrantLock类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ReentrantLock()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>void lock()</td>
+<td>获取锁</td>
+</tr>
+<tr>
+<td>void unlock()</td>
+<td>释放锁</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Lock是显式锁，手动开关锁</li>
+<li>Lock只有同步代码块方式的锁，synchronized有同步代码块和方法两种</li>
+<li>lock锁，java虚拟机花费较少时间调度线程，性能更好</li>
+</ul>
+<h4 id="（4）Object常用方法"><a href="#（4）Object常用方法" class="headerlink" title="（4）Object常用方法"></a>（4）Object常用方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void wait()</td>
+<td>线程进入等待状态，直到其他线程调用notify()或notifyAll()</td>
+</tr>
+<tr>
+<td>void wait(long timeout)</td>
+<td>进入等待，直到其他线程调用方法或过了指定毫秒</td>
+</tr>
+<tr>
+<td>void notify()</td>
+<td>唤醒单个线程</td>
+</tr>
+<tr>
+<td>void notifyAll()</td>
+<td>唤醒等待的所有线程</td>
+</tr>
+</tbody></table>
+<h4 id="（5）线程池（熟悉）"><a href="#（5）线程池（熟悉）" class="headerlink" title="（5）线程池（熟悉）"></a>（5）线程池（熟悉）</h4><p>1.实现Callable接口</p>
+<ul>
+<li>Java5开始新增创建线程第三种方式，实现java.util.concurrent.Callable接口</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V call()</td>
+<td>计算结果返回</td>
+</tr>
+</tbody></table>
+<p>2.FutureTask</p>
+<ul>
+<li>java.util.concurrent.FutureTask类用于描述可取消的异步计算</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FutureTask(Callable callable)</td>
+<td>根据参数指定引用创建未来任务</td>
+</tr>
+<tr>
+<td>V get()</td>
+<td>获取call方法计算的结果</td>
+</tr>
+</tbody></table>
+<p>3.概念原理</p>
+<ul>
+<li>任务提交给线程池，线程池在内部找空闲线程。</li>
+</ul>
+<p>4.相关类和方法</p>
+<ul>
+<li><p>从Java5开始提供了线程池的相关类和接口：java.util.concurrent.Executors类和 java.util.concurrent.ExecutorService接口。</p>
+</li>
+<li><p>其中Executors是个工具类和线程池的工厂类，可以创建并返回不同类型的线程池</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static ExecutorService newCachedThreadPool()</td>
+<td>创建一个可根据需要创建新线程的线程池</td>
+</tr>
+<tr>
+<td>static ExecutorService newFixedThreadPool(int nThreads)</td>
+<td>创建一个可重用固定线程数的线程池</td>
+</tr>
+<tr>
+<td>static ExecutorService newSingleThreadExecutor()</td>
+<td>创建一个只有一个线程的线程池</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>其中ExecutorService接口是真正的线程池接口，主要实现类是ThreadPoolExecutor</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void execute(Runnable command)</td>
+<td>执行任务和命令</td>
+</tr>
+<tr>
+<td>Future submit(Callable task)</td>
+<td>执行任务和命令</td>
+</tr>
+<tr>
+<td>void shutdown()</td>
+<td>启动有序关闭</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="一、常识"><a href="#一、常识" class="headerlink" title="一、常识"></a>一、常识</h2><h3 id="1、七层网络模型"><a href="#1、七层网络模型" class="headerlink" title="1、七层网络模型"></a>1、七层网络模型</h3><p>OSI七层模型和TCP&#x2F;IP五层模型</p>
+<ul>
+<li>应用层-》表示层-》会话层-》传输层-》网络层-》数据链路层-》物理层</li>
+<li>应用层-》传输层-》网络层-》数据链路层-》物理层</li>
+</ul>
+<p>TCP、UDP传输层</p>
+<p>HTTP、Telnet、FTP、TFTP、DNS、SMTP应用层</p>
+<p>IP、ICMP、RIP、IGMP网络层</p>
+<h3 id="2、相关协议（笔试）"><a href="#2、相关协议（笔试）" class="headerlink" title="2、相关协议（笔试）"></a>2、相关协议（笔试）</h3><p>（1）TCP协议</p>
+<p>传输控制协议，面向连接</p>
+<ul>
+<li>建立连接-》进行通信-》断开连接、</li>
+<li>传输前“三次握手”</li>
+<li>通信过程全程连接，数据传输通道</li>
+<li>保证了数据传输的可靠性和有序性</li>
+<li>全双工</li>
+<li>传输后释放连接，发送数据效率低</li>
+</ul>
+<p>（2）UDP协议</p>
+<p>用户数据报协议，非面向连接</p>
+<ul>
+<li>通信过程中不需要保持连接</li>
+<li>不保证数据传输可靠性和有序性</li>
+<li>全双工，数据报大小限制在64k内</li>
+<li>发送数据完毕后无需释放资源，开销小、效率高、速度快</li>
+</ul>
+<h3 id="3、IP地址（重点）"><a href="#3、IP地址（重点）" class="headerlink" title="3、IP地址（重点）"></a>3、IP地址（重点）</h3><p>本地回环地址(hostAddress)：127.0.0.1 主机名(hostName)：localhost</p>
+<h3 id="4、端口号（重点）"><a href="#4、端口号（重点）" class="headerlink" title="4、端口号（重点）"></a>4、端口号（重点）</h3><ul>
+<li>HTTP:80 FTP:21 Oracle:1521 MySQL:3306 Tomcat:8080</li>
+<li>网络编程需要提供：IP地址 + 端口号，组合在一起叫做网络套接字：Socket。</li>
+</ul>
+<h2 id="二、基于tcp协议（重点）"><a href="#二、基于tcp协议（重点）" class="headerlink" title="二、基于tcp协议（重点）"></a>二、基于tcp协议（重点）</h2><h3 id="1、编程模型"><a href="#1、编程模型" class="headerlink" title="1、编程模型"></a>1、编程模型</h3><ul>
+<li><p>服务器：</p>
+<p>（1）创建ServerSocket对象提供端口号</p>
+<p>（2）等待客户端连接请求，调用accept方法</p>
+<p>（3）使用输入输出流进行通信</p>
+<p>（4）关闭Socket</p>
+</li>
+<li><p>客户端：</p>
+<p>（1）创建Socket类型对象并提供服务器IP和端口</p>
+<p>（2）使用输入输出流进行通信</p>
+<p>（3）关闭Socket</p>
+</li>
+</ul>
+<h3 id="2、相关类和方法解析"><a href="#2、相关类和方法解析" class="headerlink" title="2、相关类和方法解析"></a>2、相关类和方法解析</h3><h4 id="（1）ServerSocket类"><a href="#（1）ServerSocket类" class="headerlink" title="（1）ServerSocket类"></a>（1）ServerSocket类</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ServerSocket(int port)</td>
+<td>根据port构造对象</td>
+</tr>
+<tr>
+<td>Socket accept()</td>
+<td>侦听并接收套接字连接请求</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody></table>
+<h4 id="（2）Socket类"><a href="#（2）Socket类" class="headerlink" title="（2）Socket类"></a>（2）Socket类</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Socket(String host, int port)</td>
+<td>根据指定主机名和端口来构造对象</td>
+</tr>
+<tr>
+<td>InputStream getInputStream()</td>
+<td>获取输入流</td>
+</tr>
+<tr>
+<td>OutputStream getOutputStream()</td>
+<td>获取输出流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody></table>
+<h2 id="三、基于udp协议（熟悉）"><a href="#三、基于udp协议（熟悉）" class="headerlink" title="三、基于udp协议（熟悉）"></a>三、基于udp协议（熟悉）</h2><h3 id="1、编程模型-1"><a href="#1、编程模型-1" class="headerlink" title="1、编程模型"></a>1、编程模型</h3><ul>
+<li><p>接收方</p>
+<p>（1）创建DatagramSocket对象提供端口号</p>
+<p>（2）创建DatagramPacket对象提供缓冲区</p>
+<p>（3）通过Socket接收数据内容放到Packet中，调用receive</p>
+<p>（4）关闭Socket</p>
+</li>
+<li><p>发送方</p>
+<p>（1）创建DatagramSocket对象</p>
+<p>（2）创建DatagramPacket对象提供接收方通信地址</p>
+<p>（3）通过Socket将Packet中的数据内容发送出去，调用send方法；</p>
+<p>（4）关闭Socket</p>
+</li>
+</ul>
+<h3 id="2、相关类和方法"><a href="#2、相关类和方法" class="headerlink" title="2、相关类和方法"></a>2、相关类和方法</h3><p>（1）DatagramSocket类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DatagramSocket()</td>
+<td>无参构造</td>
+</tr>
+<tr>
+<td>DatagramSocket(int port)</td>
+<td>根据参数指定端口号构造</td>
+</tr>
+<tr>
+<td>void receive(DatagramPacket p)</td>
+<td>接收数据报保存到参数指定位置</td>
+</tr>
+<tr>
+<td>void send(DatagramPacket p)</td>
+<td>将参数指定数据表发送出去</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭Socket释放相关资源</td>
+</tr>
+</tbody></table>
+<p>（2）DatagramPacket类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DatagramPacket(byte[] buf, int length)</td>
+<td>构造对象，接收长度为length的数据报</td>
+</tr>
+<tr>
+<td>DatagramPacket(byte[] buf, int length, InetAddress address, int port)</td>
+<td>根据数组构造对象，数据报发送指定地址</td>
+</tr>
+<tr>
+<td>InetAddress getAddress()</td>
+<td>获取通信地址</td>
+</tr>
+<tr>
+<td>nt getPort()</td>
+<td>获取端口号</td>
+</tr>
+<tr>
+<td>int getLength()</td>
+<td>获取长度</td>
+</tr>
+</tbody></table>
+<p>（3）InetAddress类</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static InetAddress getLocalHost()</td>
+<td>获取当前主机通信地址</td>
+</tr>
+<tr>
+<td>static InetAddress getByName(String host)</td>
+<td>指定主机名获取通信地址</td>
+</tr>
+</tbody></table>
+<h2 id="四、URL类（熟悉）"><a href="#四、URL类（熟悉）" class="headerlink" title="四、URL类（熟悉）"></a>四、URL类（熟悉）</h2><p>基本结构：&lt;传输协议&gt;:&#x2F;&#x2F;&lt;主机名&gt;:&lt;端口号&gt;&#x2F;&lt;资源地址&gt;</p>
+<h3 id="1、常用方法"><a href="#1、常用方法" class="headerlink" title="1、常用方法"></a>1、常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URL(String spec)</td>
+<td>有参构造</td>
+</tr>
+<tr>
+<td>String getProtocol()</td>
+<td>获取协议</td>
+</tr>
+<tr>
+<td>String getHost()</td>
+<td>获取主机</td>
+</tr>
+<tr>
+<td>int getPort()</td>
+<td>获取端口号</td>
+</tr>
+<tr>
+<td>String getHost()</td>
+<td>获取路径信息</td>
+</tr>
+<tr>
+<td>String getFile()</td>
+<td>获取文件名</td>
+</tr>
+<tr>
+<td>URLConnection openConnection()</td>
+<td>获取URLConnection类实例</td>
+</tr>
+</tbody></table>
+<h3 id="2、URLConnection类"><a href="#2、URLConnection类" class="headerlink" title="2、URLConnection类"></a>2、URLConnection类</h3><ul>
+<li>java.net.URLConnection类是个抽象类，主要实现类有支持HTTP特有功能的HttpURLConnection类。</li>
+</ul>
+<h4 id="（1）常用方法"><a href="#（1）常用方法" class="headerlink" title="（1）常用方法"></a>（1）常用方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>InputStream getInputStream()</td>
+<td>获取输入流</td>
+</tr>
+<tr>
+<td>void disconnect()</td>
+<td>断开连接</td>
+</tr>
+</tbody></table>
+<h1 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h1><ul>
+<li>反射机制就是用于动态创建对象并且动态调用方法的机制。</li>
+</ul>
+<h2 id="一、Class类"><a href="#一、Class类" class="headerlink" title="一、Class类"></a>一、Class类</h2><h3 id="1、基本概念-2"><a href="#1、基本概念-2" class="headerlink" title="1、基本概念"></a>1、基本概念</h3><ul>
+<li>java.lang.Class实例用于描述Java应用中的类和接口</li>
+<li>该类无公共构造方法，加载到内存中的运行时类，该类的实例由Java虚拟机和类加载器自动构造完成</li>
+</ul>
+<h3 id="2、获取Class对象"><a href="#2、获取Class对象" class="headerlink" title="2、获取Class对象"></a>2、获取Class对象</h3><ul>
+<li>数据类型.class（掌握）</li>
+<li>引用&#x2F;对象.getClass()</li>
+<li>包装类.TYPE可获取基本数据类型Class对象</li>
+<li>Class.forName()（掌握）</li>
+<li>类加载器ClassLoader</li>
+</ul>
+<h3 id="3、常用方法（掌握）"><a href="#3、常用方法（掌握）" class="headerlink" title="3、常用方法（掌握）"></a>3、常用方法（掌握）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Class forName(String className)</td>
+<td>获取参数对应Class对象返回</td>
+</tr>
+<tr>
+<td>T newInstance()</td>
+<td>创建Class对象表示类的新实例</td>
+</tr>
+</tbody></table>
+<h2 id="二、Constructor类"><a href="#二、Constructor类" class="headerlink" title="二、Constructor类"></a>二、Constructor类</h2><ul>
+<li>描述获取到的构造方法信息</li>
+</ul>
+<h3 id="1、Class类常用方法"><a href="#1、Class类常用方法" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Constructor getConstructor(Class&lt;?&gt;… parameterTypes)</td>
+<td>获取表示类型中参数指定公共构造方法</td>
+</tr>
+<tr>
+<td>Constructor&lt;?&gt;[] getConstructors()</td>
+<td>获取表示类型中所有公共构造方法</td>
+</tr>
+</tbody></table>
+<h3 id="2、Constructor类常用方法"><a href="#2、Constructor类常用方法" class="headerlink" title="2、Constructor类常用方法"></a>2、Constructor类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T newInstance(Object… initargs)</td>
+<td>使用构造方法构造新实例</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>获取方法访问修饰符</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取方法名</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt;[] getParameterTypes()</td>
+<td>获取方法所有参数类型</td>
+</tr>
+</tbody></table>
+<h2 id="三、Field类"><a href="#三、Field类" class="headerlink" title="三、Field类"></a>三、Field类</h2><ul>
+<li>java.lang.reflect.Field类描述单个成员变量信息</li>
+</ul>
+<h3 id="1、Class类常用方法-1"><a href="#1、Class类常用方法-1" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Field getDeclaredField(String name)</td>
+<td>获取表示类中参数指定的单个成员变量信息</td>
+</tr>
+<tr>
+<td>Field[] getDeclaredFields()</td>
+<td>获取表示类中所有成员变量信息</td>
+</tr>
+</tbody></table>
+<h3 id="2、Field类常用方法"><a href="#2、Field类常用方法" class="headerlink" title="2、Field类常用方法"></a>2、Field类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object get(Object obj)</td>
+<td>获取obj中field成员变量数值</td>
+</tr>
+<tr>
+<td>void set(Object obj,Object value)</td>
+<td>设置obj中field成员变量数值</td>
+</tr>
+<tr>
+<td>void setAccessible(boolean flag)</td>
+<td>实参传递true，反射对象使用时取消Java语言访问</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>成员变量访问修饰符</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; getType()</td>
+<td>成员变量数据类型</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>成员变量名称</td>
+</tr>
+</tbody></table>
+<h2 id="四、Method类"><a href="#四、Method类" class="headerlink" title="四、Method类"></a>四、Method类</h2><ul>
+<li>java.lang.reflect.Method类描述成员方法信息</li>
+</ul>
+<h3 id="1、Class类常用方法-2"><a href="#1、Class类常用方法-2" class="headerlink" title="1、Class类常用方法"></a>1、Class类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Method getMethod(String name, Class… parameterTypes)</td>
+<td>获取名为name参数为parameterTypes指定公共成员方法</td>
+</tr>
+<tr>
+<td>Method[] getMethods()</td>
+<td>获取表示类所有公共成员方法</td>
+</tr>
+</tbody></table>
+<h3 id="2、Method类常用方法"><a href="#2、Method类常用方法" class="headerlink" title="2、Method类常用方法"></a>2、Method类常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object invoke(Object obj, Object… args)</td>
+<td>对象obj调用此方法，实参传args</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>获取方法的访问修饰符</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; getReturnType()</td>
+<td>获取方法返回值类型</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取方法名</td>
+</tr>
+<tr>
+<td>Class[] getParameterTypes()</td>
+<td>获取方法所有参数</td>
+</tr>
+<tr>
+<td>Class[] getExceptionTypes()</td>
+<td>获取方法异常信息</td>
+</tr>
+</tbody></table>
+<h2 id="五、获取其他结构信息"><a href="#五、获取其他结构信息" class="headerlink" title="五、获取其他结构信息"></a>五、获取其他结构信息</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Package getPackage()</td>
+<td>获取所在的包信息</td>
+</tr>
+<tr>
+<td>Class&lt;? super T&gt; getSuperclass()</td>
+<td>获取继承的父类信息</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt;[] getInterfaces()</td>
+<td>获取实现的所有接口</td>
+</tr>
+<tr>
+<td>Annotation[] getAnnotations()</td>
+<td>获取注解信息</td>
+</tr>
+<tr>
+<td>Type[] getGenericInterfaces()</td>
+<td>获取泛型信息</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%8C%85/" rel="tag">常用包</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-SpringCloud"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/01/25/SpringCloud/"
+    >springCloud</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/25/SpringCloud/" class="article-date">
+  <time datetime="2022-01-25T07:15:25.000Z" itemprop="datePublished">2022-01-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SpringCloud/">SpringCloud</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h1><h2 id="一、微服务核心概念"><a href="#一、微服务核心概念" class="headerlink" title="一、微服务核心概念"></a>一、微服务核心概念</h2><ul>
+<li><strong>服务注册</strong>：服务提供者将所提供服务的信息（服务器IP和端口、服务访问协议等）注册&#x2F;登记到注册中心</li>
+<li><strong>服务发现</strong>：服务消费者能够从注册中心获取到较为实时的服务列表，然后根究一定的策略选择一个服务访问</li>
+<li><strong>负载均衡</strong>：将请求压力分配到多个服务器，以此来提高服务的性能、可靠性</li>
+<li><strong>熔断</strong>：断路保护。牺牲局部，保全整体的措施就叫做熔断。</li>
+<li><strong>链路追踪</strong>：一次请求涉及的很多个服务链路进行日志记录、性能监控</li>
+<li><strong>API网关</strong>：1）统一接入（路由）2）安全防护（统一鉴权，负责网关访问身份认证验证，与“访问认证中心”通信，实际认证业务逻辑交移“访问认证中心”处理）3）黑白名单（实现通过IP地址控制禁止访问网关功能，控制访问）4）协议适配（实现通信协议校验、适配转换的功能）5）流量管控（限流）6）长短链接支持6）容错能力（负载均衡）</li>
+</ul>
+<h2 id="二、Spring-Cloud综述"><a href="#二、Spring-Cloud综述" class="headerlink" title="二、Spring Cloud综述"></a>二、Spring Cloud综述</h2><h3 id="1、Spring-Cloud概念"><a href="#1、Spring-Cloud概念" class="headerlink" title="1、Spring Cloud概念"></a>1、Spring Cloud概念</h3><ul>
+<li>Spring Cloud是一系列框架的有序集合（Spring Cloud是一个规范）</li>
+<li>开发服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等</li>
+<li>利用Spring Boot的开发便利性简化了微服务架构的开发（自动装配）</li>
+</ul>
+<h3 id="2、Spring-Cloud解决什么问题"><a href="#2、Spring-Cloud解决什么问题" class="headerlink" title="2、Spring Cloud解决什么问题"></a>2、Spring Cloud解决什么问题</h3><ul>
+<li>Distributed&#x2F;versioned configuration （分布式&#x2F;版本化配置）</li>
+<li>Service registration and discovery （服务注册和发现）</li>
+<li>Routing （智能路由）</li>
+<li>Service-to-service calls （服务调用）</li>
+<li>Load balancing （负载均衡）</li>
+<li>Circuit Breakers （熔断器）</li>
+<li>Global locks （全局锁）</li>
+<li>Leadership election and cluster state （ 选举与集群状态管理）</li>
+<li>Distributed messaging （分布式消息传递平台）</li>
+</ul>
+<h3 id="3、Spring-Cloud核心组件"><a href="#3、Spring-Cloud核心组件" class="headerlink" title="3、Spring Cloud核心组件"></a>3、Spring Cloud核心组件</h3><table>
+<thead>
+<tr>
+<th>-</th>
+<th>第一代 Spring Cloud（Netflix，SCN）</th>
+<th>第二代 Spring Cloud（主要就是SpringCloud Alibaba，SCA）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注册中心</td>
+<td>Netflix Eureka</td>
+<td>阿里巴巴 Nacos</td>
+</tr>
+<tr>
+<td>客户端负载均衡</td>
+<td>Netflix Ribbon</td>
+<td>阿里巴巴 Dubbo LB、Spring CloudLoadbalancer</td>
+</tr>
+<tr>
+<td>熔断器</td>
+<td>Netflix Hystrix</td>
+<td>阿里巴巴 Sentinel</td>
+</tr>
+<tr>
+<td>网关</td>
+<td>Netflix Zuul：性能一般，未来将退出Spring Cloud 生态圈</td>
+<td>官方 Spring Cloud Gateway</td>
+</tr>
+<tr>
+<td>配置中心</td>
+<td>官方 Spring Cloud Config</td>
+<td>阿里巴巴 Nacos、携程 Apollo</td>
+</tr>
+<tr>
+<td>服务调用</td>
+<td>Netflix Feign</td>
+<td>阿里巴巴 Dubbo RPC</td>
+</tr>
+<tr>
+<td>消息驱动</td>
+<td>官方 Spring Cloud</td>
+<td>Stream</td>
+</tr>
+<tr>
+<td>链路追踪</td>
+<td>官方 Spring Cloud Sleuth&#x2F;Zipkin</td>
+<td>阿里巴巴 seata 分布式事务方案</td>
+</tr>
+</tbody></table>
+<h2 id="三、第一代Spring-Cloud核心组件"><a href="#三、第一代Spring-Cloud核心组件" class="headerlink" title="三、第一代Spring Cloud核心组件"></a>三、第一代Spring Cloud核心组件</h2><h3 id="1、Eureka服务注册中心"><a href="#1、Eureka服务注册中心" class="headerlink" title="1、Eureka服务注册中心"></a>1、Eureka服务注册中心</h3><p><strong>注意：服务注册中心本质上是为了解耦服务提供者和服务消费者。</strong></p>
+<h4 id="（1）原理"><a href="#（1）原理" class="headerlink" title="（1）原理"></a>（1）原理</h4><p>1）服务提供者启动<br>2）服务提供者将相关服务信息主动注册到注册中心<br>3）服务消费者获取服务注册信息：</p>
+<p>pull模式：服务消费者可以主动拉取可用的服务提供者清单<br>push模式：服务消费者订阅服务（当服务提供者有变化时，注册中心也会主动推送更新后的服务清单给消费者<br>4）服务消费者直接调用服务提供者<br>另外，注册中心也需要完成服务提供者的健康监控，当发现服务提供者失效时需要及时剔除</p>
+<h4 id="（2）服务注册中心组件-Eureka"><a href="#（2）服务注册中心组件-Eureka" class="headerlink" title="（2）服务注册中心组件 Eureka"></a>（2）服务注册中心组件 Eureka</h4><ul>
+<li>Eureka基础架构</li>
+</ul>
+<p><img src="/images/cloud_1.png" alt="Eureka基础架构"></p>
+<ul>
+<li>Eureka交互流程及原理</li>
+</ul>
+<p><img src="/images/cloud_2.png" alt="Eureka交互流程及原理"></p>
+<ul>
+<li><p>Eureka 包含两个组件：Eureka Server 和 Eureka Client，Eureka Client是一个Java客户端，用于简化与Eureka Server的交互；Eureka Server提供服务发现的能力，各个微服务启动时，会通过EurekaClient向Eureka Server 进行注册自己的信息，Eureka Server会存储该服务的信息；</p>
+</li>
+<li><p>微服务启动后，会周期性地向Eureka Server发送心跳（默认周期为30秒，默认Eureka Server<br>90S会将还没有续约的给剔除）以续约自己的信息</p>
+</li>
+<li><p>Eureka Server在一定时间内没有接收到某个微服务节点的心跳，Eureka Server将会注销该微服务节点（默认90秒）</p>
+</li>
+<li><p>Eureka Client会缓存Eureka Server中的信息。即使所有的Eureka Server节点都宕掉，服务消费者依然可以使用缓存中的信息找到服务提供者</p>
+</li>
+<li><p>Eureka通过心跳检测、健康检查和客户端缓存等机制，提高系统的灵活性、可伸缩性和高可用性。</p>
+</li>
+</ul>
+<h4 id="（3）Eureka细节详解"><a href="#（3）Eureka细节详解" class="headerlink" title="（3）Eureka细节详解"></a>（3）Eureka细节详解</h4><p>（1）元数据</p>
+<p>Eureka的元数据有两种：标准元数据和自定义元数据。<br><strong>标准元数据</strong>：主机名、IP地址、端口号等信息，这些信息都会被发布在服务注册表中，用于服务之间的调用。<br><strong>自定义元数据</strong>：可以使用eureka.instance.metadata-map配置，符合KEY&#x2F;VALUE的存储格式。这些元数据可以在远程客户端中访问。</p>
+<ul>
+<li>我们可以在程序中可以使用DiscoveryClient 获取指定微服务的所有元数据信息</li>
+</ul>
+<p>（2）客户端<br><strong>服务注册详解（服务提供者）</strong><br>1）当我们导入了eureka-client依赖坐标，配置Eureka服务注册中心地址<br>2）服务在启动时会向注册中心发起注册请求，携带服务元数据信息<br>3）Eureka注册中心会把服务的信息保存在Map中。</p>
+<ul>
+<li>Eureka Client ：30S续约一次，在Eureka Server更新自己的状态 (Client端进行配置)</li>
+<li>Eureka Server：90S还没有进行续约，将该微服务实例从服务注册表（Map）剔除 (Client端进行配置)</li>
+<li>Eureka Client： 30S拉取服务最新的注册表并缓存到本地 (Client端进行配置)</li>
+</ul>
+<p>（3）服务端</p>
+<p><strong>服务下线：</strong></p>
+<ul>
+<li>1）当服务正常关闭操作时，会发送服务下线的REST请求给EurekaServer。</li>
+<li>2）服务中心接受到请求后，将该服务置为下线状态</li>
+</ul>
+<p><strong>失效剔除</strong>：</p>
+<ul>
+<li>Eureka Server会定时（间隔值是eureka.server.eviction-interval-timer-in-ms，默认60s）进行检查，如果发现实例在在一定时间（此值由客户端设置的eureka.instance.lease-expiration-duration-in-seconds定义，默认值为90s）内没有收到心跳，则会注销此实例。</li>
+</ul>
+<p><strong>自我保护机制</strong>：</p>
+<ul>
+<li>自我保护模式正是一种针对网络异常波动的安全保护措施，使用自我保护模式能使Eureka集群更加的健壮、稳定的运行。<br>自我保护机制的工作机制是：如果在15分钟内超过85%的客户端节点都没有正常的心跳，那么</li>
+<li>Eureka就认为客户端与注册中心出现了网络故障，Eureka Server自动进入自我保护机制，此时会出现以下几种情况：</li>
+</ul>
+<ol>
+<li>Eureka Server不再从注册列表中移除因为长时间没收到心跳而应该过期的服务。</li>
+<li>Eureka Server仍然能够接受新服务的注册和查询请求，但是不会被同步到其它节点上，保证当前<br>节点依然可用。</li>
+<li>当网络稳定时，当前Eureka Server新的注册信息会被同步到其它节点中。</li>
+</ol>
+<p><strong>经验：建议生产环境打开自我保护机制</strong></p>
+<h3 id="2、Ribbon负载均衡"><a href="#2、Ribbon负载均衡" class="headerlink" title="2、Ribbon负载均衡"></a>2、Ribbon负载均衡</h3><h4 id="（1）负载均衡策略"><a href="#（1）负载均衡策略" class="headerlink" title="（1）负载均衡策略"></a>（1）负载均衡策略</h4><table>
+<thead>
+<tr>
+<th>负载均衡策略</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RoundRobinRule：轮询策略</td>
+<td>默认超过10次获取到的server都不可用，会返回一个空的server</td>
+</tr>
+<tr>
+<td>RandomRule：随机策略</td>
+<td>如果随机到的server为null或不可用，会while不停的循环选取</td>
+</tr>
+<tr>
+<td>RetryRule：重试策略</td>
+<td>一定时限内循环重试。默认继承RoundRobinRule，也支持自定义注入，RetryRule会在每次选取之后，对选举的server进行判断，是否为null，是否alive，并且在500ms内会不停的选取判断。而RoundRobinRule失效的策略是超过10次，RandomRule是没有失效时间的概念，只要serverList没都挂。</td>
+</tr>
+<tr>
+<td>BestAvailableRule：最小连接数策略</td>
+<td>遍历serverList，选取出可用的且连接数最小的一个server。该算法里面有一个LoadBalancerStats的成员变量，会存储所有server的运行状况和连接数。如果选取到的server为null，那么会调用RoundRobinRule重新选取。</td>
+</tr>
+<tr>
+<td>AvailabilityFilteringRule：可用过滤策略</td>
+<td>扩展了轮询策略，会先通过默认的轮询选取一个server，再去判断该server是否超时可用，当前连接数是否超限，都成功再返回。</td>
+</tr>
+<tr>
+<td>ZoneAvoidanceRule：区域权衡策略（默认策略）</td>
+<td>扩展了轮询策略，继承了2个过滤器：ZoneAvoidancePredicate和AvailabilityPredicate，除了过滤超时和链接数过多的server，还会过滤掉不符合要求的zone区域里面的所有节点， 在一个区域&#x2F;机房内的服务实例中轮询。先过滤再轮询</td>
+</tr>
+</tbody></table>
+<h4 id="（2）核心源码刨析"><a href="#（2）核心源码刨析" class="headerlink" title="（2）核心源码刨析"></a>（2）核心源码刨析</h4><p><img src="/images/cloud_3.png" alt="核心源码"></p>
+<p>在spring-cloud-commons中spring.factories</p>
+<p><strong>添加了注解的RestTemplate对象会被添加一个拦截器LoadBalancerInterceptor，该拦截器就是后续拦截请求进行负载处理的。</strong></p>
+<h3 id="3、Hystrix熔断器"><a href="#3、Hystrix熔断器" class="headerlink" title="3、Hystrix熔断器"></a>3、Hystrix熔断器</h3><h4 id="（1）雪崩效应"><a href="#（1）雪崩效应" class="headerlink" title="（1）雪崩效应"></a>（1）雪崩效应</h4><ul>
+<li>服务雪崩效应：是一种因“服务提供者的不可用”（原因）导致“服务调用者不可用”（结果），并将不可用逐渐放大的现象。</li>
+</ul>
+<p>形成原因：</p>
+<ul>
+<li>服务雪崩的过程可以分为三个阶段：</li>
+</ul>
+<ol>
+<li>服务提供者不可用</li>
+<li>重试加大请求流量</li>
+<li>服务调用者不可用</li>
+</ol>
+<p><img src="/images/cloud_4.png" alt="雪崩效应"></p>
+<h4 id="（2）雪崩解决方案"><a href="#（2）雪崩解决方案" class="headerlink" title="（2）雪崩解决方案"></a>（2）雪崩解决方案</h4><p><strong>服务熔断</strong>：当扇出链路的某个微服务不可用或者响应时间太长时，熔断该节点微服务的调用，进行服务的降级，快速返回错误的响应信息。当检测到该节点微服务调用响应正常后，恢复调用链路。</p>
+<ul>
+<li><strong>注意：</strong><br>1）服务熔断重点在“断”，切断对下游服务的调用<br>2）服务熔断和服务降级往往是一起使用的，Hystrix就是这样。</li>
+</ul>
+<p><strong>服务降级</strong>:</p>
+<ul>
+<li>服务降级一般是从整体考虑，就是当某个服务熔断之后，服务器将不再被调用，此刻客户端可以自己准备一个本地的fallback回调，返回一个缺省值，这样做，虽然服务水平下降，但好歹可用，比直接挂掉要强。</li>
+</ul>
+<p><strong>服务限流</strong>：</p>
+<ul>
+<li>限制总并发数（比如数据库连接池、线程池）</li>
+<li>限制瞬时并发数（如nginx限制瞬时并发连接数）</li>
+<li>限制时间窗口内的平均速率（如Guava的RateLimiter、nginx的limit_req模块，限制每秒的平均速率）</li>
+<li>限制远程接口调用速率、限制MQ的消费速率等</li>
+</ul>
+<h4 id="（3）Hystrix简介"><a href="#（3）Hystrix简介" class="headerlink" title="（3）Hystrix简介"></a>（3）Hystrix简介</h4><ul>
+<li><strong>包裹请求</strong>：使用HystrixCommand包裹对依赖的调用逻辑。 页面静态化微服务方法（@HystrixCommand 添加Hystrix控制）</li>
+<li><strong>跳闸机制</strong>：当某服务的错误率超过一定的阈值时，Hystrix可以跳闸，停止请求该服务一段时间。</li>
+<li><strong>资源隔离</strong>：Hystrix为每个依赖都维护了一个小型的线程池(舱壁模式)。如果该线程池已满， 发往该依赖的请求就被立即拒绝，而不是排队等待，从而加速失败判定。</li>
+<li><strong>监控</strong>：Hystrix可以近乎实时地监控运行指标和配置的变化，例如成功、失败、超时、以及被拒绝的请求等。</li>
+<li><strong>回退机制</strong>：当请求失败、超时、被拒绝，或当断路器打开时，执行回退逻辑。回退逻辑由开发人员自行提供，例如返回一个缺省值。</li>
+<li><strong>自我修复</strong>：断路器打开一段时间后，会自动进入“半开”状态（探测服务是否可用，如还是不可用，再次退回打开状态）。</li>
+</ul>
+<h4 id="（4）Hystrix舱壁模式"><a href="#（4）Hystrix舱壁模式" class="headerlink" title="（4）Hystrix舱壁模式"></a>（4）Hystrix舱壁模式</h4><p>线程池隔离策略</p>
+<ul>
+<li>如果不进行任何设置，所有熔断方法使用一个Hystrix线程池（10个线程）</li>
+</ul>
+<p><img src="/images/cloud_5.png" alt="线程池隔离策略"></p>
+<p>单独的为每一个控制方法创建一个线程池的方式，这种模式叫做“舱壁模式”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只有是在@HystrixCommand中定义了threadPoolKey，就意味着开启了舱壁模式（线程隔离）</span><br></pre></td></tr></table></figure>
+
+<h4 id="（5）Hystrix工作流程与高级应用"><a href="#（5）Hystrix工作流程与高级应用" class="headerlink" title="（5）Hystrix工作流程与高级应用"></a>（5）Hystrix工作流程与高级应用</h4><p><img src="/images/cloud_6.png" alt="Hystrix工作流程与高级应用"></p>
+<p>1）当调用出现问题时，开启一个时间窗（10s）<br>2）在这个时间窗内，统计调用次数是否达到最小请求数？</p>
+<ul>
+<li>如果没有达到，则重置统计信息，回到第1步</li>
+<li>如果达到了，则统计失败的请求数占所有请求数的百分比，是否达到阈值？</li>
+<li>如果达到，则跳闸（不再请求对应服务）</li>
+<li>如果没有达到，则重置统计信息，回到第1步</li>
+</ul>
+<p>3）如果跳闸，则会开启一个活动窗口（默认5s），每隔5s，Hystrix会让一个请求通过,到达那个问题服务，看是否调用成功，如果成功，重置断路器回到第1步，如果失败，回到第3步</p>
+<h3 id="4、Feign远程调用组件"><a href="#4、Feign远程调用组件" class="headerlink" title="4、Feign远程调用组件"></a>4、Feign远程调用组件</h3><p><strong>本质：封装了Http调用流程，更符合面向接口化的编程习惯，类似于Dubbo的服务调用</strong></p>
+<p>（效果）Feign &#x3D; RestTemplate+Ribbon+Hystrix</p>
+<h3 id="5、GateWay网管组件"><a href="#5、GateWay网管组件" class="headerlink" title="5、GateWay网管组件"></a>5、GateWay网管组件</h3><h4 id="（1）GateWat架构中的位置"><a href="#（1）GateWat架构中的位置" class="headerlink" title="（1）GateWat架构中的位置"></a>（1）GateWat架构中的位置</h4><p><img src="/images/cloud_7.png" alt="GateWat架构中的位置"></p>
+<h4 id="（2）核心概念"><a href="#（2）核心概念" class="headerlink" title="（2）核心概念"></a>（2）核心概念</h4><ul>
+<li><strong>路由（route）</strong>： 网关最基础的部分，也是网关比较基础的工作单元。路由由一个ID、一个目标URL（最终路由到的地址）、一系列的断言（匹配条件判断）和Filter过滤器（精细化控制）组成。如果断言为true，则匹配该路由。</li>
+<li><strong>断言（predicates）</strong>：参考了Java8中的断言java.util.function.Predicate，开发人员可以匹配Http请求中的所有内容（包括请求头、请求参数等）（类似于nginx中的location匹配一样），如果断言与请求相匹配则路由。</li>
+<li><strong>过滤器（filter）</strong>：一个标准的Spring webFilter，使用过滤器，可以在请求之前或者之后执行业务逻辑。</li>
+</ul>
+<h4 id="（3）如何工作"><a href="#（3）如何工作" class="headerlink" title="（3）如何工作"></a>（3）如何工作</h4><p><img src="/images/cloud_8.png" alt="GateWay网管组件"></p>
+<ul>
+<li>客户端向Spring Cloud GateWay发出请求，然后在GateWay Handler Mapping中找到与请求相匹配的路由，将其发送到GateWay Web Handler；Handler再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回。过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前（pre）或者之后（post）执行业务逻辑。</li>
+<li>Filter在“pre”类型过滤器中可以做参数校验、权限校验、流量监控、日志输出、协议转换等，在“post”类型的过滤器中可以做响应内容、响应头的修改、日志的输出、流量监控等。</li>
+</ul>
+<h4 id="（4）路由规则详解"><a href="#（4）路由规则详解" class="headerlink" title="（4）路由规则详解"></a>（4）路由规则详解</h4><p><img src="/images/cloud_9.png" alt="路由规则详解"></p>
+<p>动态路由</p>
+<p>GateWay支持自动从注册中心中获取服务列表并访问，即所谓的动态路由实现步骤如下<br>1）pom.xml中添加注册中心客户端依赖（因为要获取注册中心服务列表，eureka客户端已经引入）<br>2）动态路由配置</p>
+<h4 id="（5）GateWay过滤器"><a href="#（5）GateWay过滤器" class="headerlink" title="（5）GateWay过滤器"></a>（5）GateWay过滤器</h4><p>从过滤器生命周期（影响时机点）的角度来说，主要有两个pre和post：</p>
+<table>
+<thead>
+<tr>
+<th>生命周期时机点</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pre</td>
+<td>这种过滤器在请求被路由之前调用。我们可利用这种过滤器实现身份验证、在集群中选择 请求的微服务、记录调试信息等。</td>
+</tr>
+<tr>
+<td>post</td>
+<td>这种过滤器在路由到微服务以后执行。这种过滤器可用来为响应添加标准的 HTTPHeader、收集统计信息和指标、将响应从微服务发送给客户端等。</td>
+</tr>
+</tbody></table>
+<p>从过滤器类型的角度，Spring Cloud GateWay的过滤器分为GateWayFilter和GlobalFilter两种</p>
+<table>
+<thead>
+<tr>
+<th>过滤器类型</th>
+<th>影响范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GateWayFilter</td>
+<td>应用到单个路由路由上</td>
+</tr>
+<tr>
+<td>GlobalFilter</td>
+<td>应用到所有的路由上</td>
+</tr>
+</tbody></table>
+<p><strong>注意：GlobalFilter全局过滤器是程序员使用比较多的过滤器</strong></p>
+<h3 id="6、Spring-Cloud-Config-分布式配置中心"><a href="#6、Spring-Cloud-Config-分布式配置中心" class="headerlink" title="6、Spring Cloud Config 分布式配置中心"></a>6、Spring Cloud Config 分布式配置中心</h3><h4 id="（1）Config简介"><a href="#（1）Config简介" class="headerlink" title="（1）Config简介"></a>（1）Config简介</h4><ul>
+<li>Server 端：提供配置文件的存储、以接口的形式将配置文件的内容提供出去，通过使用@EnableConfigServer注解在 Spring boot 应用中非常简单的嵌入</li>
+<li>Client 端：通过接口获取配置数据并初始化自己的应用</li>
+</ul>
+<h4 id="（2）配置手动更新和自动更新"><a href="#（2）配置手动更新和自动更新" class="headerlink" title="（2）配置手动更新和自动更新"></a>（2）配置手动更新和自动更新</h4><p>①手动更新</p>
+<p><strong>注意：手动刷新方式避免了服务重启</strong></p>
+<p>②自动更新</p>
+<ul>
+<li>在微服务架构中，我们可以结合消息总线（Bus）实现分布式配置的自动更新（Spring CloudConfig + Spring Cloud Bus）</li>
+</ul>
+<p>消息总线</p>
+<ul>
+<li>所谓消息总线Bus，即我们经常会使用MQ消息代理构建一个共用的Topic，通过这个Topic连接各个微服务实例，MQ广播的消息会被所有在注册中心的微服务实例监听和消费。换言之就是通过一个主题连接各个微服务，打通脉络。</li>
+<li>Spring Cloud Bus（基于MQ的，支持RabbitMq&#x2F;Kafka） 是Spring Cloud中的消息总线方案，Spring Cloud Config + Spring Cloud Bus 结合可以实现配置信息的自动更新。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-SpringBoot"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/01/24/SpringBoot/"
+    >SpringBoot</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/01/24/SpringBoot/" class="article-date">
+  <time datetime="2022-01-24T06:06:25.000Z" itemprop="datePublished">2022-01-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>Spring</p>
+<p>优点：依赖注入和面向切面编程</p>
+<p>缺点：配置重量级，项目的依赖管理耗时耗力</p>
+<p>SpringBoot</p>
+<p>起步依赖：Maven项目对象模型（Poject Object Model，POM），将具备某种功能的依赖坐标打包到一起，并提供一些默认的功能。</p>
+<p>自动配置：只需要引入想用功能的包，不用管配置，springboot会自动注入这些配置bean</p>
+<h2 id="二、原理及源码"><a href="#二、原理及源码" class="headerlink" title="二、原理及源码"></a>二、原理及源码</h2><h3 id="1、依赖管理"><a href="#1、依赖管理" class="headerlink" title="1、依赖管理"></a>1、依赖管理</h3><h4 id="（1）为什么导入dependency时不需要指定版本？"><a href="#（1）为什么导入dependency时不需要指定版本？" class="headerlink" title="（1）为什么导入dependency时不需要指定版本？"></a><strong>（1）为什么导入dependency时不需要指定版本？</strong></h4><p><strong>spring-boot-starter-parent依赖</strong></p>
+<p>spring-boot-starter-parent的底层有一个父依赖spring-boot-dependencies</p>
+<p>看spring-boot-dependencies底层源文件，核心代码具体如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activemq.version</span>&gt;</span>5.15.11<span class="tag">&lt;/<span class="name">activemq.version</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">solr.version</span>&gt;</span>8.2.0<span class="tag">&lt;/<span class="name">solr.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mysql.version</span>&gt;</span>8.0.18<span class="tag">&lt;/<span class="name">mysql.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">kafka.version</span>&gt;</span>2.3.1<span class="tag">&lt;/<span class="name">kafka.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-amqp.version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">spring-amqp.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-restdocs.version</span>&gt;</span>2.0.4.RELEASE<span class="tag">&lt;/<span class="name">spring-restdocs.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-retry.version</span>&gt;</span>1.2.4.RELEASE<span class="tag">&lt;/<span class="name">spring-retry.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-security.version</span>&gt;</span>5.2.1.RELEASE<span class="tag">&lt;/<span class="name">spring-security.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-session-bom.version</span>&gt;</span>Corn-RELEASE<span class="tag">&lt;/<span class="name">spring-session-bom.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-ws.version</span>&gt;</span>3.0.8.RELEASE<span class="tag">&lt;/<span class="name">spring-ws.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sqlite-jdbc.version</span>&gt;</span>3.28.0<span class="tag">&lt;/<span class="name">sqlite-jdbc.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sun-mail.version</span>&gt;</span>$&#123;jakarta-mail.version&#125;<span class="tag">&lt;/<span class="name">sun-mail.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tomcat.version</span>&gt;</span>9.0.29<span class="tag">&lt;/<span class="name">tomcat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.11.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thymeleaf-extras-data-attribute.version</span>&gt;</span>2.0.1&lt;/thymeleaf-extras-dataattribute.version&gt;</span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该文件通过标签对常用技术框架的依赖文件进行了统一版本号管理。</p>
+<h4 id="（2）项目运行依赖的JAR包是从何而来的？"><a href="#（2）项目运行依赖的JAR包是从何而来的？" class="headerlink" title="（2）项目运行依赖的JAR包是从何而来的？"></a>（2）项目运行依赖的JAR包是从何而来的？</h4><p>依赖启动器的主要作用是提供开发场景所需的底层所有依赖</p>
+<h3 id="2、自动配置"><a href="#2、自动配置" class="headerlink" title="2、自动配置"></a>2、自动配置</h3><p>概念：能够在添加jar包依赖的时候，自动为配置组件的相关配置</p>
+<p><strong>问题：Spring Boot到底是如何进行自动配置的，都把哪些组件进行了自动配置？</strong></p>
+<p>@EnableAutoConfiguration是从classpath中搜寻META-INF&#x2F;spring.factories配置文件，将其中 org.springframework.boot.autoconfigure.EnableutoConfiguration对应的配置项通过反射（Java Refletion）实例化为对应的标注了@Configuration的JavaConfig形式的配置类，并加载到IOC容器中 </p>
+<p><strong>总结</strong></p>
+<p>因此springboot底层实现自动配置的步骤是：</p>
+<ul>
+<li><ol>
+<li>springboot应用启动；</li>
+<li>@SpringBootApplication起作用；</li>
+<li>@EnableAutoConfiguration；</li>
+<li>@AutoConfigurationPackage：这个组合注解主要是 @Import(AutoConfigurationPackages.Registrar.class)，它通过将Registrar类导入到容器中，而 Registrar类作用是扫描主配置类同级目录以及子包，并将相应的组件导入到springboot创建管理的容器中；</li>
+<li>@Import(AutoConfigurationImportSelector.class)：它通过将AutoConfigurationImportSelector 类导入到容器中，AutoConfigurationImportSelector类作用是通过selectImports方法执行的过程 中，会使用内部工具类SpringFactoriesLoader，查找classpath上所有jar包中META-INF&#x2F;spring.factories进行加载，实现将配置类信息交给SpringFactory加载器进行一系列的容器创 建过程</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|- <span class="meta">@SpringBootConfiguration</span></span><br><span class="line">	|- <span class="meta">@Configuration</span> <span class="comment">//通过javaConfig的方式来添加组件到IOC容器中</span></span><br><span class="line">|- <span class="meta">@EnableAutoConfiguration</span></span><br><span class="line">	|- <span class="meta">@AutoConfigurationPackage</span> <span class="comment">//自动配置包，与@ComponentScan扫描到的添加到IOC</span></span><br><span class="line">	|- <span class="meta">@Import(AutoConfigurationImportSelector.class)</span> <span class="comment">//到METAINF/spring.factories中定义的bean添加到IOC容器中</span></span><br><span class="line">|- <span class="meta">@ComponentScan</span> <span class="comment">//包扫描</span></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> liang sm
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="卡西莫多的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">照片</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢老板~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28457938&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
