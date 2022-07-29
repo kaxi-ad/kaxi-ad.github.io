@@ -154,6 +154,86 @@
     
     
     <article
+  id="post-Mysql索引"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/07/28/Mysql%E7%B4%A2%E5%BC%95/"
+    >Mysql索引</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/07/28/Mysql%E7%B4%A2%E5%BC%95/" class="article-date">
+  <time datetime="2022-07-28T03:34:25.000Z" itemprop="datePublished">2022-07-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MySql索引"><a href="#MySql索引" class="headerlink" title="MySql索引"></a>MySql索引</h1><h2 id="一、什么是索引（what）"><a href="#一、什么是索引（what）" class="headerlink" title="一、什么是索引（what）"></a>一、什么是索引（what）</h2><p>索引：对数据库中一列或多列的值进行排序的一种结构</p>
+<h2 id="二、为什么用索引（why）"><a href="#二、为什么用索引（why）" class="headerlink" title="二、为什么用索引（why）"></a>二、为什么用索引（why）</h2><p>当表中由大量记录时，若要对表进行查询</p>
+<p>第一种方式，可进行全表搜索，是将所有记录一一取出，和查询条件进行一一对比，然后返回满足条件的记录，这样做会消耗大量数据库系统时间，并造成大量磁盘I&#x2F;O操作。</p>
+<p>第二种方式，在表中建立索引，然后在索引中找到符合查询条件的索引值，最后通过保存在索引中的ROWID（相当于页码）快速找到表中对应的记录。</p>
+<p>优点：</p>
+<ul>
+<li>索引大大加快数据的检索速度</li>
+<li>创建唯一性索引，保证数据库表中每一行数据的唯一性。</li>
+<li>加速表和表之间的连接</li>
+<li>在使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>额外的占用物理空间</li>
+<li>对表中数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的维护速度。</li>
+</ul>
+<h2 id="三、如何使用索引（how）"><a href="#三、如何使用索引（how）" class="headerlink" title="三、如何使用索引（how）"></a>三、如何使用索引（how）</h2><p>InnoDB存储引擎支持以下几种常见的索引：</p>
+<ul>
+<li>B+树索引</li>
+<li>全文索引</li>
+<li>哈希索引</li>
+</ul>
+<p>B+树索引就是传统意义上的索引，目前关系型数据库系统中查找最为常用和最为有效的索引。</p>
+<h2 id="四、B-树"><a href="#四、B-树" class="headerlink" title="四、B+树"></a>四、B+树</h2><p>​		B+树是为磁盘或其他直接存取辅助设备设计的一种平衡查找树。在B+树中，所有记录节点都是按键值的大小顺序存放在同一层的叶子节点上，由各叶子节点指针进行连接。</p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E9%AB%98%E5%BA%A6%E4%B8%BA2%E7%9A%84B+tree.jpg" alt="高度为2的B+tree"></p>
+<p>1、插入操作</p>
+<p>2、删除操作</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-学习方法"
   class="article article-type-post"
   itemscope
@@ -290,10 +370,10 @@
 <li>建议：推荐通过nginx为调度中心集群做负载均衡，分配域名。调度中心访问、执行器回调配置、调用API服务等操作均通过改域名进行。</li>
 </ul>
 <h4 id="其他：Docker镜像方式搭建调度中心"><a href="#其他：Docker镜像方式搭建调度中心" class="headerlink" title="其他：Docker镜像方式搭建调度中心"></a>其他：Docker镜像方式搭建调度中心</h4><p>下载镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Docker地址：https://hub.docker.com/r/xuxueli/xxl-job-admin/     (建议指定版本号)</span><br><span class="line">docker pull xuxueli/xxl-job-admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Docker地址：https://hub.docker.com/r/xuxueli/xxl-job-admin/     (建议指定版本号)</span><br><span class="line">docker pull xuxueli/xxl-job-admin:&#123;指定版本&#125;</span><br></pre></td></tr></table></figure>
 
 <p>创建容器并运行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 -v /tmp:/data/applogs --name xxl-job-admin  -d xuxueli/xxl-job-admin:&#123;指定版本&#125;</span><br><span class="line">/**</span><br><span class="line">* 如需自定义 mysql 等配置，可通过 &quot;-e PARAMS&quot; 指定，参数格式 PARAMS=&quot;--key=value  --key2=value2&quot; ；</span><br><span class="line">* 配置项参考文件：/xxl-job/xxl-job-admin/src/main/resources/application.properties</span><br><span class="line">* 如需自定义 JVM内存参数 等配置，可通过 &quot;-e JAVA_OPTS&quot; 指定，参数格式 JAVA_OPTS=&quot;-Xmx512m&quot; ；</span><br><span class="line">*/</span><br><span class="line">docker run -e PARAMS=&quot;--spring.datasource.url=jdbc:mysql://127.0.0.1:3306/xxl_job?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;serverTimezone=Asia/Shanghai&quot; -p 8080:8080 -v /tmp:/data/applogs --name xxl-job-admin  -d xuxueli/xxl-job-admin:&#123;指定版本&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 -v /tmp:/data/applogs --name xxl-job-admin  -d xuxueli/xxl-job-admin:&#123;指定版本&#125;</span><br><span class="line">/**</span><br><span class="line">* 如需自定义 mysql 等配置，可通过 &quot;-e PARAMS&quot; 指定，参数格式 PARAMS=&quot;--key=value  --key2=value2&quot; ；</span><br><span class="line">* 配置项参考文件：/xxl-job/xxl-job-admin/src/main/resources/application.properties</span><br><span class="line">* 如需自定义 JVM内存参数 等配置，可通过 &quot;-e JAVA_OPTS&quot; 指定，参数格式 JAVA_OPTS=&quot;-Xmx512m&quot; ；</span><br><span class="line">*/</span><br><span class="line">docker run -e PARAMS=&quot;--spring.datasource.url=jdbc:mysql://127.0.0.1:3306/xxl_job?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=123456&quot; -p 8080:8080 -v /tmp:/data/applogs --name xxl-job-admin  -d xuxueli/xxl-job-admin:&#123;指定版本&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">	如果数据库部署在容器中</span><br><span class="line">	--link &lt;name or id&gt;:alias</span><br><span class="line">	其中，name和id是源容器的name和id，alias是源容器在link下的别名。</span><br><span class="line">**/</span><br><span class="line">--link mysql:mysql</span><br></pre></td></tr></table></figure>
 
 <h3 id="4、配置部署“执行器项目”"><a href="#4、配置部署“执行器项目”" class="headerlink" title="4、配置部署“执行器项目”"></a>4、配置部署“执行器项目”</h3><p>执行器：xxl-job-executor-sample-springboot;(可以参考，将现有项目改成执行器)</p>
 <p>作用：负责接收“调度中心”的调度并执行；可直接部署执行器，也可以将执行器集成到现有业务项目中。</p>
@@ -1866,113 +1946,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-redis详解"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/02/redis%E8%AF%A6%E8%A7%A3/"
-    >redis详解</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/02/redis%E8%AF%A6%E8%A7%A3/" class="article-date">
-  <time datetime="2022-03-02T06:06:25.000Z" itemprop="datePublished">2022-03-02</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="1、Redis入门介绍"><a href="#1、Redis入门介绍" class="headerlink" title="1、Redis入门介绍"></a>1、Redis入门介绍</h2><ul>
-<li>Redis运行速度快，并发性能强，运行在内存上的NoSql（not only sql）数据库</li>
-</ul>
-<h2 id="2、分布式数据库CAP原理"><a href="#2、分布式数据库CAP原理" class="headerlink" title="2、分布式数据库CAP原理"></a>2、分布式数据库CAP原理</h2><ul>
-<li>传统的关系型数据库事务<ul>
-<li><strong>A（Atomicity）</strong>：原子性，事务操作要么都成功，要么都失败</li>
-<li><strong>C（Consistency）</strong>：一致性，事务开始前后，数据库完整性没有被破坏。</li>
-<li><strong>I（Isolation）</strong>：独立性，防止多个事务交叉执行导致数据不一致</li>
-<li><strong>D（Durability</strong>）：持久性，数据处理后，数据修改是永久的</li>
-</ul>
-</li>
-<li>分布式数据库CAP<ul>
-<li><strong>C（Consistency）</strong>：强一致性，所有节点同一时间数据完全一致</li>
-<li><strong>A（Availability）</strong>：高可用性，服务一直可用</li>
-<li><strong>P（Partiton tolerance）</strong>：分区容错性，某分区或网络分区故障时，仍然能够对外提供一致性或可用性的服务。</li>
-</ul>
-</li>
-</ul>
-<h1 id="二、使用Redis"><a href="#二、使用Redis" class="headerlink" title="二、使用Redis"></a>二、使用Redis</h1><h2 id="1、五大数据类型"><a href="#1、五大数据类型" class="headerlink" title="1、五大数据类型"></a>1、五大数据类型</h2><h3 id="（1）字符串String"><a href="#（1）字符串String" class="headerlink" title="（1）字符串String"></a>（1）字符串String</h3><ul>
-<li>set&#x2F;get&#x2F;del&#x2F;append&#x2F;strlen</li>
-<li>incr&#x2F;decr&#x2F;incrby&#x2F;decrby加减</li>
-<li>getrange&#x2F;setrange:类似between…and…<ul>
-<li>range：范围</li>
-</ul>
-</li>
-<li>setex&#x2F;setnx<ul>
-<li>set with expir:添加数据的同时设置生命周期</li>
-<li>set if not exist:：添加数据的时候判断是否已经存在，防止已存在的数据被覆盖掉</li>
-</ul>
-</li>
-<li>mset&#x2F;mget&#x2F;msetnx</li>
-<li>m:more更多</li>
-<li>getset:先get后set</li>
-</ul>
-<h3 id="（2）列表List"><a href="#（2）列表List" class="headerlink" title="（2）列表List"></a>（2）列表List</h3><ul>
-<li>lpush&#x2F;rpush&#x2F;lrange</li>
-<li>lpop&#x2F;rpop：移除第一个元素（上左下右）</li>
-<li>lindex：根据下标查询元素（从左向右，自上而下）</li>
-<li>llen：返回集合长度</li>
-<li>lrem：删除n个value</li>
-<li>ltrim：截取指定范围的值，别的全扔掉<ul>
-<li>ltrim key begindex endindex</li>
-</ul>
-</li>
-<li>rpoplpush：从一个集合搞一个元素到另一个集合中（右出一个，左进一个）</li>
-<li>lset：改变某个下标的某个值<ul>
-<li>lset key index value</li>
-</ul>
-</li>
-<li>lset：改变某个下标的某个值 lset key index value<ul>
-<li>linsert key before&#x2F;after oldvalue newvalue</li>
-</ul>
-</li>
-</ul>
-<h3 id="（3）集合Set"><a href="#（3）集合Set" class="headerlink" title="（3）集合Set"></a>（3）集合Set</h3><h3 id="（4）哈希Hash"><a href="#（4）哈希Hash" class="headerlink" title="（4）哈希Hash"></a>（4）哈希Hash</h3><h3 id="（5）有序集合Zset"><a href="#（5）有序集合Zset" class="headerlink" title="（5）有序集合Zset"></a>（5）有序集合Zset</h3> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nosql/" rel="tag">nosql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
 
     </footer>
   </div>
