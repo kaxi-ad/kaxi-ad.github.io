@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.4k</span>
+            <span class="post-count">2.2k</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
@@ -216,7 +216,62 @@
 <p>​		由于InnoDB存储引擎表是索引组织表，因此InnoDB存储引擎的辅助索引的书签就是相应行数据的聚集索引键。</p>
 <p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-15.jpg" alt="辅助索引与聚集索引关系"></p>
 <p>​		当通过辅助索引来寻找数据时，InnoDB存储引擎会遍历辅助索引并通过叶级别的指针获得指向主键索引的主键，然后通过主键索引找到一个完整的行记录。</p>
- 
+<h2 id="六、Cardinality值"><a href="#六、Cardinality值" class="headerlink" title="六、Cardinality值"></a>六、Cardinality值</h2><h3 id="1、什么是Cardinality"><a href="#1、什么是Cardinality" class="headerlink" title="1、什么是Cardinality"></a>1、什么是Cardinality</h3><p>一般的经验是，访问表中很少一部分时使用B+树索引才有意义。</p>
+<ul>
+<li><p>低选择性：对于性别、地区、类型，可取值的范围很小。</p>
+</li>
+<li><p>高选择性：如果某个字段的取值范围很广，几乎没有重复。</p>
+</li>
+</ul>
+<blockquote>
+<p>高选择性使用B+树索引最适合的。</p>
+</blockquote>
+<p><strong>如何查看索引是否是高选择性？</strong></p>
+<p>通过<strong>SHOW INDEX</strong>结果中的列Cardinality来观察。</p>
+<p>Cardinality表示索引中不重复记录数量的<strong>预估值</strong>。</p>
+<p>实际应用中，Cardinality&#x2F;n_rows_in_table应尽可能地接近1.如果非常小，需要考虑是否有必要创建这个索引。</p>
+<p>所以在访问高选择性属性地字段并从表中取出很少一部分数据时，对这个字段添加B+树索引非常有必要地。</p>
+<h3 id="2、InnoDB存储引擎的Cardinality统计"><a href="#2、InnoDB存储引擎的Cardinality统计" class="headerlink" title="2、InnoDB存储引擎的Cardinality统计"></a>2、InnoDB存储引擎的Cardinality统计</h3><p>​		数据库对于Cardinality的统计是通过采样（Sample）的方法来完成的。</p>
+<p>​		在InnoDB存储引擎中，Cardinality统计信息的更新发生在两个操作中：INSERT和UPDATE。</p>
+<p>​		InnoDB存储引擎内部对更新Cardinality信息的策略为：</p>
+<ul>
+<li><p>表中1&#x2F;16的数据已发生过变化</p>
+</li>
+<li><p>stat_modeified_counter&gt;2 000 000 000</p>
+<p>策略二表示，如果对表中某一行数据频繁地进行更新操作，表中数据实际并没有增加，实际发生变化地还是这一行数据，则第一种更新策略就无法适用这种情况。</p>
+<p>故InnoDB存储引擎内部有一个计数器stat_modified_counter,用来表示变化次数，当stat_modified_counter大于2 000 000 000时，同样需要更新Cardinality信息。</p>
+</li>
+</ul>
+<p><strong>采样过程</strong></p>
+<p>默认InnoDB存储引擎对8个叶子节点（Leaf Page）进行采样。</p>
+<ul>
+<li>取得B+树索引中叶子节点的数量，记为A</li>
+<li>随机取得B+树索引中的8个叶子节点。统计每个页不同记录的个数，记为P1，P2，。。。。，P8</li>
+<li>根据采样信息给出Cardinality的预估值：Cardinality&#x3D;（P1+P2+…+P8）*A、8。</li>
+</ul>
+<h2 id="七、B-树索引的使用"><a href="#七、B-树索引的使用" class="headerlink" title="七、B+树索引的使用"></a>七、B+树索引的使用</h2><h3 id="1、不同应用中B-树索引的使用"><a href="#1、不同应用中B-树索引的使用" class="headerlink" title="1、不同应用中B+树索引的使用"></a>1、不同应用中B+树索引的使用</h3><p>OLTP（Online Transaction Processing在线事务处理）</p>
+<ul>
+<li>主要是对数据的增删改，侧重实时性</li>
+<li>查询操作只从数据库中取得一小部分数据</li>
+<li>这种情况下，B+树索引建立后，对该索引的使用只是通过该索引取得表中少部分数据，这时最有意义。</li>
+</ul>
+<p>OLAP（Online Analytical Processing在线分析处理）</p>
+<ul>
+<li>对数据的查询，侧重大数据量查询</li>
+<li>需要访问表中大量数据，根据数据产生查询结果，这些查询多是面向分析的查询</li>
+<li>索引的添加根据的应该是宏观的信息，而不是微观<strong>（具体怎么添加索引？）</strong></li>
+</ul>
+<h3 id="2、联合索引"><a href="#2、联合索引" class="headerlink" title="2、联合索引"></a>2、联合索引</h3><blockquote>
+<p>对表上对各列进行索引</p>
+</blockquote>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-22.jpg" alt="多个键值的B+树"></p>
+<p>假定两个键值的名称分别为a、b</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于条件<span class="keyword">where</span> a<span class="operator">=</span> XX <span class="keyword">and</span> b<span class="operator">=</span> XX</span><br><span class="line">以及 <span class="keyword">where</span> a<span class="operator">=</span> XX 都是可用的</span><br><span class="line">但是 <span class="keyword">where</span> b<span class="operator">=</span> XX 不可用</span><br></pre></td></tr></table></figure>
+
+<p>优势，已经对第二个键值进行了排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">where</span> a<span class="operator">=</span>xx <span class="keyword">order</span> <span class="keyword">by</span> b可用</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、覆盖索引"><a href="#3、覆盖索引" class="headerlink" title="3、覆盖索引"></a>3、覆盖索引</h3> 
       <!-- reward -->
       
       <div id="reword-out">
