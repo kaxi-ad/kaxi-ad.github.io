@@ -210,8 +210,89 @@
 <p>B+树索引就是传统意义上的索引，目前关系型数据库系统中查找最为常用和最为有效的索引。</p>
 <h2 id="四、B-树"><a href="#四、B-树" class="headerlink" title="四、B+树"></a>四、B+树</h2><p>​		B+树是为磁盘或其他直接存取辅助设备设计的一种平衡查找树。在B+树中，所有记录节点都是按键值的大小顺序存放在同一层的叶子节点上，由各叶子节点指针进行连接。</p>
 <p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E9%AB%98%E5%BA%A6%E4%B8%BA2%E7%9A%84B+tree.jpg" alt="高度为2的B+tree"></p>
-<p>1、插入操作</p>
-<p>2、删除操作</p>
+<h3 id="1、插入操作"><a href="#1、插入操作" class="headerlink" title="1、插入操作"></a>1、插入操作</h3><table>
+<thead>
+<tr>
+<th>Leaf Page满</th>
+<th>Index Page满</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No</td>
+<td>No</td>
+<td>直接将记录插入到叶子节点</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>No</td>
+<td>1）拆分Leaf Page<br>2）将中间的节点放入到Index Page中<br>3）小于中间节点的记录放左边<br>4）大于或等于中间节点的记录放右边</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>1）拆分Leaf Page<br/>2）将中间的节点放入到Index Page中<br/>3）小于中间节点的记录放左边<br/>4）大于或等于中间节点的记录放右边<br>5）小于中间节点的记录放左边<br>6）大于中间节点的记录放右边<br>7）中间节点放入上一层Index Page</td>
+</tr>
+</tbody></table>
+<p>示例：</p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-7.jpg" alt="直接插入28"></p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-8.jpg" alt="插入70"></p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-9.jpg" alt="插入95"></p>
+<h4 id="旋转功能"><a href="#旋转功能" class="headerlink" title="旋转功能"></a><strong>旋转功能</strong></h4><p>why</p>
+<p>​		为了保持平衡，对于新插入的键值可能需要做大量的拆分页（split）操作。因为B+树结构主要用于磁盘，所有应该再可能的情况下尽量减少页的拆分操作。</p>
+<p>因此，B+树提供了类似与平衡二叉树的旋转功能。</p>
+<p>how</p>
+<p>​		旋转发生在Leaf Page已经满，但是其左右兄弟节点没有满的情况下。会先将记录移到所在页的兄弟节点上。</p>
+<p>通常情况，做兄弟会被首先检查用来做旋转操作。</p>
+<p>示例：</p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-7.jpg" alt="准备插入70"></p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/B+tree%E7%9A%84%E6%97%8B%E8%BD%AC.jpg" alt="旋转后"></p>
+<h3 id="2、删除操作"><a href="#2、删除操作" class="headerlink" title="2、删除操作"></a>2、删除操作</h3><p>​		B+树使用填充因子（fill factor）来控制树的删除变化，50%是填充因子可设的最小值。</p>
+<table>
+<thead>
+<tr>
+<th>叶子节点小于填充因子</th>
+<th>中间节点小于填充因子</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No</td>
+<td>No</td>
+<td>直接将记录从叶子节点删除，如果该节点还是Index Page的节点，用该节点的右节点代替</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>No</td>
+<td>合并叶子节点和它的兄弟节点，同时更新Index Page</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>1）合并叶子节点和它的兄弟节点<br>2）更新Index Page<br>3）合并Index Page和它的兄弟节点</td>
+</tr>
+</tbody></table>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-11.jpg" alt="删除70"></p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-12.jpg" alt="删除25"></p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-13.jpg" alt="删除60"></p>
+<h2 id="五、B-树索引"><a href="#五、B-树索引" class="headerlink" title="五、B+树索引"></a>五、B+树索引</h2><blockquote>
+<p>数据库中的B+树索引可以分为<strong>聚集索引</strong>和<strong>辅助索引</strong>。</p>
+</blockquote>
+<p>聚集索引与辅助索引不同的是，叶子节点存放的是否是一整行的信息。</p>
+<h3 id="1、聚集索引"><a href="#1、聚集索引" class="headerlink" title="1、聚集索引"></a>1、聚集索引</h3><p>​		聚集索引（clustered index）就是按照每张表的主键构造一棵B+树，同时叶子节点中存放的即为整张表的行记录数据，也将聚集索引的叶子节点称为数据页。聚集索引的这个特性决定了索引组织表中数据也是索引的一部分。</p>
+<p>​		同B+树数据结构一样，每个数据页都通过一个<strong>双向链表</strong>进行链接。</p>
+<p><strong>聚集索引的存储</strong></p>
+<p>​		聚集索引的存储并不是物理上连续的，而是逻辑上连续的。其中有两点：</p>
+<ul>
+<li>1、页通过双向链表链接，页按照主键顺序排序</li>
+<li>2、页中的记录通过双向链表进行维护的。物理存储上可以同样不按照主键存储。</li>
+</ul>
+<p>​		聚集索引的另一个好处是，对于主键的排序查找和范围查找速度非常快。</p>
+<h3 id="2、辅助索引"><a href="#2、辅助索引" class="headerlink" title="2、辅助索引"></a>2、辅助索引</h3><p><strong>概念</strong></p>
+<p>​		也称非聚集索引，叶子节点并不包含记录的全部数据。叶子节点除了包含键值外，索引行中还包含了一个书签（bookmark）。用来告诉InnoDB存储引擎那里可以找到与索引相对应的行数据。</p>
+<p>​		由于InnoDB存储引擎表是索引组织表，因此InnoDB存储引擎的辅助索引的书签就是相应行数据的聚集索引键。</p>
+<p><img src="/images/MySql%E7%B4%A2%E5%BC%95/%E5%9B%BE5-15.jpg" alt="辅助索引与聚集索引关系"></p>
+<p>​		当通过辅助索引来寻找数据时，InnoDB存储引擎会遍历辅助索引并通过叶级别的指针获得指向主键索引的主键，然后通过主键索引找到一个完整的行记录。</p>
  
       <!-- reward -->
       
